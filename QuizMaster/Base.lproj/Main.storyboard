@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-1022" y="-457"/>
         </scene>
-        <!--Category View Controller-->
+        <!--Select Category-->
         <scene sceneID="EAT-zm-uGo">
             <objects>
-                <viewController id="UyQ-Mx-xSQ" customClass="CategoryViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Select Category" id="UyQ-Mx-xSQ" customClass="CategoryViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PMO-2h-SCg"/>
                         <viewControllerLayoutGuide type="bottom" id="bC9-8Q-vSP"/>
@@ -81,7 +81,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="teh-DZ-wjd" firstAttribute="top" secondItem="PMO-2h-SCg" secondAttribute="bottom" constant="-64" id="33P-wU-tIz"/>
                             <constraint firstAttribute="trailing" secondItem="teh-DZ-wjd" secondAttribute="trailing" id="Gvn-B7-4D7"/>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="-108.75" y="-460.56338028169017"/>
         </scene>
-        <!--Easy Meduim Hard View Controller-->
+        <!--Select Difficulty-->
         <scene sceneID="z92-ZY-cAp">
             <objects>
-                <viewController storyboardIdentifier="EasyMediumHardController" id="Umq-mj-KdQ" customClass="EasyMeduimHardViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EasyMediumHardController" title="Select Difficulty" id="Umq-mj-KdQ" customClass="EasyMeduimHardViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VSP-eL-9cv"/>
                         <viewControllerLayoutGuide type="bottom" id="xMi-uh-Ylu"/>
