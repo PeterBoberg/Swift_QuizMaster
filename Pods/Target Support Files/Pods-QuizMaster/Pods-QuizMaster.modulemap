@@ -1,0 +1,6 @@
+framework module Pods_QuizMaster {
+  umbrella header "Pods-QuizMaster-umbrella.h"
+
+  export *
+  module * { export * }
+}
