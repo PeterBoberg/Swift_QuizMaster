@@ -17,7 +17,6 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         categoryTableView.delegate = self
         categoryTableView.dataSource = tableviewDatasource
-        self.navigationController?.title = "Choose category"
 
     }
 
