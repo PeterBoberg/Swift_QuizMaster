@@ -35,9 +35,6 @@ class QuestionGenerator {
                 return
             }
 
-            for q in questionArray {
-                print(q)
-            }
             completionHandler(questionArray, nil)
         })
 
@@ -49,7 +46,6 @@ class QuestionGenerator {
         guard let jsonData = downloadedData as? Dictionary<String, AnyObject> else {
             return nil
         }
-        print(downloadedData)
 
         guard let questionArrayJson = jsonData["results"] as? Array<Dictionary<String, AnyObject>> else {
             return nil
