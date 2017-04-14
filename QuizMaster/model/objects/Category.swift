@@ -9,4 +9,8 @@ enum Category : String {
     case geography = "Geography"
     case scienceNature = "Science & Nature"
     case history = "History"
+    case sports = "Sports"
+    case film = "Film"
+    case animals = "Animals"
+    case generalKnowledge = "General Knowledge"
 }

@@ -30,6 +30,10 @@ struct Constants {
             static let Geography = "22"
             static let ScienceNature = "17"
             static let History = "23"
+            static let Sports = "21"
+            static let Film = "11"
+            static let Animals = "27"
+            static let GeneralKnowledge = "9"
         }
 
         struct Difficulty {

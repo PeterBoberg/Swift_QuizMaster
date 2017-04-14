@@ -14,7 +14,7 @@ class QuestionGenerator {
 
 
         guard let url = buildUrl(catgory: category, difficulty: difficulty) else {
-            print("Invalid Irl")
+            print("Invalid Url")
             completionHandler(nil, QuizError.UrlError("Invalid url"))
             return
         }
@@ -89,6 +89,15 @@ class QuestionGenerator {
         var categoryString = ""
         switch catgory {
 
+        case Category.film:
+            categoryString = Constants.QParamValues.Categories.Film
+            break
+        case Category.sports:
+            categoryString = Constants.QParamValues.Categories.Sports
+            break
+        case Category.animals:
+            categoryString = Constants.QParamValues.Categories.Animals
+            break
         case Category.history:
             categoryString = Constants.QParamValues.Categories.History
             break
@@ -100,6 +109,9 @@ class QuestionGenerator {
             break
         case Category.scienceNature:
             categoryString = Constants.QParamValues.Categories.ScienceNature
+            break
+        case Category.scienceNature:
+            categoryString = Constants.QParamValues.Categories.GeneralKnowledge
             break
         default:
             break

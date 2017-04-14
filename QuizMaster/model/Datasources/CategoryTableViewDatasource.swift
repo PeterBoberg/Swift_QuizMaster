@@ -8,9 +8,9 @@ import UIKit
 
 class CategoryTableViewDatasource: NSObject, UITableViewDataSource {
 
-    let allCategories: [Category] = [.mythology, .geography, .history, .scienceNature]
-    private let images = ["mythology", "geography", "history", "scienceNature"]
-    let bigImages = ["mythologyBig", "geographyBig", "historyBig", "scienceNatureBig"]
+    let allCategories: [Category] = [.film, .sports, .animals, .mythology, .geography, .history, .scienceNature, .generalKnowledge]
+    private let images = ["film", "sports", "animals", "mythology", "geography", "history", "scienceNature", "generalKnowledge"]
+    let bigImages = ["filmBig", "sportsBig", "animalsBig", "mythologyBig", "geographyBig", "historyBig", "scienceNatureBig", "generalKnowledgeBig"]
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allCategories.count
