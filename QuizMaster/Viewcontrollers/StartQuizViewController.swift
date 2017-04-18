@@ -141,9 +141,9 @@ extension StartQuizViewController {
         }
 
         questionTextView.text = questionText
-        let shuffeledButtons = makeShuffledButtons(fromCorrectAnswer: correctAnswer, incorrectAnswers: incorrectAnswers)
+        let shuffledButtons = makeShuffledButtons(fromCorrectAnswer: correctAnswer, incorrectAnswers: incorrectAnswers)
 
-        for button in shuffeledButtons {
+        for button in shuffledButtons {
             answerButtonStackView.addArrangedSubview(button)
         }
     }

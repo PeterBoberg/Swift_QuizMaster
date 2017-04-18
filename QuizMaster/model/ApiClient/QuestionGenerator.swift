@@ -21,7 +21,7 @@ class QuestionGenerator {
 
         Alamofire.request(url).responseJSON(completionHandler: {
 
-            dataResponse in
+            dataResponse  in
 
             guard  dataResponse.error == nil else {
                 print("There was an error running this request")
