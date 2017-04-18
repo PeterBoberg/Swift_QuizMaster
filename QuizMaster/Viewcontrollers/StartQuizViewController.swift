@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // MARK: Public methods
 
@@ -17,6 +18,7 @@ class StartQuizViewController: UIViewController {
     var difficulty: Difficulty!
 
     // Set by present view controller
+    var speechSynth: SpeechSyntheziser!
     var questionGenerator: QuestionGenerator!
     var questions: [QuizQuestion]?
     var currentQuestionNumber: Int = 0
@@ -33,6 +35,7 @@ class StartQuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        speechSynth = SpeechSyntheziser()
         questionGenerator = QuestionGenerator()
         downloadQuestions()
     }
@@ -122,10 +125,11 @@ extension StartQuizViewController {
             self.questions = returnedQuestions
             self.updateViewsWithCurrentQuestion()
             self.animateViews(direction: .backToScreen, completion: {
-                (bool) in
+                [unowned self] (bool) in
                 self.questionTextView.shake()
                 self.answerButtonScrollView.shake()
                 self.startTimer()
+                self.speakQuestion(question: self.questions?[self.currentQuestionNumber])
             })
         })
 
@@ -148,22 +152,23 @@ extension StartQuizViewController {
         }
     }
 
-
     fileprivate func moveToNextQuestion() {
 
         timer.invalidate()
         currentQuestionNumber += 1
+        stopSpeech()
 
         if haveMoreQuestions() {
             self.timeSlider.setProgress(0, animated: false)
             animateViews(direction: .awayFromScreen, completion: {
-                (bool) in
+                [unowned self] (bool) in
                 self.updateViewsWithCurrentQuestion()
                 self.animateViews(direction: .backToScreen, completion: {
-                    (bool) in
+                    [unowned self] (bool) in
                     self.questionTextView.shake()
                     self.answerButtonScrollView.shake()
                     self.startTimer()
+                    self.speakQuestion(question: self.questions![self.currentQuestionNumber])
                 })
             })
         } else {
@@ -198,6 +203,8 @@ extension StartQuizViewController {
         }
     }
 
+
+
     private func showResult() {
 
         if let quizFinishedVc = self.storyboard?.instantiateViewController(withIdentifier: "QuizFinishedViewController") as? QuizFinishedViewController {
@@ -222,6 +229,19 @@ extension StartQuizViewController {
         return buttonArray
     }
 
+    private func speakQuestion(question: QuizQuestion?) {
+        guard let questionString = question?.question else {
+            return
+        }
+        self.speechSynth.speak(sentence: questionString)
+    }
+
+    private func stopSpeech() {
+        if speechSynth.isSpeaking {
+            speechSynth.stopImmediately()
+        }
+    }
+
     fileprivate func haveMoreQuestions() -> Bool {
         return self.currentQuestionNumber < self.questions!.count - 1
     }
@@ -232,6 +252,7 @@ extension StartQuizViewController {
 
 
 }
+
 
 //MARK: Utility methods
 
