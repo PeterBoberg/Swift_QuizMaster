@@ -83,7 +83,6 @@ extension StartQuizViewController {
         incorrectGuessLabel.translatesAutoresizingMaskIntoConstraints = true
         timeSlider.translatesAutoresizingMaskIntoConstraints = true
         questionTextView.setYOffset(withFloat: self.view.bounds.height * CGFloat(-1))
-//        answerButtonStackView.setXOffset(withFloat: self.view.bounds.width)
         answerButtonScrollView.setXOffset(withFloat: self.view.bounds.width)
         timeSlider.setProgress(0, animated: false)
     }
@@ -125,7 +124,6 @@ extension StartQuizViewController {
             self.animateViews(direction: .backToScreen, completion: {
                 (bool) in
                 self.questionTextView.shake()
-//                self.answerButtonStackView.shake()
                 self.answerButtonScrollView.shake()
                 self.startTimer()
             })
@@ -138,7 +136,7 @@ extension StartQuizViewController {
         emptyAnswerButtons()
         let questionObj = questions![currentQuestionNumber]
         guard let questionText = questionObj.question, let correctAnswer = questionObj.correctAnswer, let incorrectAnswers = questionObj.incorrectAnswers else {
-            print("could not retrieve quesion info")
+            print("could not retrieve question info")
             return
         }
 
@@ -164,7 +162,6 @@ extension StartQuizViewController {
                 self.animateViews(direction: .backToScreen, completion: {
                     (bool) in
                     self.questionTextView.shake()
-//                    self.answerButtonStackView.shake()
                     self.answerButtonScrollView.shake()
                     self.startTimer()
                 })
@@ -191,7 +188,6 @@ extension StartQuizViewController {
 
         let animationTasks = {
             self.questionTextView.setYOffset(withFloat: yOffset)
-//            self.answerButtonStackView.setXOffset(withFloat: xOffset)
             self.answerButtonScrollView.setXOffset(withFloat: xOffset)
         }
 

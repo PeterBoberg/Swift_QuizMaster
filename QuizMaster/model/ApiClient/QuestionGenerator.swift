@@ -62,10 +62,10 @@ class QuestionGenerator {
 
             var cleanedQuestion: String? = nil
             do {
-                if var question = question {
+                if let question = question {
                     cleanedQuestion = try question.convertHtmlSymbols()!
                 }
-            } catch var error {
+            } catch let error {
                 print(error)
                 continue
             }
@@ -110,15 +110,13 @@ class QuestionGenerator {
         case Category.scienceNature:
             categoryString = Constants.QParamValues.Categories.ScienceNature
             break
-        case Category.scienceNature:
+        case Category.generalKnowledge:
             categoryString = Constants.QParamValues.Categories.GeneralKnowledge
-            break
-        default:
             break
         }
         queryItems.append(URLQueryItem(name: Constants.QParamsKeys.Amount, value: "10"))
         queryItems.append(URLQueryItem(name: Constants.QParamsKeys.Category, value: categoryString))
-        queryItems.append(URLQueryItem(name: Constants.QParamsKeys.Difficulty, value: (difficulty.rawValue as! String).lowercased()))
+        queryItems.append(URLQueryItem(name: Constants.QParamsKeys.Difficulty, value: (difficulty.rawValue).lowercased()))
 
         components.queryItems = queryItems
 

@@ -27,5 +27,4 @@ class CategoryTableViewDatasource: NSObject, UITableViewDataSource {
         return allCategories[number]
     }
 
-
 }
