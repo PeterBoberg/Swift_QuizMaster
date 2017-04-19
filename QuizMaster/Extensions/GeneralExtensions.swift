@@ -8,7 +8,6 @@ import UIKit
 
 
 //MARK: extension UIView
-
 extension UIView {
 
     public func setXOffset(withInt x: Int) {
@@ -16,11 +15,6 @@ extension UIView {
     }
 
     public func setXOffset(withFloat x: CGFloat) {
-//        let oldX = self.frame.origin.x
-//        let newX = oldX + CGFloat(x)
-//        let oldY = self.frame.origin.y
-//
-//        self.frame = CGRect(x: newX, y: oldY, width: self.frame.width, height: self.frame.height)
         self.frame.origin.x += x
     }
 
@@ -43,10 +37,10 @@ extension UIView {
 
 
 // MARK: extension Array
-
 extension Array {
 
     mutating func shuffleInPlace() {
+
         guard self.count > 2 else {
             return
         }
@@ -63,7 +57,6 @@ extension Array {
 }
 
 // MARK: extension String
-
 extension String {
     func convertHtmlSymbols() throws -> String? {
         guard let data = data(using: .utf8) else {
@@ -71,19 +64,5 @@ extension String {
         }
 
         return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
-    }
-}
-
-// MARK: extension UIProgressview
-
-extension UIProgressView {
-
-    func startTimer(withDureation duration: TimeInterval, completion: @escaping (Bool) -> Void) {
-
-        setProgress(0.01, animated: true)
-        UIView.animate(withDuration: duration, animations: {
-            (Bool) in
-            self.setProgress(1.0, animated: true)
-        }, completion: completion)
     }
 }

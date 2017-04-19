@@ -23,6 +23,8 @@ class StartQuizViewController: UIViewController {
     var questions: [QuizQuestion]?
     var currentQuestionNumber: Int = 0
     var timer: Timer!
+    var shouldSpeak: Bool!
+
 
     @IBOutlet weak var answerButtonStackView: UIStackView!
     @IBOutlet weak var answerButtonScrollView: UIScrollView!
@@ -32,12 +34,16 @@ class StartQuizViewController: UIViewController {
     @IBOutlet weak var incorrectGuessLabel: UILabel!
     @IBOutlet weak var correctImageView: UIImageView!
     @IBOutlet weak var incorrectImageView: UIImageView!
+    @IBOutlet weak var toggleSpeechButton: UIButton!
 
+    //MARK: Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         speechSynth = SpeechSyntheziser()
         questionGenerator = QuestionGenerator()
+        shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
         downloadQuestions()
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,8 +57,13 @@ class StartQuizViewController: UIViewController {
         if timer.isValid {
             timer.invalidate()
         }
+        if speechSynth.isSpeaking {
+            stopSpeech()
+        }
+
     }
 
+    // MARK: UI Event methods
     public func answerButtonPressed(sender: UIButton) {
         let button = sender as! AnswerButton
         switch button.isCorrectButton {
@@ -66,6 +77,21 @@ class StartQuizViewController: UIViewController {
         moveToNextQuestion()
     }
 
+    @IBAction func toggleSpeech(_ sender: UIButton) {
+        if shouldSpeak {
+            shouldSpeak = false
+            UserDefaults.standard.set(false, forKey: "speaking")
+            toggleSpeechButton.setBackgroundImage(UIImage(named: "noSpeech"), for: .normal)
+            if speechSynth.isSpeaking {
+                stopSpeech()
+            }
+        } else {
+            shouldSpeak = true
+            UserDefaults.standard.set(true, forKey: "speaking")
+            toggleSpeechButton.setBackgroundImage(UIImage(named: "speech"), for: .normal)
+            speakQuestionIfNeeded(question: questions?[currentQuestionNumber])
+        }
+    }
 
 }
 
@@ -85,9 +111,19 @@ extension StartQuizViewController {
         correctGuessLabel.translatesAutoresizingMaskIntoConstraints = true
         incorrectGuessLabel.translatesAutoresizingMaskIntoConstraints = true
         timeSlider.translatesAutoresizingMaskIntoConstraints = true
+        toggleSpeechButton.translatesAutoresizingMaskIntoConstraints = true
         questionTextView.setYOffset(withFloat: self.view.bounds.height * CGFloat(-1))
         answerButtonScrollView.setXOffset(withFloat: self.view.bounds.width)
         timeSlider.setProgress(0, animated: false)
+        var speachImage = ""
+        if shouldSpeak {
+            speachImage = "speech"
+        } else {
+            speachImage = "noSpeech"
+        }
+        toggleSpeechButton.setBackgroundImage(UIImage(named: speachImage), for: .normal)
+
+
     }
 
     fileprivate func startTimer() {
@@ -129,7 +165,7 @@ extension StartQuizViewController {
                 self.questionTextView.shake()
                 self.answerButtonScrollView.shake()
                 self.startTimer()
-                self.speakQuestion(question: self.questions?[self.currentQuestionNumber])
+                self.speakQuestionIfNeeded(question: self.questions?[self.currentQuestionNumber])
             })
         })
 
@@ -168,7 +204,7 @@ extension StartQuizViewController {
                     self.questionTextView.shake()
                     self.answerButtonScrollView.shake()
                     self.startTimer()
-                    self.speakQuestion(question: self.questions![self.currentQuestionNumber])
+                    self.speakQuestionIfNeeded(question: self.questions![self.currentQuestionNumber])
                 })
             })
         } else {
@@ -204,7 +240,6 @@ extension StartQuizViewController {
     }
 
 
-
     private func showResult() {
 
         if let quizFinishedVc = self.storyboard?.instantiateViewController(withIdentifier: "QuizFinishedViewController") as? QuizFinishedViewController {
@@ -229,14 +264,14 @@ extension StartQuizViewController {
         return buttonArray
     }
 
-    private func speakQuestion(question: QuizQuestion?) {
-        guard let questionString = question?.question else {
+    fileprivate func speakQuestionIfNeeded(question: QuizQuestion?) {
+        guard let questionString = question?.question, shouldSpeak else {
             return
         }
         self.speechSynth.speak(sentence: questionString)
     }
 
-    private func stopSpeech() {
+    fileprivate func stopSpeech() {
         if speechSynth.isSpeaking {
             speechSynth.stopImmediately()
         }

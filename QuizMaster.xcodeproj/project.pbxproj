@@ -113,6 +113,7 @@
 				593DA80C502C817428D2E861 /* objects */,
 				593DAA9B929537E4C114E10D /* Error */,
 				593DAD6A599229EEE032F5FC /* SpeecSynthesis */,
+				593DADEE864557D566873DE1 /* Audio */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -209,6 +210,13 @@
 				E27CAC5BDD419B1730091266 /* Pods */,
 				F3227BE6D12EEAFBF42FFB2A /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		593DADEE864557D566873DE1 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		593DAF430F6F4DF8068129FE /* ViewComponents */ = {
