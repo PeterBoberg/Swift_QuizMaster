@@ -122,6 +122,7 @@
 				593DA80C502C817428D2E861 /* objects */,
 				593DAA9B929537E4C114E10D /* Error */,
 				593DAD6A599229EEE032F5FC /* SpeecSynthesis */,
+				593DABDD1A9046441D221B5A /* DBManager */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -200,6 +201,13 @@
 				593DA9904933077E173C485D /* QuizError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		593DABDD1A9046441D221B5A /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DBManager;
 			sourceTree = "<group>";
 		};
 		593DAD6A599229EEE032F5FC /* SpeecSynthesis */ = {

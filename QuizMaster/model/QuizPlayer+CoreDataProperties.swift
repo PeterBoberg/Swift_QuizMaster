@@ -19,7 +19,7 @@ extension QuizPlayer {
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
     @NSManaged public var avatar: NSData?
-    @NSManaged public var quixGameResult: NSSet?
+    @NSManaged public var quizGameResult: NSSet?
 
 }
 
@@ -27,15 +27,15 @@ extension QuizPlayer {
 extension QuizPlayer {
 
     @objc(addQuixGameResultObject:)
-    @NSManaged public func addToQuixGameResult(_ value: QuizGameResult)
+    @NSManaged public func addToQuizGameResult(_ value: QuizGameResult)
 
     @objc(removeQuixGameResultObject:)
-    @NSManaged public func removeFromQuixGameResult(_ value: QuizGameResult)
+    @NSManaged public func removeFromQuizGameResult(_ value: QuizGameResult)
 
     @objc(addQuixGameResult:)
-    @NSManaged public func addToQuixGameResult(_ values: NSSet)
+    @NSManaged public func addToQuizGameResult(_ values: NSSet)
 
     @objc(removeQuixGameResult:)
-    @NSManaged public func removeFromQuixGameResult(_ values: NSSet)
+    @NSManaged public func removeFromQuizGameResult(_ values: NSSet)
 
 }

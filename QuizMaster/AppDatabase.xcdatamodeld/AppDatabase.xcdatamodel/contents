@@ -5,16 +5,16 @@
         <attribute name="correctAnswers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="incorrectAnswers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="quiestionsInRound" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="quizPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuizPlayer" inverseName="quixGameResult" inverseEntity="QuizPlayer" syncable="YES"/>
+        <relationship name="quizPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuizPlayer" inverseName="quizGameResult" inverseEntity="QuizPlayer" syncable="YES"/>
     </entity>
     <entity name="QuizPlayer" representedClassName="QuizPlayer" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="quixGameResult" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="QuizGameResult" inverseName="quizPlayer" inverseEntity="QuizGameResult" syncable="YES"/>
+        <relationship name="quizGameResult" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="QuizGameResult" inverseName="quizPlayer" inverseEntity="QuizGameResult" syncable="YES"/>
     </entity>
     <elements>
-        <element name="QuizPlayer" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="QuizGameResult" positionX="-54" positionY="18" width="128" height="120"/>
+        <element name="QuizPlayer" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
