@@ -6,8 +6,8 @@
 import Foundation
 import UIKit
 
-
 //MARK: extension UIView
+
 extension UIView {
 
     public func setXOffset(withInt x: Int) {
@@ -32,11 +32,13 @@ extension UIView {
         animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
         layer.add(animation, forKey: "shake")
+        print("Exiting")
     }
 }
 
 
 // MARK: extension Array
+
 extension Array {
 
     mutating func shuffleInPlace() {
@@ -57,6 +59,7 @@ extension Array {
 }
 
 // MARK: extension String
+
 extension String {
     func convertHtmlSymbols() throws -> String? {
         guard let data = data(using: .utf8) else {
@@ -66,3 +69,5 @@ extension String {
         return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
     }
 }
+
+// MARK: extension NSLayoutConstraint

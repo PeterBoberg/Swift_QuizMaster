@@ -35,15 +35,21 @@ class StartQuizViewController: UIViewController {
     @IBOutlet weak var correctImageView: UIImageView!
     @IBOutlet weak var incorrectImageView: UIImageView!
     @IBOutlet weak var toggleSpeechButton: UIButton!
+    @IBOutlet var leftMarginContraint: NSLayoutConstraint!
+    @IBOutlet var rightMarginContraint: NSLayoutConstraint!
+
 
     //MARK: Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        for const in view.constraints {
+            print(const)
+        }
+
         speechSynth = SpeechSyntheziser()
         questionGenerator = QuestionGenerator()
         shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
         downloadQuestions()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -104,16 +110,8 @@ extension StartQuizViewController {
         questionTextView.layer.borderColor = UIColor.yellow.cgColor
         questionTextView.layer.cornerRadius = 10
         questionTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        answerButtonStackView.translatesAutoresizingMaskIntoConstraints = true
-        questionTextView.translatesAutoresizingMaskIntoConstraints = true
-        correctImageView.translatesAutoresizingMaskIntoConstraints = true
-        incorrectImageView.translatesAutoresizingMaskIntoConstraints = true
-        correctGuessLabel.translatesAutoresizingMaskIntoConstraints = true
-        incorrectGuessLabel.translatesAutoresizingMaskIntoConstraints = true
-        timeSlider.translatesAutoresizingMaskIntoConstraints = true
-        toggleSpeechButton.translatesAutoresizingMaskIntoConstraints = true
-        questionTextView.setYOffset(withFloat: self.view.bounds.height * CGFloat(-1))
-        answerButtonScrollView.setXOffset(withFloat: self.view.bounds.width)
+        leftMarginContraint.constant += self.view.bounds.width
+        rightMarginContraint.constant += self.view.bounds.width
         timeSlider.setProgress(0, animated: false)
         var speachImage = ""
         if shouldSpeak {
@@ -122,7 +120,6 @@ extension StartQuizViewController {
             speachImage = "noSpeech"
         }
         toggleSpeechButton.setBackgroundImage(UIImage(named: speachImage), for: .normal)
-
 
     }
 
@@ -162,8 +159,7 @@ extension StartQuizViewController {
             self.updateViewsWithCurrentQuestion()
             self.animateViews(direction: .backToScreen, completion: {
                 [unowned self] (bool) in
-                self.questionTextView.shake()
-                self.answerButtonScrollView.shake()
+                self.shakeViews()
                 self.startTimer()
                 self.speakQuestionIfNeeded(question: self.questions?[self.currentQuestionNumber])
             })
@@ -201,8 +197,7 @@ extension StartQuizViewController {
                 self.updateViewsWithCurrentQuestion()
                 self.animateViews(direction: .backToScreen, completion: {
                     [unowned self] (bool) in
-                    self.questionTextView.shake()
-                    self.answerButtonScrollView.shake()
+                    self.shakeViews()
                     self.startTimer()
                     self.speakQuestionIfNeeded(question: self.questions![self.currentQuestionNumber])
                 })
@@ -215,27 +210,29 @@ extension StartQuizViewController {
 
     fileprivate func animateViews(direction: Direction, completion: ((Bool) -> Void)?) {
 
-        var xOffset = self.view.bounds.width
-        var yOffset = self.view.bounds.height
+        var leftContraintOffset = self.view.bounds.width
+        var rightConstraintOffset = self.view.bounds.width
+
 
         switch direction {
         case .awayFromScreen:
-            yOffset *= CGFloat(-1)
             break
         case .backToScreen:
-            xOffset *= CGFloat(-1)
+            leftContraintOffset *= CGFloat(-1)
+            rightConstraintOffset *= CGFloat(-1)
             break
         }
 
         let animationTasks = {
-            self.questionTextView.setYOffset(withFloat: yOffset)
-            self.answerButtonScrollView.setXOffset(withFloat: xOffset)
+            self.leftMarginContraint.constant += leftContraintOffset
+            self.rightMarginContraint.constant += rightConstraintOffset
+            self.view.layoutIfNeeded()
         }
 
         if completion == nil {
-            UIView.animate(withDuration: 0.3, animations: animationTasks)
+            UIView.animate(withDuration: 0.25, animations: animationTasks)
         } else {
-            UIView.animate(withDuration: 0.3, animations: animationTasks, completion: completion)
+            UIView.animate(withDuration: 0.25, animations: animationTasks, completion: completion)
         }
     }
 
@@ -277,6 +274,18 @@ extension StartQuizViewController {
         }
     }
 
+    func shakeViews() {
+
+        leftMarginContraint.isActive = false
+        rightMarginContraint.isActive = false
+        questionTextView.shake()
+        answerButtonScrollView.shake()
+        leftMarginContraint.isActive = true
+        rightMarginContraint.isActive = true
+        view.layoutIfNeeded()
+
+    }
+
     fileprivate func haveMoreQuestions() -> Bool {
         return self.currentQuestionNumber < self.questions!.count - 1
     }
@@ -284,8 +293,6 @@ extension StartQuizViewController {
     fileprivate func isFirstQuestion() -> Bool {
         return currentQuestionNumber == 0
     }
-
-
 }
 
 
