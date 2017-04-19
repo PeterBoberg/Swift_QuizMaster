@@ -240,7 +240,7 @@ extension StartQuizViewController {
     private func showResult() {
 
         if let quizFinishedVc = self.storyboard?.instantiateViewController(withIdentifier: "QuizFinishedViewController") as? QuizFinishedViewController {
-            let quizResult = QuizResult(correctGuesses: correctGuessLabel.text!, incorrectGuesses: incorrectGuessLabel.text!, totalQuestions: String(questions!.count))
+            let quizResult = QuizRoundResult(correctGuesses: correctGuessLabel.text!, incorrectGuesses: incorrectGuessLabel.text!, totalQuestions: String(questions!.count))
             quizFinishedVc.quizResult = quizResult
             quizFinishedVc.navController = self.navigationController
             self.present(quizFinishedVc, animated: true, completion: nil)

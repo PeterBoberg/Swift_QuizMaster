@@ -18,7 +18,7 @@ class QuizFinishedViewController: UIViewController {
 
 
     var navController: UINavigationController!
-    var quizResult: QuizResult!
+    var quizResult: QuizRoundResult!
 
     override func viewDidLoad() {
         super.viewDidLoad()

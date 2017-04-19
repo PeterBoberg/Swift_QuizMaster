@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct QuizResult {
+struct QuizRoundResult {
     let correctGuesses: String
     let incorrectGuesses: String
     let totalQuestions: String
