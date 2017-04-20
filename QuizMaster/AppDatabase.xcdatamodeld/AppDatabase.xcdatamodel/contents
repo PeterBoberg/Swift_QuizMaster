@@ -8,13 +8,12 @@
         <relationship name="quizPlayer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuizPlayer" inverseName="quizGameResult" inverseEntity="QuizPlayer" syncable="YES"/>
     </entity>
     <entity name="QuizPlayer" representedClassName="QuizPlayer" syncable="YES">
-        <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="avatar" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="quizGameResult" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="QuizGameResult" inverseName="quizPlayer" inverseEntity="QuizGameResult" syncable="YES"/>
     </entity>
     <elements>
         <element name="QuizGameResult" positionX="-54" positionY="18" width="128" height="120"/>
-        <element name="QuizPlayer" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="QuizPlayer" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

@@ -21,12 +21,109 @@
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="UyQ-Mx-xSQ" kind="relationship" relationship="rootViewController" id="Poo-Jh-h7P"/>
+                        <segue destination="SFN-fY-ysh" kind="relationship" relationship="rootViewController" id="MDj-Ho-r3Q"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjd-jK-HuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1022" y="-457"/>
+            <point key="canvasLocation" x="-2036" y="-483"/>
+        </scene>
+        <!--Add User View Controller-->
+        <scene sceneID="Irr-jl-7wX">
+            <objects>
+                <viewController storyboardIdentifier="AddUserViewController" id="Kqp-gV-nbT" customClass="AddUserViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aex-Vg-rIo"/>
+                        <viewControllerLayoutGuide type="bottom" id="JQI-eY-mjZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wqG-nh-RsJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABM-JJ-H8L">
+                                <rect key="frame" x="58.666666666666657" y="158" width="297" height="420"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-tN-g13">
+                                        <rect key="frame" x="68" y="123" width="161" height="29"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Add Profile Picture">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addProfilePic:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="W7v-T1-3w5"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJb-Vm-WmE">
+                                        <rect key="frame" x="31" y="45" width="236" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2c-Ei-6xm">
+                                        <rect key="frame" x="68" y="258" width="46.999999999999986" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="aTo-jJ-67p"/>
+                                            <constraint firstAttribute="width" constant="47" id="t2d-Qt-1Ac"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="GO!">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="done:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="GDT-6o-eTh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-HU-DQb">
+                                        <rect key="frame" x="155" y="262" width="73.000000000000028" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="bKK-sv-nsq"/>
+                                            <constraint firstAttribute="width" constant="73.000000000000028" id="tFI-mP-Gel"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Abort!">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="abort:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="pY9-jI-L42"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.086204765629999999" green="0.22757423439999999" blue="0.43034184640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eJb-Vm-WmE" firstAttribute="leading" secondItem="ABM-JJ-H8L" secondAttribute="leading" constant="31" id="2cc-gq-BH9"/>
+                                    <constraint firstAttribute="height" constant="420" id="D9s-3L-Xca"/>
+                                    <constraint firstAttribute="width" constant="297" id="End-3l-Yax"/>
+                                    <constraint firstItem="xqr-HU-DQb" firstAttribute="baseline" secondItem="E2c-Ei-6xm" secondAttribute="baseline" id="P2e-xE-5n6"/>
+                                    <constraint firstAttribute="trailing" secondItem="eJb-Vm-WmE" secondAttribute="trailing" constant="30" id="Q7b-IS-7qt"/>
+                                    <constraint firstItem="eJb-Vm-WmE" firstAttribute="top" secondItem="ABM-JJ-H8L" secondAttribute="top" constant="45" id="gbX-eG-cbh"/>
+                                    <constraint firstItem="xqr-HU-DQb" firstAttribute="trailing" secondItem="kEw-tN-g13" secondAttribute="trailing" id="hx4-7M-bK2"/>
+                                    <constraint firstAttribute="bottom" secondItem="E2c-Ei-6xm" secondAttribute="bottom" constant="117" id="mUa-wd-aOL"/>
+                                    <constraint firstItem="E2c-Ei-6xm" firstAttribute="leading" secondItem="kEw-tN-g13" secondAttribute="leading" id="p8R-Og-A5x"/>
+                                    <constraint firstItem="kEw-tN-g13" firstAttribute="centerX" secondItem="ABM-JJ-H8L" secondAttribute="centerX" id="s7e-B2-bkA"/>
+                                    <constraint firstItem="kEw-tN-g13" firstAttribute="top" secondItem="eJb-Vm-WmE" secondAttribute="bottom" constant="48" id="x2k-Qs-DLw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ABM-JJ-H8L" firstAttribute="centerX" secondItem="wqG-nh-RsJ" secondAttribute="centerX" id="Mfd-Gf-TK5"/>
+                            <constraint firstItem="ABM-JJ-H8L" firstAttribute="centerY" secondItem="wqG-nh-RsJ" secondAttribute="centerY" id="m1N-Cn-R3y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="modalSubView" destination="ABM-JJ-H8L" id="uUF-Fw-nhv"/>
+                        <outlet property="nameTextField" destination="eJb-Vm-WmE" id="Uxl-AA-2qS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kw1-R1-ICT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1046.376811594203" y="-1287.2282608695652"/>
         </scene>
         <!--Users View Controller-->
         <scene sceneID="Qwz-QT-Vk9">
@@ -40,10 +137,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-Ge-XhC">
-                                <rect key="frame" x="0.0" y="335" width="414" height="401"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="gbU-jE-UNY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-Ge-XhC">
+                                <rect key="frame" x="0.0" y="335" width="414" height="401"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ao9-KM-cf2">
                                     <size key="itemSize" width="245" height="314"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -58,34 +158,48 @@
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="314"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-P2-mIy">
-                                                    <rect key="frame" x="41" y="20" width="151" height="163"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Peter Boberg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-I5-gzq">
-                                                    <rect key="frame" x="41" y="191" width="151" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Boberg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-I5-gzq">
+                                                    <rect key="frame" x="64" y="188" width="117.66666666666666" height="20.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eaH-XS-alj">
-                                                    <rect key="frame" x="78" y="230" width="68" height="42"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eaH-XS-alj">
+                                                    <rect key="frame" x="85.333333333333314" y="230" width="74.666666666666686" height="42"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="hiScore" translatesAutoresizingMaskIntoConstraints="NO" id="HaY-Z3-ZPC">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiScore" translatesAutoresizingMaskIntoConstraints="NO" id="HaY-Z3-ZPC">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-Lz-OIK">
-                                                            <rect key="frame" x="52" y="0.0" width="16" height="42"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-Lz-OIK">
+                                                            <rect key="frame" x="52.000000000000014" y="0.0" width="22.666666666666657" height="42"/>
+                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <size key="shadowOffset" width="2" height="2"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-P2-mIy">
+                                                    <rect key="frame" x="61" y="36" width="122" height="134"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="122" id="Dba-Oa-IXw"/>
+                                                        <constraint firstAttribute="height" constant="134" id="UUd-Ev-z64"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.24467529576336972" green="0.35995020298700398" blue="0.58936786167512689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="7ql-I5-gzq" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="HRW-fE-H2t"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="eaH-XS-alj" secondAttribute="bottom" constant="34" id="Krm-P4-oqR"/>
+                                            <constraint firstItem="vf1-P2-mIy" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="bh3-HD-eA8"/>
+                                            <constraint firstItem="eaH-XS-alj" firstAttribute="top" secondItem="7ql-I5-gzq" secondAttribute="bottom" constant="21.329999999999998" id="d1h-vO-x9f"/>
+                                            <constraint firstItem="eaH-XS-alj" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="pdD-WK-dM9"/>
+                                            <constraint firstItem="vf1-P2-mIy" firstAttribute="top" secondItem="09O-Z1-mY5" secondAttribute="topMargin" constant="28" id="rLt-cW-3jB"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="avatarImage" destination="vf1-P2-mIy" id="RID-u1-r04"/>
                                             <outlet property="hiScoreLabel" destination="bYF-Lz-OIK" id="Sm9-LS-h3y"/>
@@ -94,21 +208,46 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-Uc-8xx" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="71" y="116" width="272" height="211"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="211" id="H0H-3u-Msk"/>
+                                    <constraint firstAttribute="width" constant="272" id="d4x-SL-HOR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="44"/>
+                                <size key="titleShadowOffset" width="3" height="2"/>
+                                <state key="normal" title="New User">
+                                    <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewPlayer:" destination="SFN-fY-ysh" eventType="touchUpInside" id="gkO-S4-4pp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Rph-Ge-XhC" secondAttribute="trailing" id="C1V-IK-ZpH"/>
+                            <constraint firstItem="ggN-Uc-8xx" firstAttribute="centerX" secondItem="jlO-mW-7O4" secondAttribute="centerX" id="Dew-L9-L03"/>
+                            <constraint firstItem="UTa-CM-VKL" firstAttribute="top" secondItem="Rph-Ge-XhC" secondAttribute="bottom" id="T1m-ko-adq"/>
+                            <constraint firstItem="Rph-Ge-XhC" firstAttribute="leading" secondItem="jlO-mW-7O4" secondAttribute="leading" id="eQY-ju-Zq9"/>
+                            <constraint firstItem="Rph-Ge-XhC" firstAttribute="top" secondItem="ggN-Uc-8xx" secondAttribute="bottom" constant="8" id="i24-hB-PwA"/>
+                            <constraint firstItem="ggN-Uc-8xx" firstAttribute="top" secondItem="mSe-Ga-Xhv" secondAttribute="bottom" constant="52" id="rmY-SQ-dhl"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ztV-X3-laq"/>
                     <connections>
                         <outlet property="usersCollectionView" destination="Rph-Ge-XhC" id="g0I-K8-n79"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNM-oS-qve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1023.1884057971015" y="-1172.2826086956522"/>
+            <point key="canvasLocation" x="-1046.376811594203" y="-483.42391304347831"/>
         </scene>
         <!--Select Category-->
         <scene sceneID="EAT-zm-uGo">
             <objects>
-                <viewController title="Select Category" id="UyQ-Mx-xSQ" customClass="CategoryViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryViewController" title="Select Category" id="UyQ-Mx-xSQ" customClass="CategoryViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PMO-2h-SCg"/>
                         <viewControllerLayoutGuide type="bottom" id="bC9-8Q-vSP"/>
@@ -118,7 +257,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="188" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="teh-DZ-wjd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="-44" width="414" height="780"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="188" id="4CC-al-T1U" customClass="CategoryCell" customModule="QuizMaster" customModuleProvider="target">
@@ -542,6 +681,7 @@
     </scenes>
     <resources>
         <image name="correctAnswer" width="42" height="42"/>
+        <image name="defaultUser" width="85" height="85"/>
         <image name="hiScore" width="42" height="42"/>
         <image name="incorrectAnswer" width="42" height="42"/>
         <image name="questionBg" width="163" height="198"/>

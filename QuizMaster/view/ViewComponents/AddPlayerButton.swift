@@ -6,15 +6,16 @@
 import Foundation
 import UIKit
 
-class UserCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var hiScoreLabel: UILabel!
+class AddPlayerButton: UIButton {
 
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        config()
+    }
+
+    private func config() {
+        self.backgroundColor = UIColor(red: 100 / 255, green: 100 / 255, blue: 100 / 255, alpha: 0.5)
         self.layer.cornerRadius = 20
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.gray.cgColor
@@ -23,10 +24,7 @@ class UserCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = 0.9
         self.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.layer.shadowRadius = 7
-
-        self.backgroundColor = UIColor(red: 0.0, green: 0.4, blue: 0.6, alpha: 0.8)
     }
-
 
 
 }

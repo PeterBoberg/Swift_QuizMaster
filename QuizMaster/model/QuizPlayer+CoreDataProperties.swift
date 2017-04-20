@@ -16,26 +16,26 @@ extension QuizPlayer {
         return NSFetchRequest<QuizPlayer>(entityName: "QuizPlayer")
     }
 
-    @NSManaged public var firstName: String?
-    @NSManaged public var lastName: String?
+    @NSManaged public var name: String
     @NSManaged public var avatar: NSData?
     @NSManaged public var quizGameResult: NSSet?
 
+
 }
 
-// MARK: Generated accessors for quixGameResult
+// MARK: Generated accessors for quizGameResult
 extension QuizPlayer {
 
-    @objc(addQuixGameResultObject:)
+    @objc(addQuizGameResultObject:)
     @NSManaged public func addToQuizGameResult(_ value: QuizGameResult)
 
-    @objc(removeQuixGameResultObject:)
+    @objc(removeQuizGameResultObject:)
     @NSManaged public func removeFromQuizGameResult(_ value: QuizGameResult)
 
-    @objc(addQuixGameResult:)
+    @objc(addQuizGameResult:)
     @NSManaged public func addToQuizGameResult(_ values: NSSet)
 
-    @objc(removeQuixGameResult:)
+    @objc(removeQuizGameResult:)
     @NSManaged public func removeFromQuizGameResult(_ values: NSSet)
 
 }

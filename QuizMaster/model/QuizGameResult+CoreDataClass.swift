@@ -10,6 +10,22 @@ import Foundation
 import CoreData
 
 @objc(QuizGameResult)
-public class QuizGameResult: NSManagedObject {
+public class QuizGameResult: NSManagedObject, Comparable {
+
+    public static func <(lhs: QuizGameResult, rhs: QuizGameResult) -> Bool {
+        return lhs.correctAnswers < rhs.correctAnswers
+    }
+
+    public static func <=(lhs: QuizGameResult, rhs: QuizGameResult) -> Bool {
+        return lhs.correctAnswers <= rhs.correctAnswers
+    }
+
+    public static func >=(lhs: QuizGameResult, rhs: QuizGameResult) -> Bool {
+        return lhs.correctAnswers >= rhs.correctAnswers
+    }
+
+    public static func >(lhs: QuizGameResult, rhs: QuizGameResult) -> Bool {
+        return lhs.correctAnswers > rhs.correctAnswers
+    }
 
 }
