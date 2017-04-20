@@ -275,8 +275,6 @@ extension StartQuizViewController {
     }
 
     func shakeViews() {
-
-
         leftMarginContraint.isActive = false
         rightMarginContraint.isActive = false
         questionTextView.shake()

@@ -40,7 +40,6 @@ class EasyMeduimHardViewController: UIViewController {
         case 3:
             startGameController.difficulty = Difficulty.hard
             break
-
         default:
             startGameController.difficulty = Difficulty.easy
         }

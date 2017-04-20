@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-1022" y="-457"/>
         </scene>
-        <!--View Controller-->
+        <!--Users View Controller-->
         <scene sceneID="Qwz-QT-Vk9">
             <objects>
-                <viewController id="SFN-fY-ysh" sceneMemberID="viewController">
+                <viewController id="SFN-fY-ysh" customClass="UsersViewController" customModule="QuizMaster" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mSe-Ga-Xhv"/>
                         <viewControllerLayoutGuide type="bottom" id="UTa-CM-VKL"/>
@@ -51,7 +51,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="09O-Z1-mY5">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCollectionViewCell" id="09O-Z1-mY5" customClass="UserCollectionViewCell" customModule="QuizMaster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="43.666666666666664" width="245" height="314"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -70,15 +70,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eaH-XS-alj">
-                                                    <rect key="frame" x="78" y="230" width="76" height="42"/>
+                                                    <rect key="frame" x="78" y="230" width="68" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="hiScore" translatesAutoresizingMaskIntoConstraints="NO" id="HaY-Z3-ZPC">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-Lz-OIK">
-                                                            <rect key="frame" x="52" y="0.0" width="24" height="42"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <rect key="frame" x="52" y="0.0" width="16" height="42"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -86,12 +86,20 @@
                                                 </stackView>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="avatarImage" destination="vf1-P2-mIy" id="RID-u1-r04"/>
+                                            <outlet property="hiScoreLabel" destination="bYF-Lz-OIK" id="Sm9-LS-h3y"/>
+                                            <outlet property="nameLabel" destination="7ql-I5-gzq" id="seE-cc-OKx"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="usersCollectionView" destination="Rph-Ge-XhC" id="g0I-K8-n79"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNM-oS-qve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
