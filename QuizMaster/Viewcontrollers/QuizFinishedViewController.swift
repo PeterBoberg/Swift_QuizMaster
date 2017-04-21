@@ -19,27 +19,34 @@ class QuizFinishedViewController: UIViewController {
 
     var navController: UINavigationController!
     var quizResult: QuizRoundResult!
+    var currentPlayer: QuizPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
         initUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func goBackToRoot(_ sender: Any) {
+
+        DBManager.shared.addNewQuizResult(forPlayer: currentPlayer, quizRoundResult: quizResult, completion: {
+            (error) in
+
+            if error != nil {
+                print(error)
+            }
+            self.dismiss(animated: true)
+            self.navController.popToRootViewController(animated: true)
+        })
+
     }
 
-
-    @IBAction func goBackToRoot(_ sender: Any) {
-        self.dismiss(animated: true)
-        navController.popToRootViewController(animated: true)
+    deinit {
+        print("QuizFinishedViewController destroyed")
     }
 }
 
 //MARK: private methods
+
 extension QuizFinishedViewController {
 
     fileprivate func initUI() {

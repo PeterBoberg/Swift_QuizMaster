@@ -9,10 +9,11 @@ import AVFoundation
 
 class CategoryViewController: UIViewController {
 
+    let tableviewDatasource = CategoryTableViewDatasource()
+    var currentPlayer: QuizPlayer!
 
     @IBOutlet weak var categoryTableView: UITableView!
 
-    let tableviewDatasource = CategoryTableViewDatasource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class CategoryViewController: UIViewController {
 
     }
 
+    deinit {
+        print("CategoryViewController destroyed")
+    }
+
 }
 
 // MARK: TableViewDelegate
@@ -33,10 +38,11 @@ extension CategoryViewController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let destinationController = self.storyboard!.instantiateViewController(withIdentifier: "EasyMediumHardController") as! EasyMeduimHardViewController
-        destinationController.currentCategory = tableviewDatasource.getCategory(number: indexPath.row)
-        destinationController.currentBgImage = UIImage(named: tableviewDatasource.bigImages[indexPath.row])
-        self.navigationController!.pushViewController(destinationController, animated: true)
+        let easyMediumHardVc = self.storyboard!.instantiateViewController(withIdentifier: "EasyMediumHardController") as! EasyMeduimHardViewController
+        easyMediumHardVc.currentCategory = tableviewDatasource.getCategory(number: indexPath.row)
+        easyMediumHardVc.currentBgImage = UIImage(named: tableviewDatasource.bigImages[indexPath.row])
+        easyMediumHardVc.currentPlayer = self.currentPlayer
+        self.navigationController!.pushViewController(easyMediumHardVc, animated: true)
     }
 
 

@@ -15,5 +15,4 @@ class AvatarImageView: UIImageView {
         self.layer.borderColor = UIColor(red: 12/255, green: 39/255, blue: 25/255, alpha: 1.0).cgColor
         self.clipsToBounds = true
     }
-
 }

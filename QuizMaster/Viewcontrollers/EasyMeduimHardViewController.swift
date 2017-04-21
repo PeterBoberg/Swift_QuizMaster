@@ -12,6 +12,7 @@ class EasyMeduimHardViewController: UIViewController {
 
     var currentCategory: Category? = nil
     var currentBgImage: UIImage? = nil
+    var currentPlayer: QuizPlayer? = nil
 
     @IBOutlet weak var bgImageView: UIImageView!
 
@@ -28,6 +29,7 @@ class EasyMeduimHardViewController: UIViewController {
 
         let startGameController = self.storyboard!.instantiateViewController(withIdentifier: "StartQuizViewController") as! StartQuizViewController
         startGameController.category = currentCategory
+        startGameController.currentPlayer = self.currentPlayer
 
         switch sender.tag {
 
@@ -44,6 +46,9 @@ class EasyMeduimHardViewController: UIViewController {
             startGameController.difficulty = Difficulty.easy
         }
         self.navigationController!.pushViewController(startGameController, animated: true)
+    }
+    deinit {
+        print("EasyMeduimHardViewController destroyed")
     }
 
 }

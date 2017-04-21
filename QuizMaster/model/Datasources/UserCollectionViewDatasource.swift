@@ -8,20 +8,17 @@ import UIKit
 
 class UserCollectionViewDatasource: NSObject, UICollectionViewDataSource {
 
-    var quizPlayers: [QuizPlayer]?
+    var quizPlayers: [QuizPlayer] = [QuizPlayer]()
 
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return quizPlayers?.count ?? 0
+        return quizPlayers.count
     }
 
     public func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
-        guard let quizPlayers = quizPlayers else {
-            return UICollectionViewCell()
-        }
         let quizPlayer = quizPlayers[indexPath.row]
         cell.nameLabel.text = quizPlayer.name
 

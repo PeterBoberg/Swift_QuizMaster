@@ -20,6 +20,10 @@ class UsersViewController: UIViewController {
         super.viewDidLoad()
         usersCollectionView.delegate = self
         usersCollectionView.dataSource = userCollectionViewDataSource
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadQuizPlayers()
     }
 
@@ -50,12 +54,8 @@ extension UsersViewController {
                 print(error)
                 return
             }
-            guard let quizPlayers = quizPlayers else {
-                print("Quizplayers is nil")
-                return
-            }
 
-            self.userCollectionViewDataSource.quizPlayers = quizPlayers
+            self.userCollectionViewDataSource.quizPlayers = quizPlayers!
             self.usersCollectionView.reloadData()
         })
     }
@@ -67,9 +67,8 @@ extension UsersViewController {
 extension UsersViewController: UICollectionViewDelegate {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        print(indexPath.section)
         let categoryVC = self.storyboard!.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
+        categoryVC.currentPlayer = userCollectionViewDataSource.quizPlayers[indexPath.row]
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
 
@@ -81,13 +80,11 @@ extension UsersViewController: AddUserViewControllerDelegate {
 
     func addUserViewController(didFinishEnterUserInfoWithName name: String, image: UIImage?) {
         dbManager.saveNewQuizPlayer(name: name, avatar: image, completion: {
-
             [unowned self] (error) in
             guard error == nil else {
                 print(error)
                 return
             }
-
             self.loadQuizPlayers()
         })
     }

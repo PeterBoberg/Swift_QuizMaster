@@ -16,6 +16,7 @@ class StartQuizViewController: UIViewController {
     // Set by calling view controller
     var category: Category!
     var difficulty: Difficulty!
+    var currentPlayer: QuizPlayer!
 
     // Set by present view controller
     var speechSynth: SpeechSyntheziser!
@@ -42,10 +43,6 @@ class StartQuizViewController: UIViewController {
     //MARK: Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        for const in view.constraints {
-            print(const)
-        }
-
         speechSynth = SpeechSyntheziser()
         questionGenerator = QuestionGenerator()
         shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
@@ -97,6 +94,10 @@ class StartQuizViewController: UIViewController {
             toggleSpeechButton.setBackgroundImage(UIImage(named: "speech"), for: .normal)
             speakQuestionIfNeeded(question: questions?[currentQuestionNumber])
         }
+    }
+
+    deinit {
+        print("StartQuizViewController destroyed")
     }
 
 }
@@ -239,10 +240,17 @@ extension StartQuizViewController {
 
     private func showResult() {
 
+
         if let quizFinishedVc = self.storyboard?.instantiateViewController(withIdentifier: "QuizFinishedViewController") as? QuizFinishedViewController {
-            let quizResult = QuizRoundResult(correctGuesses: correctGuessLabel.text!, incorrectGuesses: incorrectGuessLabel.text!, totalQuestions: String(questions!.count))
+
+            let quizResult = QuizRoundResult(correctGuesses: correctGuessLabel.text!,
+                    incorrectGuesses: incorrectGuessLabel.text!,
+                    totalQuestions: String(questions!.count),
+                    category: self.category.rawValue)
+
             quizFinishedVc.quizResult = quizResult
             quizFinishedVc.navController = self.navigationController
+            quizFinishedVc.currentPlayer = self.currentPlayer
             self.present(quizFinishedVc, animated: true, completion: nil)
         }
     }
@@ -286,7 +294,7 @@ extension StartQuizViewController {
     }
 
     fileprivate func haveMoreQuestions() -> Bool {
-        return self.currentQuestionNumber < self.questions!.count - 1
+        return self.currentQuestionNumber < self.questions!.count
     }
 
     fileprivate func isFirstQuestion() -> Bool {

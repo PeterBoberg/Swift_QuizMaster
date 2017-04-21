@@ -10,7 +10,7 @@ class SpeechSyntheziser: AVSpeechSynthesizer {
 
     func speak(sentence: String) {
         let utterance = AVSpeechUtterance(string: sentence)
-        utterance.voice = AVSpeechSynthesisVoice(identifier: "en-US")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         self.speak(utterance)
     }

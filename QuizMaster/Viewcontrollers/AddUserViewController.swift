@@ -53,6 +53,10 @@ class AddUserViewController: UIViewController {
         dismiss(animated: true)
     }
 
+    deinit {
+        print("AddUserViewController destroyed")
+    }
+
 }
 
 //MARK: Private Methods

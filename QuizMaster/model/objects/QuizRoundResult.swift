@@ -9,4 +9,5 @@ struct QuizRoundResult {
     let correctGuesses: String
     let incorrectGuesses: String
     let totalQuestions: String
+    let category: String
 }

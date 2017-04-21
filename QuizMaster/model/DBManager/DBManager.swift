@@ -114,4 +114,35 @@ class DBManager {
         })
     }
 
+    func addNewQuizResult(forPlayer player: QuizPlayer,
+                          quizRoundResult: QuizRoundResult,
+                          completion: ((Error?) -> Void)?) {
+
+        guard let context = context else {
+            completion?(NSError())
+            return
+        }
+
+        workerQueue.async(execute: {
+            [unowned self] in
+            let quizGameResult = QuizGameResult(entity: QuizGameResult.entity(), insertInto: context)
+            quizGameResult.correctAnswers = Int16(quizRoundResult.correctGuesses)!
+            quizGameResult.incorrectAnswers = Int16(quizRoundResult.incorrectGuesses)!
+            quizGameResult.quiestionsInRound = Int16(quizRoundResult.totalQuestions)!
+            quizGameResult.category = quizRoundResult.category
+            player.addToQuizGameResult(quizGameResult)
+
+            do {
+                try context.save()
+                self.mainQueue.async(execute: {
+                    completion?(nil)
+                })
+            } catch let error {
+                self.mainQueue.async(execute: {
+                    completion?(error)
+                })
+            }
+        })
+    }
+
 }
