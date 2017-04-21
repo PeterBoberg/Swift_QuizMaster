@@ -22,6 +22,7 @@
 		593DA48BB178705205A7D71C /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA63C38AB5F2BD9D5B223 /* GeneralExtensions.swift */; };
 		593DA536FAC5361CA346E87C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DAD196B47A903039B8C9D /* DBManager.swift */; };
 		593DA57C87AD40531FBB60AC /* CategoryTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DAB7280D59B5AFDF16201 /* CategoryTableViewDatasource.swift */; };
+		593DA74FBF89C257815BF205 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DADE6536B099BA8301624 /* AvatarImageView.swift */; };
 		593DA7C1A7240D9E8392DD08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 593DA6CE3A56B6345E6A9912 /* Assets.xcassets */; };
 		593DA7D6FABCAA8A37F878AC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA3F2FCF45CAE535B4F9B /* CategoryViewController.swift */; };
 		593DA7E923DC1A56E285237C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 593DAC2CA9575CF1EFE6E96E /* LaunchScreen.storyboard */; };
@@ -68,6 +69,7 @@
 		593DAB7280D59B5AFDF16201 /* CategoryTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewDatasource.swift; sourceTree = "<group>"; };
 		593DABE82602D36B45961A2C /* SpeechSyntheziser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechSyntheziser.swift; sourceTree = "<group>"; };
 		593DAD196B47A903039B8C9D /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		593DADE6536B099BA8301624 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		593DAF4ED1CE1CF9E3920859 /* Difficulty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		593DAF906BBABD4FFBC07341 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		85733163280BDD1B4BEEC3E5 /* Pods-QuizMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizMaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuizMaster/Pods-QuizMaster.debug.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				593DA2F1FF2D8AFAA9C183BA /* CategoryCell.swift */,
 				593DA6897D71D5A6AEF063ED /* UserCollectionViewCell.swift */,
+				593DADE6536B099BA8301624 /* AvatarImageView.swift */,
 			);
 			path = PrototypeCells;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				593DA48B7868CBEC9287033C /* UserCollectionViewDatasource.swift in Sources */,
 				593DA536FAC5361CA346E87C /* DBManager.swift in Sources */,
 				593DAF9B693E1CCDDD4C23AE /* AddPlayerButton.swift in Sources */,
+				593DA74FBF89C257815BF205 /* AvatarImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

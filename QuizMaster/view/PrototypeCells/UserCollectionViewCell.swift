@@ -23,8 +23,8 @@ class UserCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = 0.9
         self.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.layer.shadowRadius = 7
-
         self.backgroundColor = UIColor(red: 0.0, green: 0.4, blue: 0.6, alpha: 0.8)
+//        self.avatarImage.layer.cornerRadius = CGFloat(self.avatarImage.bounds.height / 2)
     }
 
 

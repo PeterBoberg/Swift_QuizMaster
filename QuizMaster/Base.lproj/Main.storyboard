@@ -182,11 +182,11 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-P2-mIy">
-                                                    <rect key="frame" x="61" y="36" width="122" height="134"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-P2-mIy" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
+                                                    <rect key="frame" x="55" y="36" width="134" height="134"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="122" id="Dba-Oa-IXw"/>
-                                                        <constraint firstAttribute="height" constant="134" id="UUd-Ev-z64"/>
+                                                        <constraint firstAttribute="width" constant="134" id="8wY-ZU-xnJ"/>
+                                                        <constraint firstAttribute="height" constant="134" id="d8z-oB-JZN"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -195,10 +195,10 @@
                                         <constraints>
                                             <constraint firstItem="7ql-I5-gzq" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="HRW-fE-H2t"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="eaH-XS-alj" secondAttribute="bottom" constant="34" id="Krm-P4-oqR"/>
-                                            <constraint firstItem="vf1-P2-mIy" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="bh3-HD-eA8"/>
                                             <constraint firstItem="eaH-XS-alj" firstAttribute="top" secondItem="7ql-I5-gzq" secondAttribute="bottom" constant="21.329999999999998" id="d1h-vO-x9f"/>
+                                            <constraint firstItem="vf1-P2-mIy" firstAttribute="top" secondItem="09O-Z1-mY5" secondAttribute="topMargin" constant="28" id="eOm-l5-7nu"/>
                                             <constraint firstItem="eaH-XS-alj" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="pdD-WK-dM9"/>
-                                            <constraint firstItem="vf1-P2-mIy" firstAttribute="top" secondItem="09O-Z1-mY5" secondAttribute="topMargin" constant="28" id="rLt-cW-3jB"/>
+                                            <constraint firstItem="vf1-P2-mIy" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="poh-PQ-8vf"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="avatarImage" destination="vf1-P2-mIy" id="RID-u1-r04"/>
