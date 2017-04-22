@@ -11,6 +11,7 @@ class UserCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var hiScoreLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
 
 
     public required init?(coder aDecoder: NSCoder) {

@@ -19,11 +19,10 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         categoryTableView.delegate = self
         categoryTableView.dataSource = tableviewDatasource
-
     }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
     }
 
     deinit {

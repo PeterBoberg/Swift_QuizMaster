@@ -29,6 +29,7 @@ class UserCollectionViewDatasource: NSObject, UICollectionViewDataSource {
         let hiScore = findBestQuizResult(quizResults: quizPlayer.quizGameResult)
         if let hiScore = hiScore {
             cell.hiScoreLabel.text = String(hiScore.correctAnswers)
+            cell.categoryLabel.text = hiScore.category
         } else {
             cell.hiScoreLabel.text = "N/A"
         }

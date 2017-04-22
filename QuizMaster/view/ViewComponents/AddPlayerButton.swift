@@ -5,6 +5,7 @@
 
 import Foundation
 import UIKit
+import QuartzCore
 
 class AddPlayerButton: UIButton {
 
@@ -16,7 +17,7 @@ class AddPlayerButton: UIButton {
 
     private func config() {
         self.backgroundColor = UIColor(red: 100 / 255, green: 100 / 255, blue: 100 / 255, alpha: 0.5)
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = self.bounds.width / 2
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.gray.cgColor
         self.layer.masksToBounds = false
@@ -24,6 +25,7 @@ class AddPlayerButton: UIButton {
         self.layer.shadowOpacity = 0.9
         self.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.layer.shadowRadius = 7
+        self.clipsToBounds = false
     }
 
 

@@ -8,8 +8,7 @@
 
 import UIKit
 import CoreData
-import AVFoundation
-
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,9 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        let audioSession = AVAudioSession.sharedInstance()
-//        try! audioSession.setActive(true)
-//        try! audioSession.setCategory(AVAudioSessionCategoryPlayback)
+
+        let config = ParseClientConfiguration(block: {
+            (conf) in
+            conf.applicationId = "74991f277f94da6fcf624f1c2978232dcb1319f4"
+            conf.clientKey = "1cac94a5b15fd2408e8e2107ab8613fe214be8a9"
+            conf.server = "http://ec2-52-29-42-145.eu-central-1.compute.amazonaws.com:80/parse/"
+        })
+
+        Parse.initialize(with: config)
         return true
     }
 

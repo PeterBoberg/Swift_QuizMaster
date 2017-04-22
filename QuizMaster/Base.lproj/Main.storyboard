@@ -159,7 +159,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Boberg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-I5-gzq">
-                                                    <rect key="frame" x="64" y="188" width="117.66666666666666" height="20.666666666666657"/>
+                                                    <rect key="frame" x="64" y="177" width="117.66666666666666" height="20.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                                     <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -167,13 +167,13 @@
                                                     <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eaH-XS-alj">
-                                                    <rect key="frame" x="85.333333333333314" y="230" width="74.666666666666686" height="42"/>
+                                                    <rect key="frame" x="85" y="204" width="74.666666666666657" height="42"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiScore" translatesAutoresizingMaskIntoConstraints="NO" id="HaY-Z3-ZPC">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-Lz-OIK">
-                                                            <rect key="frame" x="52.000000000000014" y="0.0" width="22.666666666666657" height="42"/>
+                                                            <rect key="frame" x="52" y="0.0" width="22.666666666666657" height="42"/>
                                                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                             <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -189,19 +189,32 @@
                                                         <constraint firstAttribute="height" constant="134" id="d8z-oB-JZN"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category: N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcC-us-VoV">
+                                                    <rect key="frame" x="40" y="263" width="164" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.24467529576336972" green="0.35995020298700398" blue="0.58936786167512689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="hcC-us-VoV" secondAttribute="bottom" constant="22" id="1vi-TK-7kv"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="hcC-us-VoV" secondAttribute="trailing" constant="33" id="HAh-Tf-yS2"/>
                                             <constraint firstItem="7ql-I5-gzq" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="HRW-fE-H2t"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="eaH-XS-alj" secondAttribute="bottom" constant="34" id="Krm-P4-oqR"/>
-                                            <constraint firstItem="eaH-XS-alj" firstAttribute="top" secondItem="7ql-I5-gzq" secondAttribute="bottom" constant="21.329999999999998" id="d1h-vO-x9f"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="eaH-XS-alj" secondAttribute="bottom" constant="60" id="Krm-P4-oqR"/>
+                                            <constraint firstItem="hcC-us-VoV" firstAttribute="top" secondItem="eaH-XS-alj" secondAttribute="bottom" constant="17" id="c8R-yr-vRT"/>
+                                            <constraint firstItem="eaH-XS-alj" firstAttribute="top" secondItem="7ql-I5-gzq" secondAttribute="bottom" constant="6.3333333333333428" id="d1h-vO-x9f"/>
                                             <constraint firstItem="vf1-P2-mIy" firstAttribute="top" secondItem="09O-Z1-mY5" secondAttribute="topMargin" constant="28" id="eOm-l5-7nu"/>
                                             <constraint firstItem="eaH-XS-alj" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="pdD-WK-dM9"/>
                                             <constraint firstItem="vf1-P2-mIy" firstAttribute="centerX" secondItem="09O-Z1-mY5" secondAttribute="centerX" id="poh-PQ-8vf"/>
+                                            <constraint firstItem="hcC-us-VoV" firstAttribute="leading" secondItem="09O-Z1-mY5" secondAttribute="leadingMargin" constant="32" id="tXc-ts-sGS"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="avatarImage" destination="vf1-P2-mIy" id="RID-u1-r04"/>
+                                            <outlet property="categoryLabel" destination="hcC-us-VoV" id="ZeN-pE-eHQ"/>
                                             <outlet property="hiScoreLabel" destination="bYF-Lz-OIK" id="Sm9-LS-h3y"/>
                                             <outlet property="nameLabel" destination="7ql-I5-gzq" id="seE-cc-OKx"/>
                                         </connections>
@@ -209,14 +222,15 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-Uc-8xx" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
-                                <rect key="frame" x="71" y="116" width="272" height="211"/>
+                                <rect key="frame" x="101.66666666666669" y="116" width="211" height="211"/>
+                                <color key="backgroundColor" red="0.46411008883248728" green="0.46411008883248728" blue="0.46411008883248728" alpha="0.3341449058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="H0H-3u-Msk"/>
-                                    <constraint firstAttribute="width" constant="272" id="d4x-SL-HOR"/>
+                                    <constraint firstAttribute="width" constant="211" id="d4x-SL-HOR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="44"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
                                 <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="New User">
+                                <state key="normal" title="New Player">
                                     <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

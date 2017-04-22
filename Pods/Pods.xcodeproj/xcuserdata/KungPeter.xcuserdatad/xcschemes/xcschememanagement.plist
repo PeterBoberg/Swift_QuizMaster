@@ -11,22 +11,46 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Pods-QuizMaster.xcscheme</key>
+		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-QuizMaster.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7C3455F00BF829CDF85916978F64B64B</key>
+		<key>6EE458AB7C9239893E5C6E840C0BF9B5</key>
 		<dict>
 			<key>primary</key>
 			<true />
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true />
+		</dict>
+		<key>AB55D4C484137073FA3B77443499C051</key>
+		<dict>
+			<key>primary</key>
+			<true />
+		</dict>
+		<key>F957EABCA56BD8F5B626798CC7B344D3</key>
 		<dict>
 			<key>primary</key>
 			<true />
