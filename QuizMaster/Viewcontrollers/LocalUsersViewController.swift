@@ -1,5 +1,5 @@
 //
-//  UsersViewController.swift
+//  LocalUsersViewController.swift
 //  QuizMaster
 //
 //  Created by Kung Peter on 2017-04-20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+class LocalUsersViewController: UIViewController {
 
     let userCollectionViewDataSource: UserCollectionViewDatasource = UserCollectionViewDatasource()
-    let dbManager = DBManager.shared
+    let dbManager = LocalDbManager.shared
 
 
     @IBOutlet weak var usersCollectionView: UICollectionView!
@@ -29,7 +29,7 @@ class UsersViewController: UIViewController {
 
 
     @IBAction func addNewPlayer(_ sender: UIButton) {
-        let addUserVc = self.storyboard!.instantiateViewController(withIdentifier: "AddUserViewController") as! AddUserViewController
+        let addUserVc = self.storyboard!.instantiateViewController(withIdentifier: "AddLocalUserViewController") as! AddLocalUserViewController
         addUserVc.modalPresentationStyle = .overCurrentContext
         addUserVc.modalTransitionStyle = .crossDissolve
         addUserVc.delegate = self
@@ -44,7 +44,7 @@ class UsersViewController: UIViewController {
 
 // MARK: Private methods
 
-extension UsersViewController {
+extension LocalUsersViewController {
 
     fileprivate func loadQuizPlayers() {
 
@@ -64,7 +64,7 @@ extension UsersViewController {
 
 // MARK: UICollectionViewDelegate
 
-extension UsersViewController: UICollectionViewDelegate {
+extension LocalUsersViewController: UICollectionViewDelegate {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let categoryVC = self.storyboard!.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
@@ -76,7 +76,7 @@ extension UsersViewController: UICollectionViewDelegate {
 
 // MARK: AddUserViewControllerDelegate
 
-extension UsersViewController: AddUserViewControllerDelegate {
+extension LocalUsersViewController: AddLocalUserViewControllerDelegate {
 
     func addUserViewController(didFinishEnterUserInfoWithName name: String, image: UIImage?) {
         dbManager.saveNewQuizPlayer(name: name, avatar: image, completion: {

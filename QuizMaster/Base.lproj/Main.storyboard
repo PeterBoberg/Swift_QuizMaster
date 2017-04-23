@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HB9-Ba-GC6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HB9-Ba-GC6">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,17 +21,231 @@
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="SFN-fY-ysh" kind="relationship" relationship="rootViewController" id="MDj-Ho-r3Q"/>
+                        <segue destination="rXI-jp-rhQ" kind="relationship" relationship="rootViewController" id="NUg-cK-nYR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjd-jK-HuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2036" y="-483"/>
+            <point key="canvasLocation" x="-2868" y="-483"/>
         </scene>
-        <!--Add User View Controller-->
+        <!--Choose Mode View Controller-->
+        <scene sceneID="8Gk-gW-P58">
+            <objects>
+                <viewController id="rXI-jp-rhQ" customClass="ChooseModeViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rfk-7Y-XC7"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZEd-SZ-VLY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ahw-FD-fzl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="ngN-eC-hdH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-0o-drD">
+                                <rect key="frame" x="72" y="142" width="270" height="496"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-Sc-xmK" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="243"/>
+                                        <color key="backgroundColor" red="0.46411008879999999" green="0.46411008879999999" blue="0.46411008879999999" alpha="0.3341449058" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Local Quizzer">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addNewPlayer:" destination="SFN-fY-ysh" eventType="touchUpInside" id="rbK-AV-zrc"/>
+                                            <action selector="startLocalQuizMode:" destination="rXI-jp-rhQ" eventType="touchUpInside" id="1oQ-6t-fBb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niS-HF-1rE" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="253" width="270" height="243"/>
+                                        <color key="backgroundColor" red="0.46411008879999999" green="0.46411008879999999" blue="0.46411008879999999" alpha="0.3341449058" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Online Quizzer">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addNewPlayer:" destination="SFN-fY-ysh" eventType="touchUpInside" id="jQ0-sN-hBl"/>
+                                            <action selector="onlineQuizMode:" destination="rXI-jp-rhQ" eventType="touchUpInside" id="Bhi-3H-sRh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ngN-eC-hdH" secondAttribute="trailing" id="8zg-v9-Hcn"/>
+                            <constraint firstItem="lu4-0o-drD" firstAttribute="top" secondItem="Rfk-7Y-XC7" secondAttribute="bottom" constant="78" id="TKQ-gb-2yj"/>
+                            <constraint firstItem="ngN-eC-hdH" firstAttribute="leading" secondItem="ahw-FD-fzl" secondAttribute="leading" id="USv-1h-aRl"/>
+                            <constraint firstItem="ZEd-SZ-VLY" firstAttribute="top" secondItem="ngN-eC-hdH" secondAttribute="bottom" id="Vif-KC-QkZ"/>
+                            <constraint firstItem="lu4-0o-drD" firstAttribute="leading" secondItem="ahw-FD-fzl" secondAttribute="leadingMargin" constant="52" id="bdn-x2-xo1"/>
+                            <constraint firstItem="ZEd-SZ-VLY" firstAttribute="top" secondItem="lu4-0o-drD" secondAttribute="bottom" constant="98" id="eMt-xe-QO6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lu4-0o-drD" secondAttribute="trailing" constant="52" id="oLQ-k9-IdJ"/>
+                            <constraint firstItem="ngN-eC-hdH" firstAttribute="top" secondItem="ahw-FD-fzl" secondAttribute="top" id="xRy-GE-Q1R"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4uN-uc-599"/>
+                    <connections>
+                        <outlet property="localQuizzerButton" destination="PaS-Sc-xmK" id="gid-r1-lZa"/>
+                        <outlet property="onlineQuizzerButton" destination="niS-HF-1rE" id="E21-Rl-hVz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IKT-Fq-7yA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1900" y="-483"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Y4R-d4-gCA">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" modalTransitionStyle="crossDissolve" id="ccp-M1-vEm" customClass="LoginViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AeO-ai-ILx"/>
+                        <viewControllerLayoutGuide type="bottom" id="EpC-NH-gmt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pU2-am-8QK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zZ-1f-apF">
+                                <rect key="frame" x="59" y="158" width="297" height="420"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="4CN-zM-C1T">
+                                        <rect key="frame" x="50" y="30" width="197" height="153"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PgQ-Ig-0jN">
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-Wi-9HR">
+                                                <rect key="frame" x="0.0" y="41" width="197" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SPS-L3-HDN">
+                                                <rect key="frame" x="0.0" y="82" width="197" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password Confirm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIa-Dx-jEr">
+                                                <rect key="frame" x="0.0" y="123" width="197" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCg-Zw-L9d">
+                                        <rect key="frame" x="68" y="200" width="161" height="29"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Add Profile Picture">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addProfilePic:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="crV-vd-jya"/>
+                                            <action selector="addProfilePicture:" destination="ccp-M1-vEm" eventType="touchUpInside" id="XTK-r6-w6m"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-g8-UGw" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="118.66666666666666" y="237" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="2zl-aS-Jp3"/>
+                                            <constraint firstAttribute="height" constant="60" id="fBn-SQ-fhC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uB6-5i-M5Y">
+                                        <rect key="frame" x="59" y="306" width="85" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Log in!">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="done:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="W2d-mP-pka"/>
+                                            <action selector="loginOrSignup:" destination="ccp-M1-vEm" eventType="touchUpInside" id="gik-Qw-nD4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qg-9o-h5D">
+                                        <rect key="frame" x="164" y="311" width="73.000000000000028" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Abort!">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="abort:" destination="ccp-M1-vEm" eventType="touchUpInside" id="g0r-3m-Omb"/>
+                                            <action selector="abort:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="yUq-OO-IN7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enG-5C-qAa">
+                                        <rect key="frame" x="110" y="359" width="76" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                        <size key="titleShadowOffset" width="3" height="2"/>
+                                        <state key="normal" title="Or Signup">
+                                            <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addProfilePic:" destination="Kqp-gV-nbT" eventType="touchUpInside" id="25F-6q-NVC"/>
+                                            <action selector="switchMode:" destination="ccp-M1-vEm" eventType="touchUpInside" id="ZYc-lA-Bjf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.086204765629999999" green="0.22757423439999999" blue="0.43034184640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="TpJ-g8-UGw" firstAttribute="centerX" secondItem="4zZ-1f-apF" secondAttribute="centerX" id="R8d-k5-rMr"/>
+                                    <constraint firstItem="kCg-Zw-L9d" firstAttribute="centerX" secondItem="4zZ-1f-apF" secondAttribute="centerX" id="a3L-tJ-a2W"/>
+                                    <constraint firstItem="4CN-zM-C1T" firstAttribute="top" secondItem="4zZ-1f-apF" secondAttribute="top" constant="30" id="gzh-Q9-KBA"/>
+                                    <constraint firstItem="TpJ-g8-UGw" firstAttribute="top" secondItem="kCg-Zw-L9d" secondAttribute="bottom" constant="8" id="r4k-6L-QPS"/>
+                                    <constraint firstItem="kCg-Zw-L9d" firstAttribute="top" secondItem="4CN-zM-C1T" secondAttribute="bottom" constant="17" id="rFc-V2-WFb"/>
+                                    <constraint firstItem="4CN-zM-C1T" firstAttribute="leading" secondItem="4zZ-1f-apF" secondAttribute="leading" constant="50" id="xH5-up-EYh"/>
+                                    <constraint firstAttribute="trailing" secondItem="4CN-zM-C1T" secondAttribute="trailing" constant="50" id="xqk-gm-Y7m"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4zZ-1f-apF" secondAttribute="trailing" constant="38" id="NLL-wb-k6S"/>
+                            <constraint firstItem="EpC-NH-gmt" firstAttribute="top" secondItem="4zZ-1f-apF" secondAttribute="bottom" constant="158" id="XEj-hA-HiB"/>
+                            <constraint firstItem="4zZ-1f-apF" firstAttribute="top" secondItem="AeO-ai-ILx" secondAttribute="bottom" constant="138" id="mqn-HK-zr9"/>
+                            <constraint firstItem="4zZ-1f-apF" firstAttribute="leading" secondItem="pU2-am-8QK" secondAttribute="leadingMargin" constant="39" id="o3K-rN-e1F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addProfilePicButton" destination="kCg-Zw-L9d" id="RFF-Rc-XSN"/>
+                        <outlet property="emailTextField" destination="YuN-Wi-9HR" id="t2r-Xc-TNc"/>
+                        <outlet property="loginOrSignupButton" destination="uB6-5i-M5Y" id="Lkf-FA-aC2"/>
+                        <outlet property="modalSubView" destination="4zZ-1f-apF" id="dXh-UH-8Ze"/>
+                        <outlet property="passwordConfirmTextField" destination="kIa-Dx-jEr" id="LQn-BQ-M92"/>
+                        <outlet property="passwordTextfield" destination="SPS-L3-HDN" id="hNB-mQ-4Ee"/>
+                        <outlet property="profilePicPreview" destination="TpJ-g8-UGw" id="VhK-rh-RJy"/>
+                        <outlet property="switchMode" destination="enG-5C-qAa" id="j4z-cs-j85"/>
+                        <outlet property="userNameTextField" destination="PgQ-Ig-0jN" id="qwx-6q-YL5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIc-ow-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1900" y="-1287"/>
+        </scene>
+        <!--Add Local User View Controller-->
         <scene sceneID="Irr-jl-7wX">
             <objects>
-                <viewController storyboardIdentifier="AddUserViewController" id="Kqp-gV-nbT" customClass="AddUserViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocalUserViewController" id="Kqp-gV-nbT" customClass="AddLocalUserViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aex-Vg-rIo"/>
                         <viewControllerLayoutGuide type="bottom" id="JQI-eY-mjZ"/>
@@ -78,7 +292,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-HU-DQb">
-                                        <rect key="frame" x="155" y="262" width="73.000000000000028" height="36"/>
+                                        <rect key="frame" x="156" y="262.66666666666669" width="73.000000000000028" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="bKK-sv-nsq"/>
                                             <constraint firstAttribute="width" constant="73.000000000000028" id="tFI-mP-Gel"/>
@@ -123,12 +337,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kw1-R1-ICT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1046.376811594203" y="-1287.2282608695652"/>
+            <point key="canvasLocation" x="-1046" y="-1287"/>
         </scene>
-        <!--Users View Controller-->
+        <!--Local Users View Controller-->
         <scene sceneID="Qwz-QT-Vk9">
             <objects>
-                <viewController id="SFN-fY-ysh" customClass="UsersViewController" customModule="QuizMaster" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocalUsersViewController" id="SFN-fY-ysh" customClass="LocalUsersViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mSe-Ga-Xhv"/>
                         <viewControllerLayoutGuide type="bottom" id="UTa-CM-VKL"/>
@@ -142,7 +356,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-Ge-XhC">
-                                <rect key="frame" x="0.0" y="335" width="414" height="401"/>
+                                <rect key="frame" x="0.0" y="291" width="414" height="445"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ao9-KM-cf2">
                                     <size key="itemSize" width="245" height="314"/>
@@ -152,14 +366,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCollectionViewCell" id="09O-Z1-mY5" customClass="UserCollectionViewCell" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="43.666666666666664" width="245" height="314"/>
+                                        <rect key="frame" x="0.0" y="65.666666666666671" width="245" height="314"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="314"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Boberg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ql-I5-gzq">
-                                                    <rect key="frame" x="64" y="177" width="117.66666666666666" height="20.666666666666657"/>
+                                                    <rect key="frame" x="64.333333333333314" y="177" width="117.66666666666669" height="20.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
                                                     <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -222,7 +436,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-Uc-8xx" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
-                                <rect key="frame" x="101.66666666666669" y="116" width="211" height="211"/>
+                                <rect key="frame" x="101.66666666666669" y="72" width="211" height="211"/>
                                 <color key="backgroundColor" red="0.46411008883248728" green="0.46411008883248728" blue="0.46411008883248728" alpha="0.3341449058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="H0H-3u-Msk"/>
@@ -230,7 +444,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
                                 <size key="titleShadowOffset" width="3" height="2"/>
-                                <state key="normal" title="New Player">
+                                <state key="normal" title="New Quizzer">
                                     <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

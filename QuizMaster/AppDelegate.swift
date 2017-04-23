@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -27,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
 
         Parse.initialize(with: config)
+
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: {
+            (point , error) in
+            print(point)
+            print(error)
+        })
         return true
     }
 

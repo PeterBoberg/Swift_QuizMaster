@@ -8,9 +8,9 @@ import CoreData
 import Dispatch
 import UIKit
 
-class DBManager {
+class LocalDbManager {
 
-    static let shared: DBManager = DBManager()
+    static let shared: LocalDbManager = LocalDbManager()
     let workerQueue = DispatchQueue.global(qos: .userInitiated)
     let mainQueue = DispatchQueue.main
     var context: NSManagedObjectContext? = nil

@@ -17,7 +17,7 @@ class AddPlayerButton: UIButton {
 
     private func config() {
         self.backgroundColor = UIColor(red: 100 / 255, green: 100 / 255, blue: 100 / 255, alpha: 0.5)
-        self.layer.cornerRadius = self.bounds.width / 2
+        self.layer.cornerRadius = 20
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.gray.cgColor
         self.layer.masksToBounds = false

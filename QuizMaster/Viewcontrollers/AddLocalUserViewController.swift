@@ -1,5 +1,5 @@
 //
-//  AddUserViewController.swift
+//  AddLocalUserViewController.swift
 //  QuizMaster
 //
 //  Created by Kung Peter on 2017-04-20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class AddUserViewController: UIViewController {
+class AddLocalUserViewController: UIViewController {
 
     var navController: UINavigationController!
-    var delegate: AddUserViewControllerDelegate?
+    var delegate: AddLocalUserViewControllerDelegate?
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var modalSubView: UIView!
@@ -54,14 +54,14 @@ class AddUserViewController: UIViewController {
     }
 
     deinit {
-        print("AddUserViewController destroyed")
+        print("AddLocalUserViewController destroyed")
     }
 
 }
 
 //MARK: Private Methods
 
-extension AddUserViewController {
+extension AddLocalUserViewController {
 
     fileprivate func showalert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
@@ -76,7 +76,7 @@ extension AddUserViewController {
 
 // MARK: UIImagePickerControllerDelegate
 
-extension AddUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddLocalUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [String: Any]) {
@@ -105,10 +105,9 @@ extension AddUserViewController: UIImagePickerControllerDelegate, UINavigationCo
 }
 
 
-protocol AddUserViewControllerDelegate {
+protocol AddLocalUserViewControllerDelegate {
 
     func addUserViewController(didFinishEnterUserInfoWithName name: String, image: UIImage?)
-
     func addUserViewControllerCancelled()
 }
 

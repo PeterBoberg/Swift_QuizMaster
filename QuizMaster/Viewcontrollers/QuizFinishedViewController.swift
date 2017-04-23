@@ -28,7 +28,7 @@ class QuizFinishedViewController: UIViewController {
 
     @IBAction func goBackToRoot(_ sender: Any) {
 
-        DBManager.shared.addNewQuizResult(forPlayer: currentPlayer, quizRoundResult: quizResult, completion: {
+        LocalDbManager.shared.addNewQuizResult(forPlayer: currentPlayer, quizRoundResult: quizResult, completion: {
             (error) in
 
             if error != nil {
