@@ -12,16 +12,16 @@ class ChooseModeViewController: UIViewController {
 
     @IBOutlet weak var localQuizzerButton: AddPlayerButton!
     @IBOutlet weak var onlineQuizzerButton: AddPlayerButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-   
+
     @IBAction func startLocalQuizMode(_ sender: UIButton) {
-        let localUsersVc = self.storyboard?.instantiateViewController(withIdentifier: "LocalUsersViewController") as! LocalUsersViewController
-        self.navigationController?.pushViewController(localUsersVc, animated: true)
+        let localTrackVc = self.storyboard?.instantiateViewController(withIdentifier: "LocalTrackNavController") as! UINavigationController
+        self.present(localTrackVc, animated: true)
     }
 
     @IBAction func onlineQuizMode(_ sender: UIButton) {
@@ -31,4 +31,10 @@ class ChooseModeViewController: UIViewController {
         loginVc.modalPresentationStyle = .overCurrentContext
         self.present(loginVc, animated: true)
     }
+
+    deinit {
+        print("ChooseModeViewController destroyed")
+    }
 }
+
+

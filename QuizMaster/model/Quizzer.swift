@@ -6,7 +6,10 @@
 import Foundation
 import Parse
 
+
 class Quizzer: PFUser {
 
-    var avatarImage: Data?
+
+    @NSManaged var avatarImage: PFFile?
+
 }

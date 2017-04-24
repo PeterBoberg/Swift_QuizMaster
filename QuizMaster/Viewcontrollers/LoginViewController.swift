@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -22,7 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var profilePicPreview: AvatarImageView!
 
     var loginMode = true
-    var delegate: LoginViewControllerDelegate?
+    var logInOrSignupInProgress = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +31,12 @@ class LoginViewController: UIViewController {
         self.modalSubView.layer.borderWidth = 2
         self.modalSubView.layer.borderColor = UIColor.yellow.cgColor
         self.modalSubView.layer.cornerRadius = 10
+        self.profilePicPreview.image = UIImage(named: "defaultUser")
         switchTologinMode()
     }
 
 
     @IBAction func addProfilePicture(_ sender: Any) {
-        print("add profile Picture")
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         self.present(imagePicker, animated: true)
@@ -44,19 +45,17 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginOrSignup(_ sender: Any) {
 
-        print("Logint or signup")
-        if isValidInput() {
-            if loginMode {
-                self.delegate?.loginViewControler(didFinishLogginInWithUsername: userNameTextField.text!, password: passwordTextfield.text!)
+        if isValidInput() && !logInOrSignupInProgress {
+            if !logInOrSignupInProgress {
+                logInOrSignupInProgress = true
+                if loginMode {
+                    logInUser()
+                } else {
+                    signupUser()
+                }
             } else {
-
-                self.delegate?.loginViewController(didFinishSigningUpWithUsername: userNameTextField.text!,
-                        email: emailTextField.text!,
-                        password: passwordTextfield.text!,
-                        avatarImage: profilePicPreview.image!)
+                print("Alreaty loggin in")
             }
-
-            self.dismiss(animated: true)
 
         } else {
             Util.showSimpleAlert(presentingVc: self, title: "Invalid input!", message: "Check your input")
@@ -67,6 +66,7 @@ class LoginViewController: UIViewController {
     @IBAction func abort(_ sender: Any) {
         self.dismiss(animated: true)
     }
+
 
     @IBAction func switchMode(_ sender: Any) {
         if loginMode {
@@ -118,15 +118,58 @@ extension LoginViewController {
                     passwordTextfield.text!.characters.count > 4 &&
                     passwordConfirmTextField.text!.characters.count > 4 &&
                     passwordTextfield.text! == passwordConfirmTextField.text
+            return true
         }
 
+    }
+
+    fileprivate func signupUser() {
+        let userName = userNameTextField.text!
+        let email = emailTextField.text!
+        let password = passwordTextfield.text!
+        let avatarImage = profilePicPreview.image!
+        print(avatarImage)
+
+        ParseDbManager.shared.bgRegisterNewQuizzer(username: userName, email: email, password: password, image: avatarImage, completion: {
+            [unowned self] (bool, error) in
+            guard error == nil else {
+                print(error)
+                //TODO Implement error handling in signupUser
+                self.logInOrSignupInProgress = false
+                return
+            }
+            print("User successfully saved")
+            self.startOnlineTrack()
+
+        })
+    }
+
+    fileprivate func logInUser() {
+        let userName = userNameTextField.text!
+        let password = passwordTextfield.text!
+        ParseDbManager.shared.bgLoginQuizzer(username: userName, password: password, completion: {
+            [unowned self] (quizzer, error) in
+            guard error == nil else {
+                print(error)
+                //TODO Implement error handling in signupUser
+                self.logInOrSignupInProgress = false
+                return
+            }
+
+            print("\(quizzer) logged in")
+            self.startOnlineTrack()
+        })
+
+    }
+
+    fileprivate func startOnlineTrack() {
+        self.performSegue(withIdentifier: "startOnlineTrack", sender: nil)
     }
 
 }
 
 
 // MARK: UIImagePickerDelegate & NavigationControllerDelegate
-
 extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     public func imagePickerController(_ picker: UIImagePickerController,
@@ -141,14 +184,5 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
         picker.dismiss(animated: true)
     }
 
-
 }
 
-protocol LoginViewControllerDelegate {
-    func loginViewController(didFinishSigningUpWithUsername username: String,
-                             email: String,
-                             password: String,
-                             avatarImage: UIImage)
-
-    func loginViewControler(didFinishLogginInWithUsername username: String, password: String)
-}

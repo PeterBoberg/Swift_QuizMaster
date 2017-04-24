@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        Quizzer.registerSubclass()
         let config = ParseClientConfiguration(block: {
             (conf) in
             conf.applicationId = "74991f277f94da6fcf624f1c2978232dcb1319f4"
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(point)
             print(error)
         })
+        // TODO Remove logOutInBackground() in appdelegate to support continous logged in state
+        PFUser.logOutInBackground()
         return true
     }
 
