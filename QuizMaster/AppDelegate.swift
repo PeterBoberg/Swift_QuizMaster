@@ -33,8 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(point)
             print(error)
         })
-        // TODO Remove logOutInBackground() in appdelegate to support continous logged in state
+        // TODO Remove logOutInBackground() in appdelegate to support continuous logged in state
         PFUser.logOutInBackground()
+
         return true
     }
 
