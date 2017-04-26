@@ -52,6 +52,31 @@ class ParseDbManager {
         })
     }
 
+    func findUsers(containing stringPart: String, completion: (([Quizzer]?, Error?) -> Void)?) {
+
+        let query = PFUser.query()!
+        query.whereKey("username", contains: stringPart)
+        query.findObjectsInBackground(block: {
+            (users, error) in
+
+            guard error == nil else {
+                print(error)
+                completion?(nil, error)
+                return
+            }
+
+            if let users = users as? [Quizzer] {
+                completion?(users, nil)
+            } else {
+                // TODO implement bettter error handling in findUsers
+                print("Could not cast to quizzers")
+            }
+
+        })
+
+    }
+
+
     func currentUser() -> Quizzer? {
         return PFUser.current() as! Quizzer
     }

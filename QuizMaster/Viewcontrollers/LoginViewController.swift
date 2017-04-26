@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
 
     var loginMode = true
     var logInOrSignupInProgress = false
+    var delegate: LoginViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +78,11 @@ class LoginViewController: UIViewController {
     }
 
     deinit {
+//        print(self.delegate)
+//        self.delegate?.didFinishAuthenticating()
         print("LoginViewController destroyed")
+//        print(self)
     }
-
-
 }
 
 // MARK: Private methods
@@ -138,8 +140,9 @@ extension LoginViewController {
                 self.logInOrSignupInProgress = false
                 return
             }
-            print("User successfully saved")
-            self.startOnlineTrack()
+            print("User successfully signed up")
+            self.dismiss(animated: true)
+            self.delegate?.didFinishAuthenticating()
 
         })
     }
@@ -155,21 +158,19 @@ extension LoginViewController {
                 self.logInOrSignupInProgress = false
                 return
             }
-
-            print("\(quizzer) logged in")
-            self.startOnlineTrack()
+            print("User successfully logged in")
+            self.dismiss(animated: true)
+            self.delegate?.didFinishAuthenticating()
         })
 
     }
 
-    fileprivate func startOnlineTrack() {
-        self.performSegue(withIdentifier: "startOnlineTrack", sender: nil)
-    }
 
 }
 
 
 // MARK: UIImagePickerDelegate & NavigationControllerDelegate
+
 extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     public func imagePickerController(_ picker: UIImagePickerController,
@@ -184,5 +185,10 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
         picker.dismiss(animated: true)
     }
 
+}
+
+
+protocol LoginViewControllerDelegate {
+    func didFinishAuthenticating()
 }
 

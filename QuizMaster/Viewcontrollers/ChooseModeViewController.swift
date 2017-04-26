@@ -15,25 +15,55 @@ class ChooseModeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
 
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func startLocalQuizMode(_ sender: UIButton) {
-        let localTrackVc = self.storyboard?.instantiateViewController(withIdentifier: "LocalTrackNavController") as! UINavigationController
-        self.present(localTrackVc, animated: true)
+        let localUsersVc = self.storyboard?.instantiateViewController(withIdentifier: "LocalUsersViewController") as! LocalUsersViewController
+        self.navigationController?.pushViewController(localUsersVc, animated: true)
+
     }
 
     @IBAction func onlineQuizMode(_ sender: UIButton) {
 
+        print(ParseDbManager.shared.currentUserIsLoggedIn())
+        if ParseDbManager.shared.currentUserIsLoggedIn() {
+            startOnlineTrack()
+        } else {
+            presentLoginViewController()
+        }
+    }
+
+    deinit {
+        print("ChooseModeViewController destroyed")
+    }
+}
+
+
+// MARK: Private methods
+extension ChooseModeViewController {
+
+    fileprivate func presentLoginViewController() {
         let loginVc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        loginVc.delegate = self
         loginVc.modalTransitionStyle = .crossDissolve
         loginVc.modalPresentationStyle = .overCurrentContext
         self.present(loginVc, animated: true)
     }
 
-    deinit {
-        print("ChooseModeViewController destroyed")
+    fileprivate func startOnlineTrack() {
+        let onlineTrackTabBarVc = self.storyboard?.instantiateViewController(withIdentifier: "OnlineTrackTabBarController") as! UITabBarController
+        self.navigationController?.pushViewController(onlineTrackTabBarVc, animated: true)
+    }
+}
+
+
+// MARK: LoginViewControllerDelegate
+extension ChooseModeViewController : LoginViewControllerDelegate {
+
+    func didFinishAuthenticating() {
+        startOnlineTrack()
     }
 }
 

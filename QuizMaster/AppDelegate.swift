@@ -28,14 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Parse.initialize(with: config)
 
-        PFGeoPoint.geoPointForCurrentLocation(inBackground: {
-            (point , error) in
-            print(point)
-            print(error)
-        })
-        // TODO Remove logOutInBackground() in appdelegate to support continuous logged in state
-        PFUser.logOutInBackground()
-
         return true
     }
 

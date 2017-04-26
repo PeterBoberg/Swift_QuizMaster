@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rXI-jp-rhQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HB9-Ba-GC6">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,12 +21,12 @@
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="SFN-fY-ysh" kind="relationship" relationship="rootViewController" id="fda-3l-4tC"/>
+                        <segue destination="rXI-jp-rhQ" kind="relationship" relationship="rootViewController" id="hKr-Vg-ucg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjd-jK-HuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1900" y="-483"/>
+            <point key="canvasLocation" x="-3914" y="3"/>
         </scene>
         <!--Choose Mode View Controller-->
         <scene sceneID="8Gk-gW-P58">
@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IKT-Fq-7yA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3109" y="-21"/>
+            <point key="canvasLocation" x="-2804" y="4"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Y4R-d4-gCA">
@@ -236,17 +236,16 @@
                         <outlet property="profilePicPreview" destination="TpJ-g8-UGw" id="VhK-rh-RJy"/>
                         <outlet property="switchMode" destination="enG-5C-qAa" id="j4z-cs-j85"/>
                         <outlet property="userNameTextField" destination="PgQ-Ig-0jN" id="qwx-6q-YL5"/>
-                        <segue destination="JgY-HM-FOt" kind="presentation" identifier="startOnlineTrack" id="G8M-hc-Xdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIc-ow-sLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2157" y="920"/>
+            <point key="canvasLocation" x="-2804" y="826"/>
         </scene>
-        <!--Multiplayer Friends View Controller-->
+        <!--Multiplayer Start View Controller-->
         <scene sceneID="nUT-p3-93C">
             <objects>
-                <viewController id="ehG-yn-gNz" customClass="MultiplayerFriendsViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ehG-yn-gNz" customClass="MultiplayerStartViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iVB-Mj-dhx"/>
                         <viewControllerLayoutGuide type="bottom" id="Ouq-rN-BwU"/>
@@ -276,7 +275,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="202" height="265"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="dQr-6G-thh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="dQr-6G-thh" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
                                                     <rect key="frame" x="39" y="31" width="108" height="101"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -302,6 +301,37 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvg-0C-Egd" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="271" y="134" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iBColor">
+                                        <color key="value" red="1" green="0.26144108690000001" blue="0.16583577699999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logOut:" destination="ehG-yn-gNz" eventType="touchUpInside" id="wsg-M9-Fo4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nP-oH-k6m" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="76" y="134" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iBColor">
+                                        <color key="value" red="0.2518792502114412" green="0.62793464469492388" blue="0.19462819766734948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchFriends:" destination="ehG-yn-gNz" eventType="touchUpInside" id="4VT-KB-2sb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -311,43 +341,101 @@
                             <constraint firstAttribute="trailing" secondItem="AEJ-W0-XYL" secondAttribute="trailing" id="UhB-cL-wLm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="jvn-wu-3IC"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="jvn-wu-3IC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G0-I5-O7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228.98550724637684" y="1221.1956521739132"/>
+            <point key="canvasLocation" x="-316" y="826"/>
         </scene>
-        <!--Multi Player Quiz Result View Controller-->
-        <scene sceneID="CeM-Ta-oD4">
+        <!--Mulitplayer Serach Friends Controller-->
+        <scene sceneID="z0j-ME-LyL">
             <objects>
-                <viewController id="LsC-kx-muR" userLabel="Multi Player Quiz Result View Controller" customClass="MultiplayerQuizResultViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MulitplayerSerachFriendsController" id="Jr2-vo-tEx" customClass="MulitplayerSerachFriendsController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HZ1-sS-QjW"/>
-                        <viewControllerLayoutGuide type="bottom" id="jwh-R6-LUy"/>
+                        <viewControllerLayoutGuide type="top" id="6a0-rZ-om1"/>
+                        <viewControllerLayoutGuide type="bottom" id="sdV-ip-UEF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="luW-D1-NIz">
+                    <view key="view" contentMode="scaleToFill" id="14n-Oy-G2D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="UHQ-Me-eyf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ify-dr-9MV">
+                                <rect key="frame" x="55" y="75" width="304" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wG0-g8-fkd">
+                                        <rect key="frame" x="0.0" y="44" width="304" height="416"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexColor" red="0.25666800820000002" green="0.37861580839999998" blue="0.62793464470000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.25666800820000002" green="0.37861580839999998" blue="0.62793464470000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="sectionIndexTrackingBackgroundColor" red="0.25666800820000002" green="0.37861580839999998" blue="0.62793464470000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchFriendsCell" rowHeight="84" id="ECe-UG-Hxu" customClass="SearchFriendsCell" customModule="QuizMaster" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="304" height="84"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECe-UG-Hxu" id="lJj-7i-gB7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="84"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="u2c-KY-pSs" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
+                                                            <rect key="frame" x="29" y="14" width="55" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fC9-h0-TuG">
+                                                            <rect key="frame" x="105" y="22" width="171" height="38"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <size key="shadowOffset" width="2" height="2"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.27532602313192084" green="0.26534352569551151" blue="0.44973429571522849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <outlet property="avatarImage" destination="u2c-KY-pSs" id="qQ1-sC-Fxp"/>
+                                                    <outlet property="nameLabel" destination="fC9-h0-TuG" id="jbh-hS-y4o"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Q4-Iz-Lnf">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMf-IG-3Cp" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="172" y="572" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iBColor">
+                                        <color key="value" red="1" green="0.26144108690000001" blue="0.16583577699999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancel:" destination="Jr2-vo-tEx" eventType="touchUpInside" id="qve-Ev-oae"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="UHQ-Me-eyf" firstAttribute="leading" secondItem="luW-D1-NIz" secondAttribute="leading" id="BhG-zS-71M"/>
-                            <constraint firstAttribute="bottom" secondItem="UHQ-Me-eyf" secondAttribute="bottom" id="UzT-PR-S7q"/>
-                            <constraint firstAttribute="trailing" secondItem="UHQ-Me-eyf" secondAttribute="trailing" id="ZVJ-Mw-aGv"/>
-                            <constraint firstItem="UHQ-Me-eyf" firstAttribute="top" secondItem="luW-D1-NIz" secondAttribute="top" id="eOf-CR-bxw"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.6046662733" green="0.64762095649999996" blue="0.66667223549999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Game history" id="Yh2-2t-DmG">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
+                    <connections>
+                        <outlet property="modalSubView" destination="Ify-dr-9MV" id="Dfw-VR-DDb"/>
+                        <outlet property="searchBar" destination="9Q4-Iz-Lnf" id="yIN-pK-wsc"/>
+                        <outlet property="searchFriendsTableView" destination="wG0-g8-fkd" id="s50-tG-Eim"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O6k-ne-Iwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Uj-Wc-wf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228.98550724637684" y="569.83695652173913"/>
+            <point key="canvasLocation" x="611.59420289855075" y="829.89130434782612"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tgr-8y-p0c">
@@ -359,13 +447,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="LsC-kx-muR" kind="relationship" relationship="viewControllers" id="VgU-no-xXF"/>
-                        <segue destination="ehG-yn-gNz" kind="relationship" relationship="viewControllers" id="tUm-lj-sh0"/>
+                        <segue destination="ehG-yn-gNz" kind="relationship" relationship="viewControllers" id="xay-6t-4Dd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBm-lI-e6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1158" y="920"/>
+            <point key="canvasLocation" x="-1316" y="826"/>
         </scene>
         <!--Add Local User View Controller-->
         <scene sceneID="Irr-jl-7wX">
@@ -462,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kw1-R1-ICT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1046" y="-1287"/>
+            <point key="canvasLocation" x="-1530" y="-1282"/>
         </scene>
         <!--Local Users View Controller-->
         <scene sceneID="Qwz-QT-Vk9">
@@ -595,7 +682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNM-oS-qve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1046.376811594203" y="-483.42391304347831"/>
+            <point key="canvasLocation" x="-1530" y="-361"/>
         </scene>
         <!--Select Category-->
         <scene sceneID="EAT-zm-uGo">
@@ -665,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUN-Ze-byd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110.14492753623189" y="-460.59782608695656"/>
+            <point key="canvasLocation" x="-594" y="-338"/>
         </scene>
         <!--Select Difficulty-->
         <scene sceneID="z92-ZY-cAp">
@@ -741,7 +828,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsh-wt-L52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744.79999999999995" y="-457.42128935532236"/>
+            <point key="canvasLocation" x="259" y="-336"/>
         </scene>
         <!--Start Quiz View Controller-->
         <scene sceneID="SC2-rS-kKJ">
@@ -883,7 +970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3F-XS-Wnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552.1739130434785" y="-468.75000000000006"/>
+            <point key="canvasLocation" x="1068" y="-346"/>
         </scene>
         <!--Quiz Finished View Controller-->
         <scene sceneID="vZv-Xt-Trl">
@@ -1029,7 +1116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJw-D3-lM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443.4782608695655" y="-466.304347826087"/>
+            <point key="canvasLocation" x="1959" y="-344"/>
         </scene>
     </scenes>
     <resources>
