@@ -26,6 +26,7 @@ class ParseDbManager {
         newQuizzer.email = email
         newQuizzer.password = password
         newQuizzer.avatarImage = PFFile(name: "\(username)_avatarImg.jpg", data: UIImageJPEGRepresentation(image, 1.0)!)
+        newQuizzer.friends = [Quizzer]()
 
         newQuizzer.signUpInBackground(block: {
             (sucess, error) in
@@ -52,7 +53,15 @@ class ParseDbManager {
         })
     }
 
-    func findUsers(containing stringPart: String, completion: (([Quizzer]?, Error?) -> Void)?) {
+    func bgUpdateQuizzer(quizzer: Quizzer, completion: ((Bool, Error?) -> Void)?) {
+        quizzer.saveInBackground(block: {
+            (bool, error) in
+            completion?(bool, error)
+        })
+
+    }
+
+    func bgFindQuizzers(containing stringPart: String, completion: (([Quizzer]?, Error?) -> Void)?) {
 
         let query = PFUser.query()!
         query.whereKey("username", contains: stringPart)
@@ -72,6 +81,21 @@ class ParseDbManager {
                 print("Could not cast to quizzers")
             }
 
+        })
+    }
+
+    func findFriendsOf(quizzer: Quizzer, completion: (([Quizzer]?, Error?) -> Void)?) {
+
+        var friendIds = [String]()
+        for friend in quizzer.friends! {
+            friendIds.append(friend.objectId!)
+        }
+        let query = PFUser.query()!
+        query.whereKey("objectId", containedIn: friendIds)
+        query.findObjectsInBackground(block: {
+            (friends, error) in
+
+            completion?(friends as? [Quizzer], error)
         })
 
     }

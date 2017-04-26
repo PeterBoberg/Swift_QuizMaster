@@ -44,10 +44,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lu4-0o-drD">
-                                <rect key="frame" x="72" y="98" width="270" height="540"/>
+                                <rect key="frame" x="72" y="142" width="270" height="496"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-Sc-xmK" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="265"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="243"/>
                                         <color key="backgroundColor" red="0.46411008879999999" green="0.46411008879999999" blue="0.46411008879999999" alpha="0.3341449058" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
                                         <size key="titleShadowOffset" width="3" height="2"/>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niS-HF-1rE" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="275" width="270" height="265"/>
+                                        <rect key="frame" x="0.0" y="253" width="270" height="243"/>
                                         <color key="backgroundColor" red="0.46411008879999999" green="0.46411008879999999" blue="0.46411008879999999" alpha="0.3341449058" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="25"/>
                                         <size key="titleShadowOffset" width="3" height="2"/>
@@ -261,43 +261,60 @@
                                 <rect key="frame" x="0.0" y="388" width="414" height="299"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v0v-P9-cjb">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v0v-P9-cjb">
                                     <size key="itemSize" width="202" height="265"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pzN-Ud-YMw">
-                                        <rect key="frame" x="0.0" y="0.0" width="202" height="265"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnlineFriendsCollectionViewCell" id="pzN-Ud-YMw" customClass="OnlineFriendsCollectionViewCell" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="17" width="202" height="265"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="202" height="265"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="dQr-6G-thh" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
-                                                    <rect key="frame" x="39" y="31" width="108" height="101"/>
+                                                    <rect key="frame" x="47" y="30" width="108" height="101"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEt-g7-sLA">
+                                                    <rect key="frame" x="34" y="142" width="135" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc7-Ja-liB">
-                                                    <rect key="frame" x="40" y="146" width="38" height="21"/>
+                                                    <rect key="frame" x="34" y="192" width="38" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="2" height="4"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Losses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-18-9N1">
-                                                    <rect key="frame" x="26" y="178" width="54" height="21"/>
+                                                    <rect key="frame" x="20" y="224" width="54" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="2" height="4"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.2446752958" green="0.35995020300000002" blue="0.5893678617" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="avatarImage" destination="dQr-6G-thh" id="xT5-fO-hjd"/>
+                                            <outlet property="lossesLabel" destination="pR4-18-9N1" id="Wbk-rr-2dy"/>
+                                            <outlet property="nameLabel" destination="JEt-g7-sLA" id="lUr-9R-dRj"/>
+                                            <outlet property="winsLabel" destination="kc7-Ja-liB" id="pdc-dv-RJu"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -342,10 +359,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="featured" id="jvn-wu-3IC"/>
+                    <connections>
+                        <outlet property="friendsCollectionView" destination="mJM-54-YXs" id="cNL-ST-zKB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G0-I5-O7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="826"/>
+            <point key="canvasLocation" x="-317.39130434782612" y="825.81521739130437"/>
         </scene>
         <!--Mulitplayer Serach Friends Controller-->
         <scene sceneID="z0j-ME-LyL">
@@ -568,7 +588,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rph-Ge-XhC">
-                                <rect key="frame" x="0.0" y="335" width="414" height="401"/>
+                                <rect key="frame" x="0.0" y="291" width="414" height="445"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ao9-KM-cf2">
                                     <size key="itemSize" width="245" height="314"/>
@@ -578,7 +598,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCollectionViewCell" id="09O-Z1-mY5" customClass="UserCollectionViewCell" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="43.666666666666664" width="245" height="314"/>
+                                        <rect key="frame" x="0.0" y="65.666666666666671" width="245" height="314"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="245" height="314"/>
@@ -648,7 +668,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-Uc-8xx" customClass="AddPlayerButton" customModule="QuizMaster" customModuleProvider="target">
-                                <rect key="frame" x="102" y="116" width="211" height="211"/>
+                                <rect key="frame" x="102" y="72" width="211" height="211"/>
                                 <color key="backgroundColor" red="0.46411008883248728" green="0.46411008883248728" blue="0.46411008883248728" alpha="0.3341449058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="H0H-3u-Msk"/>

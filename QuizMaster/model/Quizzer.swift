@@ -11,5 +11,6 @@ class Quizzer: PFUser {
 
 
     @NSManaged var avatarImage: PFFile?
+    @NSManaged var friends: [Quizzer]?
 
 }

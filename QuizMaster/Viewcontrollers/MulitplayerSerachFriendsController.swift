@@ -54,6 +54,23 @@ extension MulitplayerSerachFriendsController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Adding friend")
+        let chosenFiend = searchFriendsTableViewDatasource.searchResult[indexPath.row]
+        if let currentUser = ParseDbManager.shared.currentUser() {
+            currentUser.friends!.append(chosenFiend)
+            ParseDbManager.shared.bgUpdateQuizzer(quizzer: currentUser, completion: {
+
+                [weak self] (bool, error) in
+                guard error == nil else {
+                    //TODO better errorhandling in this method
+                    print(error)
+                    return
+                }
+
+                self?.dismiss(animated: true)
+
+            })
+
+        }
         self.dismiss(animated: true)
     }
 
@@ -66,7 +83,7 @@ extension MulitplayerSerachFriendsController: UISearchBarDelegate {
         print("Seraching....")
         searchBar.resignFirstResponder()
         let searchString = searchBar.text!
-        ParseDbManager.shared.findUsers(containing: searchString, completion: {
+        ParseDbManager.shared.bgFindQuizzers(containing: searchString, completion: {
             (quizzers, error) in
 
             guard error == nil else {
