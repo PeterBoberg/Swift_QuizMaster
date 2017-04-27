@@ -11,12 +11,12 @@ class QuizMatch: PFObject, PFSubclassing {
     @NSManaged var challenged: Quizzer?
     @NSManaged var category: Quizzer?
     @NSManaged var turn: Quizzer?
-    @NSManaged var finished: Bool?
-    @NSManaged var questionCount: Int?
-    @NSManaged var challengerCorrectAnswers: Int?
-    @NSManaged var challangedCorrectAnswers: Int?
+    @NSManaged var finished: NSNumber?
+    @NSManaged var questionCount: NSNumber?
+    @NSManaged var challengerCorrectAnswers: NSNumber?
+    @NSManaged var challangedCorrectAnswers: NSNumber?
     @NSManaged var winner: Quizzer?
-    @NSMAnaged var questions: [PQuizQuestion]?
+    @NSManaged var questions: [PQuizQuestion]?
 
     class func parseClassName() -> String {
         return "QuizMatch"

@@ -28,6 +28,7 @@ class ParseDbManager {
         newQuizzer.avatarImage = PFFile(name: "\(username)_avatarImg.jpg", data: UIImageJPEGRepresentation(image, 1.0)!)
         newQuizzer.friends = [Quizzer]()
 
+        
         newQuizzer.signUpInBackground(block: {
             (sucess, error) in
 
@@ -163,6 +164,89 @@ class ParseDbManager {
             return false
         }
         return false
+    }
+
+    func sendQuizChallengeBetween(challenger: Quizzer,
+                                  challenged: Quizzer,
+                                  catgory: Category,
+                                  completion: ((Bool, Error?) -> Void)?) {
+
+        let quizChallenge = QuizChallange()
+        quizChallenge.challenger = challenger
+        quizChallenge.challenged = challenged
+        quizChallenge.accepted = NSNumber(booleanLiteral: false)
+        quizChallenge.declined = NSNumber(booleanLiteral: false)
+        quizChallenge.turn = challenged
+        quizChallenge.category = catgory.rawValue
+
+        quizChallenge.saveInBackground(block: {
+            (bool, error) in
+            completion?(bool, error)
+        })
+    }
+
+    func checkPendingMatches(firstQuizzer: Quizzer, secondQuizzer: Quizzer, completion: @escaping ((Bool, Error?) -> Void)) {
+        let challerngerRequestQuery = QuizChallange.query()!
+        challerngerRequestQuery.whereKey("challenger", equalTo: firstQuizzer)
+        challerngerRequestQuery.whereKey("challenged", equalTo: secondQuizzer)
+
+        let challangedRequestQuery = QuizChallange.query()!
+        challangedRequestQuery.whereKey("challanger", equalTo: secondQuizzer)
+        challangedRequestQuery.whereKey("challanged", equalTo: firstQuizzer)
+
+        let challangeQuery = PFQuery.orQuery(withSubqueries: [challerngerRequestQuery, challangedRequestQuery])
+        challangeQuery.findObjectsInBackground(block: {
+            (challanges: [PFObject]?, error: Error?) in
+
+            guard error == nil else {
+                completion(false, error)
+                return
+            }
+
+            if let challanges = challanges as? [QuizChallange] {
+
+                guard challanges.count == 0 else {
+                    completion(true, nil)
+                    return
+                }
+                let quizMatchChallegerQuery = QuizMatch.query()!
+                quizMatchChallegerQuery.whereKey("challenger", equalTo: firstQuizzer)
+                quizMatchChallegerQuery.whereKey("challenged", equalTo: secondQuizzer)
+
+                let quizMatchChallangedQuery = QuizMatch.query()!
+                quizMatchChallangedQuery.whereKey("challenger", equalTo: secondQuizzer)
+                quizMatchChallangedQuery.whereKey("challenged", equalTo: firstQuizzer)
+
+                let quizMatchQuery = PFQuery.orQuery(withSubqueries: [quizMatchChallegerQuery, quizMatchChallangedQuery])
+                quizMatchQuery.findObjectsInBackground(block: {
+                    (quizMatches: [PFObject]?, error: Error?) in
+
+                    guard error == nil else {
+                        completion(false, error)
+                        return
+                    }
+
+                    if let quizMatches = quizMatches as? [QuizMatch] {
+                        guard quizMatches.count == 0 else {
+                            completion(true, nil)
+                            return
+                        }
+
+                        completion(false, nil)
+
+                    } else {
+                        print("could not cast to [QuizMatch]")
+                    }
+                })
+
+
+            } else {
+                print("Could not cast to [QuizChallege]")
+            }
+
+        })
+
+
     }
 
 

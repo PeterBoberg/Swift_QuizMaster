@@ -10,6 +10,7 @@ import UIKit
 
 class MultiplayerStartViewController: UIViewController {
 
+    @IBOutlet weak var currentUserLabel: UILabel!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
 
     let friendsCollectionViewDatasource = OnlineFriendsCollectionViewDatasource()
@@ -17,10 +18,12 @@ class MultiplayerStartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         friendsCollectionView.dataSource = friendsCollectionViewDatasource
+        friendsCollectionView.delegate = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteFriend(longPressRecognizer:)))
         longPress.minimumPressDuration = 1.0
         longPress.delaysTouchesBegan = true
         friendsCollectionView.addGestureRecognizer(longPress)
+        currentUserLabel.text = ParseDbManager.shared.currentQuizzer()?.username
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -109,6 +112,38 @@ extension MultiplayerStartViewController {
     }
 }
 
+
+
+//MARK: CollectionViewDelegate
+
+extension MultiplayerStartViewController: UICollectionViewDelegate {
+
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let chosenFriend = friendsCollectionViewDatasource.friends[indexPath.row]
+        let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
+        ParseDbManager.shared.checkPendingMatches(firstQuizzer: currentQuizzer, secondQuizzer: chosenFriend, completion: {
+            [weak self] (pendingMatches: Bool, error: Error?) in
+            guard  error == nil else {
+                print(error)
+                return
+            }
+            if !pendingMatches {
+                print("OK, proceeding")
+                let newMatchRequestVc = self?.storyboard?.instantiateViewController(withIdentifier: "MultiplayerNewMatchViewController") as! MultiplayerNewMatchViewController
+                newMatchRequestVc.challengedQuizzer = chosenFriend
+                self?.navigationController?.pushViewController(newMatchRequestVc, animated: true)
+
+            } else {
+                let alertController = UIAlertController(title: "OOps!", message: "You already have a game with \(chosenFriend.username)", preferredStyle: .actionSheet)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            }
+
+        })
+
+    }
+
+}
 
 //MARK: MultiplayerSearchFriendsControllerDelegate
 

@@ -47,6 +47,7 @@
 		B23A39591EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A39581EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift */; };
 		B23A395B1EB1044E00B1A40E /* SearchFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A395A1EB1044E00B1A40E /* SearchFriendsCell.swift */; };
 		B23A395D1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A395C1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift */; };
+		B25F14821EB27AF700DE9884 /* MultiplayerNewMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25F14811EB27AF700DE9884 /* MultiplayerNewMatchViewController.swift */; };
 		B26C43701EA80F55001357EE /* AppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B26C436E1EA80F55001357EE /* AppDatabase.xcdatamodeld */; };
 		B26C43751EA81005001357EE /* QuizGameResult+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C43711EA81005001357EE /* QuizGameResult+CoreDataClass.swift */; };
 		B26C43761EA81005001357EE /* QuizGameResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C43721EA81005001357EE /* QuizGameResult+CoreDataProperties.swift */; };
@@ -102,6 +103,7 @@
 		B23A395A1EB1044E00B1A40E /* SearchFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsCell.swift; sourceTree = "<group>"; };
 		B23A395C1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineFriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B25F14801EB2291E00DE9884 /* TransferQuestionsToParse.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransferQuestionsToParse.playground; sourceTree = "<group>"; };
+		B25F14811EB27AF700DE9884 /* MultiplayerNewMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerNewMatchViewController.swift; sourceTree = "<group>"; };
 		B26C436F1EA80F55001357EE /* AppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDatabase.xcdatamodel; sourceTree = "<group>"; };
 		B26C43711EA81005001357EE /* QuizGameResult+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuizGameResult+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B26C43721EA81005001357EE /* QuizGameResult+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuizGameResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		593DA07730A46660A1E8B2D2 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				B25F14811EB27AF700DE9884 /* MultiplayerNewMatchViewController.swift */,
 				B23A39581EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift */,
 				B2767C891EAFFA8800396C8A /* MultiplayerStartViewController.swift */,
 				B21B5BD01EAD3A9000A14213 /* ChooseModeViewController.swift */,
@@ -468,6 +471,7 @@
 				B23A39591EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift in Sources */,
 				593DABFA2183D2341F1B2CDC /* AppDelegate.swift in Sources */,
 				593DA7D6FABCAA8A37F878AC /* CategoryViewController.swift in Sources */,
+				B25F14821EB27AF700DE9884 /* MultiplayerNewMatchViewController.swift in Sources */,
 				B23A395B1EB1044E00B1A40E /* SearchFriendsCell.swift in Sources */,
 				B23A395D1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift in Sources */,
 				B26C43701EA80F55001357EE /* AppDatabase.xcdatamodeld in Sources */,
