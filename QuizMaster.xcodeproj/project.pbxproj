@@ -42,7 +42,7 @@
 		593DAF9B693E1CCDDD4C23AE /* AddPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA2ABC4FEEF7F15CDA920 /* AddPlayerButton.swift */; };
 		B21B5BD11EAD3A9100A14213 /* ChooseModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B5BD01EAD3A9000A14213 /* ChooseModeViewController.swift */; };
 		B21B5BD31EAD3EAD00A14213 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B5BD21EAD3EAD00A14213 /* LoginViewController.swift */; };
-		B23A39591EB0F8F000B1A40E /* MulitplayerSerachFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A39581EB0F8F000B1A40E /* MulitplayerSerachFriendsController.swift */; };
+		B23A39591EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A39581EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift */; };
 		B23A395B1EB1044E00B1A40E /* SearchFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A395A1EB1044E00B1A40E /* SearchFriendsCell.swift */; };
 		B23A395D1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A395C1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift */; };
 		B26C43701EA80F55001357EE /* AppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B26C436E1EA80F55001357EE /* AppDatabase.xcdatamodeld */; };
@@ -94,7 +94,7 @@
 		B0CE829C285896D74921DA91 /* Pods_QuizMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21B5BD01EAD3A9000A14213 /* ChooseModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseModeViewController.swift; sourceTree = "<group>"; };
 		B21B5BD21EAD3EAD00A14213 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B23A39581EB0F8F000B1A40E /* MulitplayerSerachFriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulitplayerSerachFriendsController.swift; sourceTree = "<group>"; };
+		B23A39581EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerSearchFriendsController.swift; sourceTree = "<group>"; };
 		B23A395A1EB1044E00B1A40E /* SearchFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsCell.swift; sourceTree = "<group>"; };
 		B23A395C1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineFriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		B26C436F1EA80F55001357EE /* AppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDatabase.xcdatamodel; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		593DA07730A46660A1E8B2D2 /* Viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
-				B23A39581EB0F8F000B1A40E /* MulitplayerSerachFriendsController.swift */,
+				B23A39581EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift */,
 				B2767C891EAFFA8800396C8A /* MultiplayerStartViewController.swift */,
 				B21B5BD01EAD3A9000A14213 /* ChooseModeViewController.swift */,
 				B21B5BD21EAD3EAD00A14213 /* LoginViewController.swift */,
@@ -457,7 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B23A39591EB0F8F000B1A40E /* MulitplayerSerachFriendsController.swift in Sources */,
+				B23A39591EB0F8F000B1A40E /* MultiplayerSearchFriendsController.swift in Sources */,
 				593DABFA2183D2341F1B2CDC /* AppDelegate.swift in Sources */,
 				593DA7D6FABCAA8A37F878AC /* CategoryViewController.swift in Sources */,
 				B23A395B1EB1044E00B1A40E /* SearchFriendsCell.swift in Sources */,

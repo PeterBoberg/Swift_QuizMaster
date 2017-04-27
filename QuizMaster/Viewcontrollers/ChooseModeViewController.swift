@@ -27,8 +27,8 @@ class ChooseModeViewController: UIViewController {
 
     @IBAction func onlineQuizMode(_ sender: UIButton) {
 
-        print(ParseDbManager.shared.currentUserIsLoggedIn())
-        if ParseDbManager.shared.currentUserIsLoggedIn() {
+        print(ParseDbManager.shared.currentQuizzerIsLoggedIn())
+        if ParseDbManager.shared.currentQuizzerIsLoggedIn() {
             startOnlineTrack()
         } else {
             presentLoginViewController()

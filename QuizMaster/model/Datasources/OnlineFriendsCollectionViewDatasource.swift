@@ -9,6 +9,7 @@ import UIKit
 class OnlineFriendsCollectionViewDatasource: NSObject, UICollectionViewDataSource {
 
     var friends = [Quizzer]()
+    weak var muliplayerStartViewController: MultiplayerStartViewController?
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return friends.count
@@ -20,22 +21,18 @@ class OnlineFriendsCollectionViewDatasource: NSObject, UICollectionViewDataSourc
         let friend = friends[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnlineFriendsCollectionViewCell", for: indexPath) as! OnlineFriendsCollectionViewCell
         cell.nameLabel.text = friend.username
-        if let imageFile = friend.avatarImage {
+        ParseDbManager.shared.downloadAvatarPictureFor(quizzer: friend, completion: {
+            (image, error) in
+            guard error == nil else {
+                print(error)
+                return
+            }
+            if let image = image {
+                cell.avatarImage.image = image
+            }
 
-            imageFile.getDataInBackground({
-                (data, error) in
-                guard error == nil else {
-                    print(error)
-                    return
-                }
-                if let data = data {
-                    cell.avatarImage.image = UIImage(data: data)
-                }
-            })
-        }
+        })
+
         return cell
-
-
     }
-
 }

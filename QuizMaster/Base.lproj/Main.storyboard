@@ -276,7 +276,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="dQr-6G-thh" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
-                                                    <rect key="frame" x="47" y="30" width="108" height="101"/>
+                                                    <rect key="frame" x="47" y="30" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEt-g7-sLA">
@@ -309,6 +309,7 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.2446752958" green="0.35995020300000002" blue="0.5893678617" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="avatarImage" destination="dQr-6G-thh" id="xT5-fO-hjd"/>
                                             <outlet property="lossesLabel" destination="pR4-18-9N1" id="Wbk-rr-2dy"/>
@@ -367,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="-317.39130434782612" y="825.81521739130437"/>
         </scene>
-        <!--Mulitplayer Serach Friends Controller-->
+        <!--Multiplayer Search Friends Controller-->
         <scene sceneID="z0j-ME-LyL">
             <objects>
-                <viewController storyboardIdentifier="MulitplayerSerachFriendsController" id="Jr2-vo-tEx" customClass="MulitplayerSerachFriendsController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MulitplayerSerachFriendsController" id="Jr2-vo-tEx" customClass="MultiplayerSearchFriendsController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6a0-rZ-om1"/>
                         <viewControllerLayoutGuide type="bottom" id="sdV-ip-UEF"/>
@@ -524,7 +525,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-HU-DQb">
-                                        <rect key="frame" x="156" y="262" width="73" height="36"/>
+                                        <rect key="frame" x="156" y="263" width="73" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="bKK-sv-nsq"/>
                                             <constraint firstAttribute="width" constant="73.000000000000028" id="tFI-mP-Gel"/>

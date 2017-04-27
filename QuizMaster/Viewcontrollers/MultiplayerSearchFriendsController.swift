@@ -1,5 +1,5 @@
 //
-//  MulitplayerSerachFriendsController.swift
+//  MultiplayerSearchFriendsController.swift
 //  QuizMaster
 //
 //  Created by Kung Peter on 2017-04-26.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MulitplayerSerachFriendsController: UIViewController {
+class MultiplayerSearchFriendsController: UIViewController {
 
     @IBOutlet weak var modalSubView: UIView!
     @IBOutlet weak var searchFriendsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
     let searchFriendsTableViewDatasource = SearchFriendsTableViewDataSource()
+    var delegate: MultiplayerSearchFriendsControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,38 +49,42 @@ class MulitplayerSerachFriendsController: UIViewController {
 
 }
 
+
 //Mark: TableViewDelegate
 
-extension MulitplayerSerachFriendsController: UITableViewDelegate {
+extension MultiplayerSearchFriendsController: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Adding friend")
         let chosenFiend = searchFriendsTableViewDatasource.searchResult[indexPath.row]
-        if let currentUser = ParseDbManager.shared.currentUser() {
+
+        if let currentUser = ParseDbManager.shared.currentQuizzer() {
+
             currentUser.friends!.append(chosenFiend)
             ParseDbManager.shared.bgUpdateQuizzer(quizzer: currentUser, completion: {
-
                 [weak self] (bool, error) in
+
                 guard error == nil else {
                     //TODO better errorhandling in this method
                     print(error)
                     return
                 }
 
+
                 self?.dismiss(animated: true)
+                self?.delegate?.didFinishSelectingNewFriend(quizzer: chosenFiend)
 
             })
-
         }
-        self.dismiss(animated: true)
     }
-
 }
 
 //MARK: SearchBarDelegate
 
-extension MulitplayerSerachFriendsController: UISearchBarDelegate {
+extension MultiplayerSearchFriendsController: UISearchBarDelegate {
+
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
         print("Seraching....")
         searchBar.resignFirstResponder()
         let searchString = searchBar.text!
@@ -98,7 +103,6 @@ extension MulitplayerSerachFriendsController: UISearchBarDelegate {
             } else {
                 print("Quizzers was nil")
             }
-
         })
     }
 
@@ -106,4 +110,9 @@ extension MulitplayerSerachFriendsController: UISearchBarDelegate {
         print("Cancel")
         searchBar.resignFirstResponder()
     }
+}
+
+protocol MultiplayerSearchFriendsControllerDelegate {
+
+    func didFinishSelectingNewFriend(quizzer: Quizzer)
 }

@@ -61,6 +61,7 @@ class ParseDbManager {
 
     }
 
+
     func bgFindQuizzers(containing stringPart: String, completion: (([Quizzer]?, Error?) -> Void)?) {
 
         let query = PFUser.query()!
@@ -84,12 +85,18 @@ class ParseDbManager {
         })
     }
 
+
     func findFriendsOf(quizzer: Quizzer, completion: (([Quizzer]?, Error?) -> Void)?) {
+
 
         var friendIds = [String]()
         for friend in quizzer.friends! {
             friendIds.append(friend.objectId!)
         }
+
+        print(currentQuizzer())
+        print(friendIds)
+
         let query = PFUser.query()!
         query.whereKey("objectId", containedIn: friendIds)
         query.findObjectsInBackground(block: {
@@ -100,16 +107,74 @@ class ParseDbManager {
 
     }
 
+    func deleteFriendOfQuizzer(quizzer: Quizzer, friend: Quizzer, completion: ((Bool, Error?) -> Void)?) {
 
-    func currentUser() -> Quizzer? {
+        if alreadyFriends(firstQuizzer: quizzer, secondQuizzer: friend) {
+            var friends = quizzer.friends!
+            print(friends)
+            for i in 0..<friends.count {
+                if friends[i].objectId == friend.objectId {
+                    friends.remove(at: i)
+                    break
+                }
+            }
+
+            quizzer.friends = friends
+            quizzer.saveInBackground(block: {
+                (bool, error) in
+                completion?(bool, error)
+            })
+        }
+    }
+
+    func downloadAvatarPictureFor(quizzer: Quizzer, completion: ((UIImage?, Error?) -> Void)?) {
+        if let imageFile = quizzer.avatarImage {
+            imageFile.getDataInBackground({
+                (data, error) in
+
+                guard error == nil else {
+                    completion?(nil, error)
+                    return
+                }
+
+                if let data = data {
+                    let image = UIImage(data: data)
+                    completion?(image, nil)
+                } else {
+                    // TODO implement better error handling here
+                    completion?(nil, nil)
+                }
+            })
+        }
+    }
+
+    func alreadyFriends(firstQuizzer: Quizzer, secondQuizzer: Quizzer) -> Bool {
+
+        if firstQuizzer.objectId == secondQuizzer.objectId {
+            return true
+        }
+
+        if let quizzerFriends = firstQuizzer.friends {
+            for friend in quizzerFriends {
+                if friend.objectId == secondQuizzer.objectId {
+                    return true
+                }
+            }
+            return false
+        }
+        return false
+    }
+
+
+    func currentQuizzer() -> Quizzer? {
         return PFUser.current() as! Quizzer
     }
 
-    func logOutCurrentUser() {
+    func logOutCurrentQuizzer() {
         PFUser.logOutInBackground()
     }
 
-    func currentUserIsLoggedIn() -> Bool {
+    func currentQuizzerIsLoggedIn() -> Bool {
         return PFUser.current() != nil
     }
 

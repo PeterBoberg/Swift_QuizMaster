@@ -13,4 +13,9 @@ class OnlineFriendsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var winsLabel: UILabel!
     @IBOutlet weak var lossesLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+
+
+    deinit {
+        print("OnlineFriendsCollectionViewCell destryoed")
+    }
 }
