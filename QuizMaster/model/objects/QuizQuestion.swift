@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Parse
 
 struct QuizQuestion {
 
@@ -25,4 +26,5 @@ struct QuizQuestion {
         self.correctAnswer = correctAnswer
         self.incorrectAnswers = incorrectAnswers
     }
+
 }
