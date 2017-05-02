@@ -62,7 +62,7 @@ extension MultiplayerStartViewController {
     fileprivate func downloadFriends() {
 
         let currentUser = ParseDbManager.shared.currentQuizzer()!
-        ParseDbManager.shared.findFriendsOf(quizzer: currentUser, completion: {
+        ParseDbManager.shared.bgFindFriendsOf(quizzer: currentUser, completion: {
 
             [weak self](friends, error) in
             guard error == nil else {
@@ -92,7 +92,7 @@ extension MultiplayerStartViewController {
                 alertController.addAction(UIAlertAction(title: "Yes, off you go!", style: .destructive, handler: {
                     (alertAction) in
                     let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
-                    ParseDbManager.shared.deleteFriendOfQuizzer(quizzer: currentQuizzer, friend: chosenFriend, completion: {
+                    ParseDbManager.shared.bgDeleteFriendOfQuizzer(quizzer: currentQuizzer, friend: chosenFriend, completion: {
                         [weak self] (success, error) in
                         guard error == nil else {
                             print(error)
@@ -122,7 +122,9 @@ extension MultiplayerStartViewController: UICollectionViewDelegate {
 
         let chosenFriend = friendsCollectionViewDatasource.friends[indexPath.row]
         let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
-        ParseDbManager.shared.checkPendingMatches(firstQuizzer: currentQuizzer, secondQuizzer: chosenFriend, completion: {
+
+        // Check if already involved in game
+        ParseDbManager.shared.bgCheckPendingMatches(firstQuizzer: currentQuizzer, secondQuizzer: chosenFriend, completion: {
             [weak self] (pendingMatches: Bool, error: Error?) in
             guard  error == nil else {
                 print(error)
@@ -135,14 +137,12 @@ extension MultiplayerStartViewController: UICollectionViewDelegate {
                 self?.navigationController?.pushViewController(newMatchRequestVc, animated: true)
 
             } else {
-                let alertController = UIAlertController(title: "OOps!", message: "You already have a game with \(chosenFriend.username)", preferredStyle: .actionSheet)
+                let alertController = UIAlertController(title: "OOps!", message: "You already have a game with \(chosenFriend.username!)", preferredStyle: .actionSheet)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                self?.present(alertController, animated: true)
             }
-
         })
-
     }
-
 }
 
 //MARK: MultiplayerSearchFriendsControllerDelegate

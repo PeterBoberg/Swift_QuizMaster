@@ -19,7 +19,7 @@ class SearchFriendsTableViewDataSource: NSObject, UITableViewDataSource {
         let quizzerToShow = searchResult[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchFriendsCell") as! SearchFriendsCell
         cell.nameLabel.text = quizzerToShow.username
-        ParseDbManager.shared.downloadAvatarPictureFor(quizzer: quizzerToShow, completion: {
+        ParseDbManager.shared.bgDownloadAvatarPictureFor(quizzer: quizzerToShow, completion: {
             (image, error) in
             guard error == nil else {
                 print(error)

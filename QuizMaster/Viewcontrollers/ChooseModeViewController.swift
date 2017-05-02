@@ -15,9 +15,15 @@ class ChooseModeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
 
     }
+
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+
 
     @IBAction func startLocalQuizMode(_ sender: UIButton) {
         let localUsersVc = self.storyboard?.instantiateViewController(withIdentifier: "LocalUsersViewController") as! LocalUsersViewController
@@ -42,6 +48,7 @@ class ChooseModeViewController: UIViewController {
 
 
 // MARK: Private methods
+
 extension ChooseModeViewController {
 
     fileprivate func presentLoginViewController() {
@@ -60,7 +67,8 @@ extension ChooseModeViewController {
 
 
 // MARK: LoginViewControllerDelegate
-extension ChooseModeViewController : LoginViewControllerDelegate {
+
+extension ChooseModeViewController: LoginViewControllerDelegate {
 
     func didFinishAuthenticating() {
         startOnlineTrack()

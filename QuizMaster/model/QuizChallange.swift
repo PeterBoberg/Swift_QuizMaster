@@ -9,9 +9,6 @@ class QuizChallange: PFObject, PFSubclassing {
 
     @NSManaged var challenger: Quizzer?
     @NSManaged var challenged: Quizzer?
-    @NSManaged var accepted: NSNumber?
-    @NSManaged var declined: NSNumber?
-    @NSManaged var turn: Quizzer?
     @NSManaged var category: String?
 
     class func parseClassName() -> String {

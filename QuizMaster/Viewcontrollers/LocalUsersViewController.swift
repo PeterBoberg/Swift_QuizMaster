@@ -13,7 +13,6 @@ class LocalUsersViewController: UIViewController {
     let userCollectionViewDataSource: UserCollectionViewDatasource = UserCollectionViewDatasource()
     let dbManager = LocalDbManager.shared
 
-
     @IBOutlet weak var usersCollectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -25,6 +24,7 @@ class LocalUsersViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("view did appear in local")
+        self.navigationController?.isNavigationBarHidden = false
         loadQuizPlayers()
     }
 
@@ -69,7 +69,7 @@ extension LocalUsersViewController: UICollectionViewDelegate {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let categoryVC = self.storyboard!.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
-        categoryVC.currentPlayer = userCollectionViewDataSource.quizPlayers[indexPath.row]
+        categoryVC.localQuizzer = userCollectionViewDataSource.quizPlayers[indexPath.row]
         self.navigationController?.pushViewController(categoryVC, animated: true)
     }
 

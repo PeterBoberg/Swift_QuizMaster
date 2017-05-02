@@ -21,7 +21,7 @@ class OnlineFriendsCollectionViewDatasource: NSObject, UICollectionViewDataSourc
         let friend = friends[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnlineFriendsCollectionViewCell", for: indexPath) as! OnlineFriendsCollectionViewCell
         cell.nameLabel.text = friend.username
-        ParseDbManager.shared.downloadAvatarPictureFor(quizzer: friend, completion: {
+        ParseDbManager.shared.bgDownloadAvatarPictureFor(quizzer: friend, completion: {
             (image, error) in
             guard error == nil else {
                 print(error)

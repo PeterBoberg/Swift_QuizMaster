@@ -9,12 +9,12 @@ class QuizMatch: PFObject, PFSubclassing {
 
     @NSManaged var challenger: Quizzer?
     @NSManaged var challenged: Quizzer?
-    @NSManaged var category: Quizzer?
+    @NSManaged var category: String?
     @NSManaged var turn: Quizzer?
     @NSManaged var finished: NSNumber?
     @NSManaged var questionCount: NSNumber?
     @NSManaged var challengerCorrectAnswers: NSNumber?
-    @NSManaged var challangedCorrectAnswers: NSNumber?
+    @NSManaged var challengedCorrectAnswers: NSNumber?
     @NSManaged var winner: Quizzer?
     @NSManaged var questions: [PQuizQuestion]?
 
