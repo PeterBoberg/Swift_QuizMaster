@@ -10,6 +10,7 @@ import UIKit
 
 class MultiplayerStartViewController: UIViewController {
 
+    @IBOutlet weak var currentUserImageView: AvatarImageView!
     @IBOutlet weak var currentUserLabel: UILabel!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
 
@@ -23,7 +24,19 @@ class MultiplayerStartViewController: UIViewController {
         longPress.minimumPressDuration = 1.0
         longPress.delaysTouchesBegan = true
         friendsCollectionView.addGestureRecognizer(longPress)
-        currentUserLabel.text = ParseDbManager.shared.currentQuizzer()?.username
+        let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
+        currentUserLabel.text = currentQuizzer.username
+        ParseDbManager.shared.bgDownloadAvatarPictureFor(quizzer: currentQuizzer, completion: {
+            [unowned self] (image, error) in
+
+            guard error == nil else {
+                //TODO better error handing
+                print(error)
+                return
+            }
+
+            self.currentUserImageView.image = image
+        })
     }
 
     override func viewDidAppear(_ animated: Bool) {

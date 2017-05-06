@@ -268,12 +268,14 @@ class ParseDbManager {
                 let quizMatchChallegerQuery = QuizMatch.query()!
                 quizMatchChallegerQuery.whereKey("challenger", equalTo: firstQuizzer)
                 quizMatchChallegerQuery.whereKey("challenged", equalTo: secondQuizzer)
+                quizMatchChallegerQuery.whereKey("finished", equalTo: NSNumber(booleanLiteral: false))
 
-                let quizMatchChallangedQuery = QuizMatch.query()!
-                quizMatchChallangedQuery.whereKey("challenger", equalTo: secondQuizzer)
-                quizMatchChallangedQuery.whereKey("challenged", equalTo: firstQuizzer)
+                let quizMatchChallengedQuery = QuizMatch.query()!
+                quizMatchChallengedQuery.whereKey("challenger", equalTo: secondQuizzer)
+                quizMatchChallengedQuery.whereKey("challenged", equalTo: firstQuizzer)
+                quizMatchChallengedQuery.whereKey("finished", equalTo: NSNumber(booleanLiteral: false))
 
-                let quizMatchQuery = PFQuery.orQuery(withSubqueries: [quizMatchChallegerQuery, quizMatchChallangedQuery])
+                let quizMatchQuery = PFQuery.orQuery(withSubqueries: [quizMatchChallegerQuery, quizMatchChallengedQuery])
                 quizMatchQuery.findObjectsInBackground(block: {
                     (quizMatches: [PFObject]?, error: Error?) in
 
@@ -313,7 +315,7 @@ class ParseDbManager {
     func getAllQuestionsFor(category: String, completion: @escaping ([PQuizQuestion]?, Error?) -> Void) {
 
         let query = PQuizQuestion.query()!
-        query.whereKey("category", equalTo: category)
+        query.whereKey("category", contains: category)
         query.findObjectsInBackground(block: {
             (questions, error) in
             completion(questions as? [PQuizQuestion], error)
@@ -343,6 +345,10 @@ class ParseDbManager {
             completion(success, error)
         })
 
+    }
+
+    func saveQuizMatch(quizMatch: QuizMatch, completion: ((Bool, Error?) -> Void)?) {
+        quizMatch.saveInBackground(block: completion)
     }
 
 

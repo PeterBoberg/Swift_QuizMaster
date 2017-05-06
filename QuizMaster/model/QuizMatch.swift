@@ -15,7 +15,6 @@ class QuizMatch: PFObject, PFSubclassing {
     @NSManaged var questionCount: NSNumber?
     @NSManaged var challengerCorrectAnswers: NSNumber?
     @NSManaged var challengedCorrectAnswers: NSNumber?
-    @NSManaged var winner: Quizzer?
     @NSManaged var questions: [PQuizQuestion]?
 
     class func parseClassName() -> String {

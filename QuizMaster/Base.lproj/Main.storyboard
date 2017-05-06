@@ -206,7 +206,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.086204765629999999" green="0.22757423439999999" blue="0.43034184640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TpJ-g8-UGw" firstAttribute="centerX" secondItem="4zZ-1f-apF" secondAttribute="centerX" id="R8d-k5-rMr"/>
                                     <constraint firstItem="kCg-Zw-L9d" firstAttribute="centerX" secondItem="4zZ-1f-apF" secondAttribute="centerX" id="a3L-tJ-a2W"/>
@@ -242,7 +242,7 @@
             </objects>
             <point key="canvasLocation" x="-1530" y="934"/>
         </scene>
-        <!--Multiplayer Start View Controller-->
+        <!--friends-->
         <scene sceneID="nUT-p3-93C">
             <objects>
                 <viewController id="ehG-yn-gNz" customClass="MultiplayerStartViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -257,22 +257,33 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="AEJ-W0-XYL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwo-Zz-Ggk" customClass="GradientBackgroundView" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="P2h-xV-7yO" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="142" y="18" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mJM-54-YXs">
-                                <rect key="frame" x="0.0" y="388" width="414" height="299"/>
+                                <rect key="frame" x="0.0" y="434" width="414" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v0v-P9-cjb">
-                                    <size key="itemSize" width="202" height="265"/>
+                                    <size key="itemSize" width="202" height="188"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OnlineFriendsCollectionViewCell" id="pzN-Ud-YMw" customClass="OnlineFriendsCollectionViewCell" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="17" width="202" height="265"/>
+                                        <rect key="frame" x="0.0" y="6.666666666666667" width="202" height="188"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="202" height="265"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="202" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="dQr-6G-thh" customClass="AvatarImageView" customModule="QuizMaster" customModuleProvider="target">
@@ -288,57 +299,19 @@
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Losses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-18-9N1">
-                                                    <rect key="frame" x="20" y="224" width="70" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="shadowOffset" width="2" height="2"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc7-Ja-liB">
-                                                    <rect key="frame" x="39" y="192" width="45" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="shadowOffset" width="2" height="2"/>
-                                                </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.086204765629999999" green="0.22757423439999999" blue="0.43034184640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="avatarImage" destination="dQr-6G-thh" id="xT5-fO-hjd"/>
-                                            <outlet property="lossesLabel" destination="pR4-18-9N1" id="Wbk-rr-2dy"/>
                                             <outlet property="nameLabel" destination="JEt-g7-sLA" id="lUr-9R-dRj"/>
-                                            <outlet property="winsLabel" destination="kc7-Ja-liB" id="pdc-dv-RJu"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pebo0620" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-n7-WGf">
-                                <rect key="frame" x="20" y="107" width="374" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="46"/>
-                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="2" height="2"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVh-WG-U5G">
-                                <rect key="frame" x="103" y="47" width="208" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
-                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="2" height="2"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvg-0C-Egd" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
-                                <rect key="frame" x="270" y="232" width="70" height="70"/>
+                                <rect key="frame" x="270" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -353,7 +326,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nP-oH-k6m" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
-                                <rect key="frame" x="75" y="232" width="70" height="70"/>
+                                <rect key="frame" x="75" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Search">
@@ -368,6 +341,15 @@
                                     <action selector="searchFriends:" destination="ehG-yn-gNz" eventType="touchUpInside" id="4VT-KB-2sb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="andrea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2H-n7-WGf">
+                                <rect key="frame" x="75" y="167" width="272" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="23"/>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -377,15 +359,16 @@
                             <constraint firstAttribute="trailing" secondItem="AEJ-W0-XYL" secondAttribute="trailing" id="UhB-cL-wLm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="jvn-wu-3IC"/>
+                    <tabBarItem key="tabBarItem" title="friends" image="friends" id="jvn-wu-3IC"/>
                     <connections>
+                        <outlet property="currentUserImageView" destination="P2h-xV-7yO" id="p9b-3K-FDy"/>
                         <outlet property="currentUserLabel" destination="I2H-n7-WGf" id="Iul-Kj-Q7H"/>
                         <outlet property="friendsCollectionView" destination="mJM-54-YXs" id="cNL-ST-zKB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G0-I5-O7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="2193"/>
+            <point key="canvasLocation" x="-3355" y="2197"/>
         </scene>
         <!--Multiplayer New Match View Controller-->
         <scene sceneID="KUY-LB-TEW">
@@ -411,8 +394,8 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="3" height="4"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Romperstomer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dR-TK-2lB">
-                                <rect key="frame" x="40" y="104" width="335" height="75"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Romperstomper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dR-TK-2lB">
+                                <rect key="frame" x="25" y="104" width="365" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="46"/>
                                 <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -467,25 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfd-VJ-YRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="2192"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="1zs-Mj-gKc">
-            <objects>
-                <viewController id="gwL-nB-a8Z" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GgO-CX-0K9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y2H-uj-2wQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="w1t-bL-HOo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VNw-cT-AVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1925" y="2740"/>
+            <point key="canvasLocation" x="-2420" y="2195"/>
         </scene>
         <!--Multiplayer Search Friends Controller-->
         <scene sceneID="z0j-ME-LyL">
@@ -533,7 +498,7 @@
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.086204765629999999" green="0.22757423439999999" blue="0.43034184640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="avatarImage" destination="u2c-KY-pSs" id="qQ1-sC-Fxp"/>
                                                     <outlet property="nameLabel" destination="fC9-h0-TuG" id="jbh-hS-y4o"/>
@@ -575,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Uj-Wc-wf0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-680" y="2937"/>
+            <point key="canvasLocation" x="-3355" y="2940"/>
         </scene>
         <!--Multiplayer Success Sent New Request View Controler-->
         <scene sceneID="1BR-Z5-Fgr">
@@ -612,7 +577,7 @@
                                         <size key="shadowOffset" width="4" height="4"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.1809563143" green="0.26602863570000002" blue="0.44973429570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U30-p5-Uc6" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
                                 <rect key="frame" x="172" y="470" width="70" height="70"/>
@@ -649,18 +614,104 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="WvR-w1-WBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.025935913705583791" green="0.025935913705583791" blue="0.025935913705583791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.17394658506855321" green="0.37636828365542163" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ehG-yn-gNz" kind="relationship" relationship="viewControllers" id="xay-6t-4Dd"/>
                         <segue destination="84e-mf-SZw" kind="relationship" relationship="viewControllers" id="49b-Ul-Jw0"/>
+                        <segue destination="BSF-zC-Wgb" kind="relationship" relationship="viewControllers" id="E0C-88-IaJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eBm-lI-e6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-594" y="933"/>
         </scene>
-        <!--Item-->
+        <!--Quiz history-->
+        <scene sceneID="9y8-qk-sMl">
+            <objects>
+                <viewController id="BSF-zC-Wgb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OYx-px-doz"/>
+                        <viewControllerLayoutGuide type="bottom" id="0hL-H1-nH2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CyE-Fh-TO1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="Um0-pn-Q0I">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz history" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-NU-BpU" customClass="TableViewHeaderLabel" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="28" y="49" width="178" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DpF-uJ-Ohy" customClass="RoundEdgeTableView" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="-9" y="75" width="429" height="489"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="119" id="MXs-7R-jqs" customClass="QuizHistoryTableViewCell" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="429" height="119"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MXs-7R-jqs" id="tTC-JP-yRC">
+                                            <rect key="frame" x="0.0" y="0.0" width="429" height="118.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="looser" translatesAutoresizingMaskIntoConstraints="NO" id="5Qk-Me-d4r">
+                                                    <rect key="frame" x="306" y="19" width="80" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Romperstomper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrL-Xi-0N1">
+                                                    <rect key="frame" x="93" y="23" width="187" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Science &amp; Nature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm8-Xf-1pC">
+                                                    <rect key="frame" x="93" y="72" width="173" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-qE-1h5">
+                                                    <rect key="frame" x="36" y="23" width="47" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Quiz history" image="gameHistory" id="Nuk-ee-pcb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meO-KW-x3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915.94202898550736" y="1800.8152173913045"/>
+        </scene>
+        <!--Requests-->
         <scene sceneID="U99-HI-ZFr">
             <objects>
                 <viewController id="84e-mf-SZw" customClass="MultiplayerRequestsViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -672,160 +723,165 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XmQ-WT-Myc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-iu-Tz3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-iu-Tz3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRM-dH-suh">
-                                        <rect key="frame" x="99" y="53" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz requests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-YS-tjR">
-                                        <rect key="frame" x="67" y="29" width="281" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="27"/>
-                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="2" height="2"/>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-dF-AuP" userLabel="Requests Table View" customClass="RoundEdgeTableView" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="41" y="91" width="333" height="240"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestTableViewCell" rowHeight="87" id="r1E-ad-xdy" customClass="RequestTableViewCell" customModule="QuizMaster" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="333" height="87"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r1E-ad-xdy" id="qKh-Xg-2yO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="87"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Romperstomper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-aO-TwE">
-                                                            <rect key="frame" x="20" y="8" width="180" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Science &amp; Nature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASG-nd-MLF">
-                                                            <rect key="frame" x="24" y="50" width="173" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.21550431499599895" green="0.40309835323197135" blue="0.43034184640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="categoryLabel" destination="ASG-nd-MLF" id="gwr-UL-JiJ"/>
-                                                    <outlet property="challengerLabel" destination="r4A-aO-TwE" id="Yf9-XJ-8pq"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kcP-Dk-SRE" userLabel="Matches Table View" customClass="RoundEdgeTableView" customModule="QuizMaster" customModuleProvider="target">
-                                        <rect key="frame" x="41" y="415" width="333" height="240"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizMatchTableviewCell" rowHeight="135" id="3EQ-0N-ufg" userLabel="Quizmatch Tablview Cell" customClass="QuizMatchTableViewCell" customModule="QuizMaster" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="333" height="135"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3EQ-0N-ufg" id="tXk-hO-S83">
-                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="134.66666666666666"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="andrea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Au7-pW-Fbt">
-                                                            <rect key="frame" x="8" y="8" width="144" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pebo0602" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWv-2Y-c3p">
-                                                            <rect key="frame" x="186" y="8" width="133" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA8-UI-f4Y">
-                                                            <rect key="frame" x="43" y="51" width="63" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-Hh-9pu">
-                                                            <rect key="frame" x="221" y="51" width="63" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Science and nature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNP-GU-DyX">
-                                                            <rect key="frame" x="67" y="93" width="199" height="33"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
-                                                            <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="shadowOffset" width="3" height="2"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.55314086289746189" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="categoryLabel" destination="XNP-GU-DyX" id="uD4-j4-2r0"/>
-                                                    <outlet property="challengedLabel" destination="HWv-2Y-c3p" id="G7w-yc-z0x"/>
-                                                    <outlet property="challengedScore" destination="l2h-Hh-9pu" id="iQL-2q-xMQ"/>
-                                                    <outlet property="challengerLabel" destination="Au7-pW-Fbt" id="dl8-wS-fP1"/>
-                                                    <outlet property="challgerScore" destination="YA8-UI-f4Y" id="Zve-Oc-J85"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Matches" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXy-7k-a42">
-                                        <rect key="frame" x="67" y="349" width="281" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="27"/>
-                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="2" height="2"/>
-                                    </label>
-                                </subviews>
-                            </scrollView>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Quizes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXy-7k-a42" customClass="TableViewHeaderLabel" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="28" y="361" width="178" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-dF-AuP" userLabel="Requests Table View" customClass="RoundEdgeTableView" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="-9" y="75" width="429" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.43414638421772278" green="0.60533051622173117" blue="0.68410929563857859" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestTableViewCell" rowHeight="87" id="r1E-ad-xdy" customClass="RequestTableViewCell" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="429" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r1E-ad-xdy" id="qKh-Xg-2yO">
+                                            <rect key="frame" x="0.0" y="0.0" width="429" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Romperstomper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-aO-TwE">
+                                                    <rect key="frame" x="41" y="8" width="180" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Science &amp; Nature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASG-nd-MLF">
+                                                    <rect key="frame" x="45" y="50" width="173" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="requestAccept" translatesAutoresizingMaskIntoConstraints="NO" id="sSX-vg-R7W">
+                                                    <rect key="frame" x="345" y="21" width="45" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="acceptableImageView" destination="sSX-vg-R7W" id="c6d-gB-Vbq"/>
+                                            <outlet property="categoryLabel" destination="ASG-nd-MLF" id="gwr-UL-JiJ"/>
+                                            <outlet property="challengerLabel" destination="r4A-aO-TwE" id="Yf9-XJ-8pq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quiz requests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-YS-tjR" customClass="TableViewHeaderLabel" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="28" y="49" width="178" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kcP-Dk-SRE" userLabel="Matches Table View" customClass="RoundEdgeTableView" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="-9" y="387" width="429" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizMatchTableviewCell" rowHeight="154" id="3EQ-0N-ufg" userLabel="Quizmatch Tablview Cell" customClass="QuizMatchTableViewCell" customModule="QuizMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="429" height="154"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3EQ-0N-ufg" id="tXk-hO-S83">
+                                            <rect key="frame" x="0.0" y="0.0" width="429" height="154"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="andrea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Au7-pW-Fbt">
+                                                    <rect key="frame" x="8" y="8" width="140" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pebo0602" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWv-2Y-c3p">
+                                                    <rect key="frame" x="269" y="9" width="130" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="22"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YA8-UI-f4Y">
+                                                    <rect key="frame" x="43" y="51" width="63" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fog-xT-xAZ">
+                                                    <rect key="frame" x="203" y="17" width="23" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-Hh-9pu">
+                                                    <rect key="frame" x="303" y="51" width="63" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="quizmatchAccept" translatesAutoresizingMaskIntoConstraints="NO" id="Pr5-uD-xe9">
+                                                    <rect key="frame" x="192" y="55" width="45" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Science and nature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNP-GU-DyX">
+                                                    <rect key="frame" x="115" y="108" width="199" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                                    <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="3" height="2"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.11053641518216495" green="0.56471651110872645" blue="0.12551072487100753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="acceptImageView" destination="Pr5-uD-xe9" id="HgA-6n-ATh"/>
+                                            <outlet property="categoryLabel" destination="XNP-GU-DyX" id="uD4-j4-2r0"/>
+                                            <outlet property="challengedLabel" destination="HWv-2Y-c3p" id="G7w-yc-z0x"/>
+                                            <outlet property="challengedScore" destination="l2h-Hh-9pu" id="iQL-2q-xMQ"/>
+                                            <outlet property="challengerLabel" destination="Au7-pW-Fbt" id="dl8-wS-fP1"/>
+                                            <outlet property="challgerScore" destination="YA8-UI-f4Y" id="Zve-Oc-J85"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XmQ-WT-Myc" firstAttribute="top" secondItem="Gxl-CX-yby" secondAttribute="top" id="42V-9S-3Zh"/>
-                            <constraint firstItem="XmQ-WT-Myc" firstAttribute="leading" secondItem="Gxl-CX-yby" secondAttribute="leading" id="F9T-kL-Bf8"/>
-                            <constraint firstAttribute="bottom" secondItem="XmQ-WT-Myc" secondAttribute="bottom" id="Tno-5d-8Df"/>
-                            <constraint firstAttribute="trailing" secondItem="XmQ-WT-Myc" secondAttribute="trailing" id="WEF-Sn-5dK"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Euw-qF-Xks"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="request" id="Euw-qF-Xks"/>
                     <connections>
                         <outlet property="matchesTableView" destination="kcP-Dk-SRE" id="4Xh-f3-Fhr"/>
                         <outlet property="requestsTableView" destination="BJM-dF-AuP" id="ztn-zz-tb9"/>
@@ -833,7 +889,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TjJ-fE-RWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730.43478260869574" y="1606.7934782608697"/>
+            <point key="canvasLocation" x="-594.20289855072474" y="3473.6413043478265"/>
         </scene>
         <!--Add Local User View Controller-->
         <scene sceneID="Irr-jl-7wX">
@@ -885,7 +941,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-HU-DQb">
-                                        <rect key="frame" x="156" y="262.66666666666669" width="73" height="36"/>
+                                        <rect key="frame" x="156" y="263.66666666666669" width="73" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="bKK-sv-nsq"/>
                                             <constraint firstAttribute="width" constant="73.000000000000028" id="tFI-mP-Gel"/>
@@ -1351,7 +1407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3F-XS-Wnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="-858"/>
+            <point key="canvasLocation" x="4072" y="-867"/>
         </scene>
         <!--Quiz Finished View Controller-->
         <scene sceneID="vZv-Xt-Trl">
@@ -1481,7 +1537,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.20066624365482233" green="0.20066624365482233" blue="0.20066624365482233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uGe-Gr-kPT" firstAttribute="centerX" secondItem="DRv-JL-Sym" secondAttribute="centerX" id="T0L-o2-4Kz"/>
                             <constraint firstItem="uGe-Gr-kPT" firstAttribute="centerY" secondItem="DRv-JL-Sym" secondAttribute="centerY" id="ZVy-7Q-qaz"/>
@@ -1499,14 +1555,422 @@
             </objects>
             <point key="canvasLocation" x="4901" y="-866"/>
         </scene>
+        <!--Multiplayer Start Quiz View Controller-->
+        <scene sceneID="tDf-KD-H85">
+            <objects>
+                <viewController storyboardIdentifier="MultiplayerStartQuizViewController" id="jLt-a8-tBV" customClass="MultiplayerStartQuizViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fcV-Jq-Au8"/>
+                        <viewControllerLayoutGuide type="bottom" id="i5l-hu-1zY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D4l-Qy-sxz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionBg" translatesAutoresizingMaskIntoConstraints="NO" id="gb0-8t-bng">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB0-8t-l4j">
+                                <rect key="frame" x="72" y="193" width="270" height="168"/>
+                                <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="ydU-Kk-EeZ"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut ullamco laboris nisi ut aliquip </string>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="mBu-KB-lld" userLabel="Time Slider">
+                                <rect key="frame" x="72" y="391" width="270" height="2.6666666666666856"/>
+                                <color key="progressTintColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF7-1W-xg3">
+                                <rect key="frame" x="72" y="423" width="270" height="253"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OQI-d4-48i" userLabel="Answer Button Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="253"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="centerX" secondItem="UF7-1W-xg3" secondAttribute="centerX" id="AmW-q7-Uce"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="leading" secondItem="UF7-1W-xg3" secondAttribute="leading" id="Dd3-Bh-O6Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="OQI-d4-48i" secondAttribute="trailing" id="HIv-kk-7Cy"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="leading" secondItem="UF7-1W-xg3" secondAttribute="leading" id="KEM-B9-1OL"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="leading" secondItem="UF7-1W-xg3" secondAttribute="leading" id="NVh-eI-1Jh"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="top" secondItem="UF7-1W-xg3" secondAttribute="top" id="WRo-y0-OE0"/>
+                                    <constraint firstAttribute="trailing" secondItem="OQI-d4-48i" secondAttribute="trailing" id="aVv-SC-BUj"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="top" secondItem="UF7-1W-xg3" secondAttribute="top" id="aby-o7-ymL"/>
+                                    <constraint firstAttribute="trailing" secondItem="OQI-d4-48i" secondAttribute="trailing" id="fvy-P1-ZRI"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="centerY" secondItem="UF7-1W-xg3" secondAttribute="centerY" id="kFi-3c-JMM"/>
+                                    <constraint firstAttribute="bottom" secondItem="OQI-d4-48i" secondAttribute="bottom" id="koC-ek-pgJ"/>
+                                    <constraint firstItem="OQI-d4-48i" firstAttribute="top" secondItem="UF7-1W-xg3" secondAttribute="top" id="lNG-Ac-0yl"/>
+                                    <constraint firstAttribute="bottom" secondItem="OQI-d4-48i" secondAttribute="bottom" id="ml9-xo-xG8"/>
+                                    <constraint firstAttribute="bottom" secondItem="OQI-d4-48i" secondAttribute="bottom" id="qFu-Pr-jAx"/>
+                                </constraints>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correctAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="oDN-eU-GQF">
+                                <rect key="frame" x="71" y="86" width="50" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="aea-OP-vc5"/>
+                                    <constraint firstAttribute="height" constant="47" id="q9d-I9-Reb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incorrectAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="k94-33-bhr">
+                                <rect key="frame" x="292" y="86" width="50" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="Yuv-Uz-w5X"/>
+                                    <constraint firstAttribute="width" constant="50" id="muK-lf-zVO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeB-nc-9ef">
+                                <rect key="frame" x="310" y="144" width="15" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wg-c7-wYh">
+                                <rect key="frame" x="89" y="144" width="15" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDz-sI-9wh">
+                                <rect key="frame" x="182" y="83" width="50" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="OtC-Gc-GPn"/>
+                                    <constraint firstAttribute="width" constant="50" id="ku8-XO-QUS"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="speech"/>
+                                <connections>
+                                    <action selector="toggleSpeech:" destination="jLt-a8-tBV" eventType="touchUpInside" id="VjX-bA-ToQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qeB-nc-9ef" firstAttribute="leading" secondItem="gb0-8t-bng" secondAttribute="trailing" constant="-104" id="3mE-ph-cL7"/>
+                            <constraint firstItem="aB0-8t-l4j" firstAttribute="top" secondItem="fcV-Jq-Au8" secondAttribute="bottom" constant="173" id="4ba-PT-OKy"/>
+                            <constraint firstItem="cDz-sI-9wh" firstAttribute="top" secondItem="fcV-Jq-Au8" secondAttribute="bottom" constant="63" id="5nh-RH-OSI"/>
+                            <constraint firstItem="oDN-eU-GQF" firstAttribute="leading" secondItem="D4l-Qy-sxz" secondAttribute="leadingMargin" constant="51" id="A95-aN-KKt"/>
+                            <constraint firstItem="mBu-KB-lld" firstAttribute="leading" secondItem="aB0-8t-l4j" secondAttribute="leading" id="ACG-D9-8iP"/>
+                            <constraint firstItem="mBu-KB-lld" firstAttribute="trailing" secondItem="aB0-8t-l4j" secondAttribute="trailing" id="Cbb-VX-jwQ"/>
+                            <constraint firstItem="aB0-8t-l4j" firstAttribute="trailing" secondItem="D4l-Qy-sxz" secondAttribute="trailingMargin" constant="-52" id="DNJ-m6-kxB"/>
+                            <constraint firstItem="i5l-hu-1zY" firstAttribute="top" secondItem="gb0-8t-bng" secondAttribute="bottom" id="HXj-4R-vxn"/>
+                            <constraint firstItem="gb0-8t-bng" firstAttribute="top" secondItem="D4l-Qy-sxz" secondAttribute="top" id="LJT-4Y-T3a"/>
+                            <constraint firstItem="UF7-1W-xg3" firstAttribute="leading" secondItem="aB0-8t-l4j" secondAttribute="leading" id="QfF-H0-cyv"/>
+                            <constraint firstItem="mBu-KB-lld" firstAttribute="top" secondItem="aB0-8t-l4j" secondAttribute="bottom" constant="30" id="Sxg-Cr-qUM"/>
+                            <constraint firstItem="oDN-eU-GQF" firstAttribute="top" secondItem="fcV-Jq-Au8" secondAttribute="bottom" constant="66" id="Whb-5Z-lxQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k94-33-bhr" secondAttribute="trailing" constant="52" id="YRd-g3-mhu"/>
+                            <constraint firstItem="cDz-sI-9wh" firstAttribute="centerX" secondItem="D4l-Qy-sxz" secondAttribute="centerX" id="Zs5-9O-vl7"/>
+                            <constraint firstItem="i5l-hu-1zY" firstAttribute="top" secondItem="UF7-1W-xg3" secondAttribute="bottom" constant="60" id="agN-KT-XYr"/>
+                            <constraint firstItem="UF7-1W-xg3" firstAttribute="trailing" secondItem="aB0-8t-l4j" secondAttribute="trailing" id="faA-Jp-XSy"/>
+                            <constraint firstItem="k94-33-bhr" firstAttribute="top" secondItem="fcV-Jq-Au8" secondAttribute="bottom" constant="66" id="g6a-xv-8LC"/>
+                            <constraint firstItem="0wg-c7-wYh" firstAttribute="top" secondItem="oDN-eU-GQF" secondAttribute="bottom" constant="11" id="gdO-hz-OVo"/>
+                            <constraint firstItem="qeB-nc-9ef" firstAttribute="top" secondItem="k94-33-bhr" secondAttribute="bottom" constant="11" id="lBR-PV-54G"/>
+                            <constraint firstItem="UF7-1W-xg3" firstAttribute="top" secondItem="aB0-8t-l4j" secondAttribute="bottom" constant="61.666666666666742" id="pg9-m0-LKf"/>
+                            <constraint firstItem="gb0-8t-bng" firstAttribute="leading" secondItem="0wg-c7-wYh" secondAttribute="trailing" constant="-104" id="tyt-qu-aT2"/>
+                            <constraint firstItem="aB0-8t-l4j" firstAttribute="leading" secondItem="D4l-Qy-sxz" secondAttribute="leadingMargin" constant="52" id="w6c-Bp-Vcn"/>
+                            <constraint firstItem="gb0-8t-bng" firstAttribute="leading" secondItem="D4l-Qy-sxz" secondAttribute="leading" id="yVy-Yc-Wd2"/>
+                            <constraint firstAttribute="trailing" secondItem="gb0-8t-bng" secondAttribute="trailing" id="ydX-di-YAl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="answerButtonScrollView" destination="UF7-1W-xg3" id="pTR-Sn-pf1"/>
+                        <outlet property="answerButtonStackView" destination="OQI-d4-48i" id="Y5v-Bi-yrr"/>
+                        <outlet property="correctGuessesLabel" destination="0wg-c7-wYh" id="MRg-uy-jEH"/>
+                        <outlet property="incorrectGuessesLabel" destination="qeB-nc-9ef" id="haZ-Sj-WFF"/>
+                        <outlet property="leftMarginConstraint" destination="w6c-Bp-Vcn" id="TIZ-CP-ze1"/>
+                        <outlet property="questionTextView" destination="aB0-8t-l4j" id="Flu-Of-edo"/>
+                        <outlet property="rightMarginConstraint" destination="DNJ-m6-kxB" id="Eab-xW-hMM"/>
+                        <outlet property="timeSlider" destination="mBu-KB-lld" id="mHM-60-8am"/>
+                        <outlet property="toggleSpeechButton" destination="cDz-sI-9wh" id="RgW-vr-hbh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9C-g6-Liw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="3463"/>
+        </scene>
+        <!--Multiplayer Quiz Finished View Controller-->
+        <scene sceneID="nTU-yW-tAs">
+            <objects>
+                <viewController storyboardIdentifier="MultiplayerQuizFinishedViewController" id="vdC-zf-BOq" customClass="MultiplayerQuizFinishedViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sag-s5-oNM"/>
+                        <viewControllerLayoutGuide type="bottom" id="fJo-Qr-OwD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zek-6P-nQ3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwT-V1-A61">
+                                <rect key="frame" x="44" y="89" width="327" height="509"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match is over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eW-y2-Xg5">
+                                        <rect key="frame" x="30" y="38" width="266" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winner is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg0-AK-X9C">
+                                        <rect key="frame" x="102" y="279" width="122" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Andrea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh5-OZ-sMh">
+                                        <rect key="frame" x="30" y="326" width="266" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="winner" translatesAutoresizingMaskIntoConstraints="NO" id="Aeo-Wk-bYi">
+                                        <rect key="frame" x="125" y="384" width="76" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Andrea" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8g-El-jj3">
+                                        <rect key="frame" x="30" y="95" width="113" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLf-W6-0B9">
+                                        <rect key="frame" x="152" y="96" width="22" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pebo0602" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-4W-Qtz">
+                                        <rect key="frame" x="192" y="94" width="104" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ri-gr-amm">
+                                        <rect key="frame" x="88" y="150" width="24" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="4" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HO5-wG-5yl">
+                                        <rect key="frame" x="88" y="207" width="24" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="4" height="2"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="correctAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="9V5-5y-C20">
+                                        <rect key="frame" x="30" y="148" width="37" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="incorrectAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="6jM-SX-y0j">
+                                        <rect key="frame" x="30" y="213" width="37" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpS-k7-pQU">
+                                        <rect key="frame" x="263" y="149" width="24" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="4" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDd-wv-rnm">
+                                        <rect key="frame" x="263" y="206" width="24" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="4" height="2"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="correctAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="83f-nn-e36">
+                                        <rect key="frame" x="205" y="147" width="37" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="incorrectAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="x48-IX-afy">
+                                        <rect key="frame" x="205" y="212" width="37" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6B-0K-Lf5" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="172" y="624" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iBColor">
+                                        <color key="value" red="0.25187925020000002" green="0.62793464470000004" blue="0.19462819770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToStartViewController:" destination="ljF-qP-fKS" eventType="touchUpInside" id="vjv-3u-tMP"/>
+                                    <action selector="cancel:" destination="Jr2-vo-tEx" eventType="touchUpInside" id="DPD-LO-K50"/>
+                                    <action selector="goBack:" destination="9M0-iU-Hnc" eventType="touchUpInside" id="DrL-Te-8H5"/>
+                                    <action selector="goBack:" destination="vdC-zf-BOq" eventType="touchUpInside" id="VJL-kG-3jw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="challengedCorrectGuessesLabel" destination="LpS-k7-pQU" id="usz-Ba-2Ge"/>
+                        <outlet property="challengedIncorrectLabel" destination="yDd-wv-rnm" id="DCw-gF-W5a"/>
+                        <outlet property="challengedNameLabel" destination="vMk-4W-Qtz" id="JQh-4W-c5x"/>
+                        <outlet property="challengerCorrectGuessesLabel" destination="1Ri-gr-amm" id="TWx-LW-ZTS"/>
+                        <outlet property="challengerIncorrectGuessesLabel" destination="HO5-wG-5yl" id="hc0-Bf-6zO"/>
+                        <outlet property="challengerNameLabel" destination="w8g-El-jj3" id="csR-lQ-G3F"/>
+                        <outlet property="modalSubView" destination="qwT-V1-A61" id="yXM-np-Mb0"/>
+                        <outlet property="winnerLabel" destination="sh5-OZ-sMh" id="du4-Mg-JTq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ln8-VX-t6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1390" y="3857"/>
+        </scene>
+        <!--Multiplayer Quiz Round Passover View Controller-->
+        <scene sceneID="xgi-iG-2mH">
+            <objects>
+                <viewController storyboardIdentifier="MultiplayerQuizRoundPassoverViewController" id="9M0-iU-Hnc" customClass="MultiplayerQuizRoundPassoverViewController" customModule="QuizMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4S0-gR-Ppl"/>
+                        <viewControllerLayoutGuide type="bottom" id="u0z-1X-Pvl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="695-fL-o8k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jXE-go-bHx">
+                                <rect key="frame" x="47" y="76" width="327" height="509"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You got" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Su0-Yy-h41">
+                                        <rect key="frame" x="88" y="324" width="146" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="correct answers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ets-yl-2r7">
+                                        <rect key="frame" x="66" y="422" width="194" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passing over to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXY-2s-K9Z">
+                                        <rect key="frame" x="40" y="40" width="246" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Andrea" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bri-47-562">
+                                        <rect key="frame" x="40" y="87" width="246" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paperPlane" translatesAutoresizingMaskIntoConstraints="NO" id="ygv-PL-4XY">
+                                        <rect key="frame" x="65" y="153" width="197" height="157"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5v-Yo-AjR">
+                                        <rect key="frame" x="120" y="361" width="82" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="46"/>
+                                        <color key="textColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.04691231907" green="0.21234746330000001" blue="0.31420526650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khp-dl-YnW" customClass="CircularButton" customModule="QuizMaster" customModuleProvider="target">
+                                <rect key="frame" x="173" y="614" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="0.95298619920000005" green="0.94925394139999997" blue="0.79058515029999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iBColor">
+                                        <color key="value" red="0.25187925020000002" green="0.62793464470000004" blue="0.19462819770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToStartViewController:" destination="ljF-qP-fKS" eventType="touchUpInside" id="bp9-bD-fp4"/>
+                                    <action selector="cancel:" destination="Jr2-vo-tEx" eventType="touchUpInside" id="W8t-iO-o7g"/>
+                                    <action selector="goBack:" destination="9M0-iU-Hnc" eventType="touchUpInside" id="O5u-78-8DC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="correctAnswersLabel" destination="T5v-Yo-AjR" id="Ycn-Pa-0bH"/>
+                        <outlet property="modalSubView" destination="jXE-go-bHx" id="sVq-4x-IHz"/>
+                        <outlet property="opponentNameLabel" destination="bri-47-562" id="vHJ-ly-GPY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61h-oS-rR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="3097"/>
+        </scene>
     </scenes>
     <resources>
         <image name="correctAnswer" width="42" height="42"/>
         <image name="defaultUser" width="85" height="85"/>
+        <image name="friends" width="21" height="21"/>
+        <image name="gameHistory" width="21" height="21"/>
         <image name="hiScore" width="42" height="42"/>
         <image name="incorrectAnswer" width="42" height="42"/>
+        <image name="looser" width="85" height="85"/>
+        <image name="paperPlane" width="170" height="170"/>
         <image name="questionBg" width="163" height="198"/>
+        <image name="quizmatchAccept" width="85" height="85"/>
+        <image name="request" width="21" height="21"/>
+        <image name="requestAccept" width="85" height="85"/>
         <image name="speech" width="85" height="85"/>
         <image name="total" width="85" height="85"/>
+        <image name="winner" width="85" height="85"/>
     </resources>
 </document>

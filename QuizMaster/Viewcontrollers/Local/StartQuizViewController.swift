@@ -321,6 +321,7 @@ extension StartQuizViewController {
         return button
     }
 
+
     fileprivate func emptyAnswerButtons() {
         for view in answerButtonStackView.subviews {
             view.removeFromSuperview()
@@ -329,7 +330,7 @@ extension StartQuizViewController {
 
 }
 
-private enum Direction {
+public enum Direction {
     case awayFromScreen, backToScreen
 
 }

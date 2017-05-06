@@ -24,6 +24,8 @@ class MultiplayerRequestsViewController: UIViewController {
         matchesTableView.dataSource = matchesTableViewDatasource
         requestsTableView.delegate = self
         matchesTableView.delegate = self
+        matchesTableView.tableFooterView = UIView()
+        requestsTableView.tableFooterView = UIView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -83,13 +85,11 @@ extension MultiplayerRequestsViewController {
             }
 
             if let matches = matches {
+
                 self?.matchesTableViewDatasource.currentMatches = matches
                 self?.matchesTableView.reloadData()
             }
-
         })
-
-
     }
 
     fileprivate func handleRequestsTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -124,5 +124,9 @@ extension MultiplayerRequestsViewController {
     }
 
     fileprivate func handleMatcherTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let quizMatch = matchesTableViewDatasource.currentMatches[indexPath.row]
+        let startQuizVc = self.storyboard?.instantiateViewController(withIdentifier: "MultiplayerStartQuizViewController") as! MultiplayerStartQuizViewController
+        startQuizVc.quizMatch = quizMatch
+        self.navigationController?.pushViewController(startQuizVc, animated: true)
     }
 }

@@ -21,14 +21,16 @@ class RequestsTableViewDatasource: NSObject, UITableViewDataSource {
 
         if challenge.challenger!.username == ParseDbManager.shared.currentQuizzer()!.username {
             cell.challengerLabel.text = challenge.challenged?.username
-            cell.contentView.backgroundColor = UIColor.lightGray
-            cell.isUserInteractionEnabled = false
+            cell.setAcceptable(false)
         } else {
             cell.challengerLabel.text = challenge.challenger?.username
-            cell.contentView.backgroundColor = UIColor(red: 22 / 255, green: 58 / 255, blue: 110 / 255, alpha: 1.0)
-            cell.isUserInteractionEnabled = true
+            cell.setAcceptable(true)
         }
         return cell
+    }
+
+    deinit {
+        print("RequestsTableViewDatasource destryed")
     }
 
 }

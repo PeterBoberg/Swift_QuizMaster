@@ -21,7 +21,7 @@ class MultiplayerSearchFriendsController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
         self.modalSubView.layer.borderWidth = 2
-        self.modalSubView.layer.borderColor = UIColor.yellow.cgColor
+        self.modalSubView.layer.borderColor = UIColor.gray.cgColor
         self.modalSubView.layer.cornerRadius = 10
         self.modalSubView.layer.masksToBounds = true
 
@@ -30,6 +30,7 @@ class MultiplayerSearchFriendsController: UIViewController {
 
         self.searchBar.delegate = self
         self.searchFriendsTableView.delegate = self
+        self.searchFriendsTableView.tableFooterView = UIView()
 
     }
 

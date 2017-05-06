@@ -17,24 +17,15 @@ class MatchesTableViewDatasource: NSObject, UITableViewDataSource {
         let quizMatch = currentMatches[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuizMatchTableviewCell") as! QuizMatchTableViewCell
 
-        print(quizMatch.challenger?.username)
         cell.challengerLabel.text = quizMatch.challenger?.username
-
-        print(quizMatch.challenged?.username)
         cell.challengedLabel.text = quizMatch.challenged?.username
-
-        print(quizMatch.category)
         cell.categoryLabel.text = quizMatch.category
-
-        print(quizMatch.challengerCorrectAnswers)
-        print(quizMatch.challengedCorrectAnswers)
 
         let challengerScore = quizMatch.challengerCorrectAnswers as! Int
         let challengedScore = quizMatch.challengedCorrectAnswers as! Int
         cell.challgerScore.text = (challengerScore > -1) ? String(challengedScore) : "Waiting"
         cell.challengedScore.text = (challengedScore > -1) ? String(challengedScore) : "Waiting"
 
-        print(quizMatch.turn?.username)
         if quizMatch.turn!.username == ParseDbManager.shared.currentQuizzer()!.username {
             cell.setStartable(true)
         } else {

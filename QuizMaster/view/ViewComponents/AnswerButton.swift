@@ -12,7 +12,7 @@ class AnswerButton: UIButton {
 
     public func makeRounded() {
 
-        self.layer.borderColor = UIColor.yellow.cgColor
+        self.layer.borderColor = UIColor.gray.cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 10
         self.clipsToBounds = true

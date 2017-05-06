@@ -12,7 +12,7 @@ class AvatarImageView: UIImageView {
         super.init(coder: aDecoder)
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.borderWidth = 5
-        self.layer.borderColor = UIColor(red: 12/255, green: 39/255, blue: 25/255, alpha: 1.0).cgColor
+        self.layer.borderColor = UIColor(red: 0/255, green: 115/255, blue: 153/255, alpha: 1.0).cgColor
         self.clipsToBounds = true
     }
 }

@@ -43,6 +43,72 @@ class GameEngine {
         })
     }
 
+
+    func handleQuizRoundFinished(quizMatch: QuizMatch?, correctAnswers: Int, completion: ((Bool, Error?) -> Void)?) {
+
+        guard let quizMatch = quizMatch else {
+            print("Quizmatch was nil")
+            return
+        }
+        guard let challenger = quizMatch.challenger, let challenged = quizMatch.challenged else {
+            print("challenger, challenged was nil")
+            return
+        }
+
+        if ParseDbManager.shared.currentQuizzer()!.objectId == challenger.objectId {
+
+            // Quizmatch is over
+            quizMatch.turn = nil
+            quizMatch.finished = NSNumber(booleanLiteral: true)
+            quizMatch.challengerCorrectAnswers = NSNumber(integerLiteral: correctAnswers)
+        } else if ParseDbManager.shared.currentQuizzer()!.objectId == challenged.objectId {
+
+            // Pass over quizmatch to challenger
+            quizMatch.turn = challenger
+            quizMatch.challengedCorrectAnswers = NSNumber(integerLiteral: correctAnswers)
+        }
+
+        ParseDbManager.shared.saveQuizMatch(quizMatch: quizMatch, completion: completion)
+
+    }
+
+    func computeResultFrom(quizMatch: QuizMatch) -> QuizFinishedResult {
+        let challengerName = quizMatch.challenger?.username
+        let challengedName = quizMatch.challenged?.username
+
+        let challengerCorrectGuesses = String(quizMatch.challengerCorrectAnswers!.int8Value)
+        let challengerIncorrectGuesses: Int = Int(quizMatch.questionCount!.int8Value - quizMatch.challengerCorrectAnswers!.int8Value)
+
+        let challengedCorrectGuesses = String(quizMatch.challengedCorrectAnswers!.int8Value)
+        let challengedIncorrectGuesses: Int = Int(quizMatch.questionCount!.int8Value - quizMatch.challengedCorrectAnswers!.int8Value)
+
+        var winner: String?
+        if challengerCorrectGuesses > challengedCorrectGuesses {
+            winner = challengerName
+        } else if challengerCorrectGuesses < challengedCorrectGuesses {
+            winner = challengedName
+        } else {
+            winner = "it´s a tie"
+        }
+
+        return QuizFinishedResult(challengerName: challengerName,
+                challengedName: challengedName,
+                challengerCorrectGuesses: challengerCorrectGuesses,
+                challengerIncorrectGuesses: String(challengerIncorrectGuesses),
+                challengedCorrectGuesses: challengedCorrectGuesses,
+                challengedIncorrectGuesses: String(challengedIncorrectGuesses),
+                winner: winner)
+
+    }
+
+    func quizFinished(quizMatch: QuizMatch) -> Bool {
+        let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
+        if let challengerUsername = quizMatch.challenger?.username {
+            return challengerUsername == currentQuizzer.username
+        }
+        return false
+    }
+
     private func getRandomizedQuestions(maxCount: Int, allQuestions: [PQuizQuestion]) -> [PQuizQuestion] {
         var usedIndexes = [Int]()
         var chosenQuestions = [PQuizQuestion]()
