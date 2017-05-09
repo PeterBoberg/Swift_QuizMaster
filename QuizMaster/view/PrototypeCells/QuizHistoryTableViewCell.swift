@@ -7,7 +7,10 @@ import Foundation
 import UIKit
 
 class QuizHistoryTableViewCell: UITableViewCell {
+    @IBOutlet weak var winOrLooseImageView: UIImageView!
 
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var opponentNameLabel: UILabel!
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.layer.borderColor = UIColor.black.cgColor

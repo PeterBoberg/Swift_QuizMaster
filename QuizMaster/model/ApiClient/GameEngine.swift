@@ -5,6 +5,9 @@
 
 import Foundation
 
+
+//MARK: Public API
+
 class GameEngine {
 
 
@@ -13,10 +16,10 @@ class GameEngine {
     private init() {
     }
 
-    func createNewGame(category: String,
-                       challenger: Quizzer,
-                       challenged: Quizzer,
-                       completion: @escaping (Bool, Error?) -> Void) {
+    func createNewQuizMatch(category: String,
+                            challenger: Quizzer,
+                            challenged: Quizzer,
+                            completion: @escaping (Bool, Error?) -> Void) {
 
         ParseDbManager.shared.getAllQuestionsFor(category: category, completion: {
             [unowned self] (questions, error) in
@@ -98,8 +101,12 @@ class GameEngine {
                 challengedCorrectGuesses: challengedCorrectGuesses,
                 challengedIncorrectGuesses: String(challengedIncorrectGuesses),
                 winner: winner)
-
     }
+
+    func findFinishedMatcesFor(quizzer: Quizzer, completion: @escaping ([QuizMatch]?, Error?) -> Void) {
+        ParseDbManager.shared.bgFindFinishedMatchesFor(quizzer: quizzer, completion: completion)
+    }
+
 
     func quizFinished(quizMatch: QuizMatch) -> Bool {
         let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
@@ -109,7 +116,21 @@ class GameEngine {
         return false
     }
 
-    private func getRandomizedQuestions(maxCount: Int, allQuestions: [PQuizQuestion]) -> [PQuizQuestion] {
+    func findFinishedMatchesFor(quizzer: Quizzer, completion: ([QuizMatch]?, Error?) -> Void ) {
+
+    }
+
+
+
+
+}
+
+
+//MARK: Private Methods
+
+extension GameEngine {
+
+    fileprivate func getRandomizedQuestions(maxCount: Int, allQuestions: [PQuizQuestion]) -> [PQuizQuestion] {
         var usedIndexes = [Int]()
         var chosenQuestions = [PQuizQuestion]()
         var currentRound = 0
@@ -127,4 +148,5 @@ class GameEngine {
 
         return chosenQuestions
     }
+
 }

@@ -10,26 +10,40 @@ import UIKit
 
 class MultiplayerQuizHistoryViewController: UIViewController {
 
+    @IBOutlet weak var quizHistoryTableView: RoundEdgeTableView!
+
+    let quizHistoryTableViewDatasource = QuizHistoryTableViewDatasource()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        quizHistoryTableView.dataSource = quizHistoryTableViewDatasource
+        downloadMatchHistory()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+//MARK: Prinvate Methods
+
+extension MultiplayerQuizHistoryViewController {
+
+    fileprivate func downloadMatchHistory() {
+        let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
+        GameEngine.shared.findFinishedMatcesFor(quizzer: currentQuizzer, completion: {
+
+            [unowned self] (quizMatches, error) in
+
+            guard error == nil else {
+                //TODO better error handling
+                print(error)
+                return
+            }
+             if let quizMatches = quizMatches {
+                 self.quizHistoryTableViewDatasource.quizMatches = quizMatches
+                 self.quizHistoryTableView.reloadData()
+             }
+
+        })
+
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

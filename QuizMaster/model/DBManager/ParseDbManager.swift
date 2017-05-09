@@ -207,8 +207,9 @@ class ParseDbManager {
     }
 
 
-    func bgFindMatchesFor(quizzer: Quizzer, completion: (([QuizMatch]?, Error?) -> Void)?) {
+    func bgFindRunningMatchesFor(quizzer: Quizzer, completion: (([QuizMatch]?, Error?) -> Void)?) {
 
+        //TODO Move this logic to GameEngine
         let firstQuery = QuizMatch.query()!
         firstQuery.whereKey("challenger", equalTo: quizzer)
         firstQuery.whereKey("finished", notEqualTo: NSNumber(booleanLiteral: true))
@@ -238,6 +239,36 @@ class ParseDbManager {
             }
         })
     }
+
+
+    func bgFindFinishedMatchesFor(quizzer: Quizzer, completion: @escaping ([QuizMatch]?, Error?) -> Void) {
+
+        let firstQuery = QuizMatch.query()!
+        firstQuery.whereKey("challenger", equalTo: quizzer)
+
+        let secondQuery = QuizMatch.query()!
+        secondQuery.whereKey("challenged", equalTo: quizzer)
+
+        let mainQuery = PFQuery.orQuery(withSubqueries: [firstQuery, secondQuery])
+        mainQuery.includeKey("challenger")
+        mainQuery.includeKey("challenged")
+        mainQuery.findObjectsInBackground(block: {
+            (objects, error) in
+
+            guard  error == nil else {
+                completion(nil, error)
+                return
+            }
+            if let matches = objects as? [QuizMatch] {
+                completion(matches, nil)
+            } else {
+                //TODO Better error hanling
+                completion(nil, NSError())
+            }
+        })
+
+    }
+
 
     func bgCheckPendingMatches(firstQuizzer: Quizzer,
                                secondQuizzer: Quizzer,

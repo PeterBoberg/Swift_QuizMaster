@@ -76,10 +76,10 @@ extension MultiplayerRequestsViewController {
 
     fileprivate func downloadMatches() {
         let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
-        ParseDbManager.shared.bgFindMatchesFor(quizzer: currentQuizzer, completion: {
+        ParseDbManager.shared.bgFindRunningMatchesFor(quizzer: currentQuizzer, completion: {
             [weak self] (matches, error) in
             guard error == nil else {
-                //TODO better error handling
+                //TODO better error handlin
                 print(error)
                 return
             }
@@ -97,7 +97,7 @@ extension MultiplayerRequestsViewController {
         let chosenChallenge = requeststTableViewDatasource.challenges[indexPath.row]
         if let challenger = chosenChallenge.challenger, let challenged = chosenChallenge.challenged,
            let category = chosenChallenge.category {
-            GameEngine.shared.createNewGame(category: category, challenger: challenger, challenged: challenged, completion: {
+            GameEngine.shared.createNewQuizMatch(category: category, challenger: challenger, challenged: challenged, completion: {
                 (success, error) in
                 guard error == nil else {
                     // TODO Better error handlning
