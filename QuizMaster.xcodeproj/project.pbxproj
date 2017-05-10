@@ -58,10 +58,14 @@
 		593DABF6230F09D2F8FE7F15 /* MultiplayerSuccessSentNewRequestViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DAFC58A28A086E236F162 /* MultiplayerSuccessSentNewRequestViewControler.swift */; };
 		593DABFA2183D2341F1B2CDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA77696E5A6A1BB437008 /* AppDelegate.swift */; };
 		593DACF6040967CB25ADE634 /* MultiplayerSearchFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA04BF7167C93466B2D36 /* MultiplayerSearchFriendsController.swift */; };
+		593DAD95BDC1B3635F5EEE0E /* ProgressLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA4BEABD3BF90237E2B84 /* ProgressLoaderView.swift */; };
 		593DADA98EC13E8075FE466C /* QuizHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA8A6CA5506B4B36CFEE6 /* QuizHistoryTableViewCell.swift */; };
 		593DAEBCA727279F04EA3773 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA2941545F8B04219AD90 /* Category.swift */; };
 		593DAF9B693E1CCDDD4C23AE /* AddPlayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA2ABC4FEEF7F15CDA920 /* AddPlayerButton.swift */; };
 		593DAFD808CD87ED04356EA0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593DA52B21A5D0819142D0DE /* CategoryViewController.swift */; };
+		B210103C1EC2371300D6522A /* ProgressIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210103B1EC2371300D6522A /* ProgressIndicatorViewController.swift */; };
+		B21010401EC39F0A00D6522A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B210103F1EC39F0A00D6522A /* MapKit.framework */; };
+		B21010421EC39FFC00D6522A /* MultiplayerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21010411EC39FFC00D6522A /* MultiplayerMapViewController.swift */; };
 		B21E7E131EBDD03A00A80207 /* MultiplayerQuizHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E7E121EBDD03A00A80207 /* MultiplayerQuizHistoryViewController.swift */; };
 		B23A395B1EB1044E00B1A40E /* SearchFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A395A1EB1044E00B1A40E /* SearchFriendsCell.swift */; };
 		B23A395D1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23A395C1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift */; };
@@ -96,6 +100,7 @@
 		593DA445415541D4CF4B24CB /* MultiplayerRequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerRequestsViewController.swift; sourceTree = "<group>"; };
 		593DA4A395D5D7EB3CC9CA07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = QuizMaster/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		593DA4A466B266C0C5229AAA /* EasyMeduimHardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyMeduimHardViewController.swift; sourceTree = "<group>"; };
+		593DA4BEABD3BF90237E2B84 /* ProgressLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressLoaderView.swift; sourceTree = "<group>"; };
 		593DA4ECF07E93455CCDC457 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		593DA52B21A5D0819142D0DE /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		593DA56CE0DFB7EEFFB1EE48 /* MultiplayerQuizFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerQuizFinishedViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +138,9 @@
 		593DAFC58A28A086E236F162 /* MultiplayerSuccessSentNewRequestViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerSuccessSentNewRequestViewControler.swift; sourceTree = "<group>"; };
 		85733163280BDD1B4BEEC3E5 /* Pods-QuizMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizMaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuizMaster/Pods-QuizMaster.debug.xcconfig"; sourceTree = "<group>"; };
 		B0CE829C285896D74921DA91 /* Pods_QuizMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B210103B1EC2371300D6522A /* ProgressIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorViewController.swift; sourceTree = "<group>"; };
+		B210103F1EC39F0A00D6522A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B21010411EC39FFC00D6522A /* MultiplayerMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerMapViewController.swift; sourceTree = "<group>"; };
 		B21E7E121EBDD03A00A80207 /* MultiplayerQuizHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerQuizHistoryViewController.swift; sourceTree = "<group>"; };
 		B23A395A1EB1044E00B1A40E /* SearchFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFriendsCell.swift; sourceTree = "<group>"; };
 		B23A395C1EB1405100B1A40E /* OnlineFriendsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineFriendsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21010401EC39F0A00D6522A /* MapKit.framework in Frameworks */,
 				44D3C388D02164B67BAAC915 /* Pods_QuizMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +215,7 @@
 		593DA44768CB8A64CD832BC0 /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
+				B21010411EC39FFC00D6522A /* MultiplayerMapViewController.swift */,
 				B21E7E121EBDD03A00A80207 /* MultiplayerQuizHistoryViewController.swift */,
 				593DA7733D1C13EFB566FD73 /* LoginViewController.swift */,
 				593DA56CE0DFB7EEFFB1EE48 /* MultiplayerQuizFinishedViewController.swift */,
@@ -223,6 +233,7 @@
 		593DA547C4976B3BD640C539 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B210103B1EC2371300D6522A /* ProgressIndicatorViewController.swift */,
 				593DA52B21A5D0819142D0DE /* CategoryViewController.swift */,
 				593DAA2FCDD45CEB9D9BDE5B /* ChooseModeViewController.swift */,
 			);
@@ -370,6 +381,7 @@
 				593DA4ECF07E93455CCDC457 /* AvatarImageView.swift */,
 				593DA7EA39E77BF80CC630DE /* TableViewHeaderLabel.swift */,
 				593DA2903096105A9B25B4B0 /* GradientBackgroundView.swift */,
+				593DA4BEABD3BF90237E2B84 /* ProgressLoaderView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -415,6 +427,7 @@
 		F3227BE6D12EEAFBF42FFB2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B210103F1EC39F0A00D6522A /* MapKit.framework */,
 				B0CE829C285896D74921DA91 /* Pods_QuizMaster.framework */,
 			);
 			name = Frameworks;
@@ -453,6 +466,15 @@
 				TargetAttributes = {
 					593DAAB7E749C4090D00238C = {
 						DevelopmentTeam = HJ3Z55MNHP;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -579,6 +601,7 @@
 				593DA10DFC9CAF8B6D5E2E70 /* QuizMatch.swift in Sources */,
 				593DA2F6EF72D17FF9113301 /* RequestsTableViewDatasource.swift in Sources */,
 				593DA7E131A5A7318CB89D8A /* GameEngine.swift in Sources */,
+				B210103C1EC2371300D6522A /* ProgressIndicatorViewController.swift in Sources */,
 				593DA94FAA43ADE7B82F6F96 /* MatchesTableViewDatasource.swift in Sources */,
 				593DAA0363CC738FFFCBA389 /* AddLocalUserViewController.swift in Sources */,
 				593DAFD808CD87ED04356EA0 /* CategoryViewController.swift in Sources */,
@@ -597,10 +620,12 @@
 				593DA9E6CC4CD4BBD8DD8AD6 /* QuizFinishedViewController.swift in Sources */,
 				B21E7E131EBDD03A00A80207 /* MultiplayerQuizHistoryViewController.swift in Sources */,
 				593DA3A1FDAFDD464628A5B6 /* StartQuizViewController.swift in Sources */,
+				B21010421EC39FFC00D6522A /* MultiplayerMapViewController.swift in Sources */,
 				593DA3AC24681C45CA44C946 /* TableViewHeaderLabel.swift in Sources */,
 				593DA373EB36DC97BE0ACC21 /* GradientBackgroundView.swift in Sources */,
 				593DADA98EC13E8075FE466C /* QuizHistoryTableViewCell.swift in Sources */,
 				593DAAF07590F3E7DA8C1B47 /* QuizHistoryTableViewDatasource.swift in Sources */,
+				593DAD95BDC1B3635F5EEE0E /* ProgressLoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,12 +700,14 @@
 			baseConfigurationReference = 85733163280BDD1B4BEEC3E5 /* Pods-QuizMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HJ3Z55MNHP;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peter.QuizMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.1;
 			};
 			name = Debug;
@@ -690,12 +717,14 @@
 			baseConfigurationReference = CDF9DB715483AA53E942CB08 /* Pods-QuizMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HJ3Z55MNHP;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peter.QuizMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.1;
 			};
 			name = Release;

@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Alamofire
 
 class MultiplayerStartQuizViewController: UIViewController {
 
@@ -19,6 +20,9 @@ class MultiplayerStartQuizViewController: UIViewController {
     var currentQuestionNumber: Int = 0
     var speechSynth: SpeechSyntheziser!
     var shouldSpeak: Bool!
+    var progressViewController: ProgressIndicatorViewController!
+
+
     fileprivate var cleanedQuestions: [HTMLCleanedQuestion]!
 
     @IBOutlet weak var answerButtonScrollView: UIScrollView!
@@ -39,6 +43,9 @@ class MultiplayerStartQuizViewController: UIViewController {
         speechSynth = SpeechSyntheziser()
         shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
         cleanedQuestions = [HTMLCleanedQuestion]()
+        progressViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProgressIndicatorViewController") as! ProgressIndicatorViewController
+        progressViewController.modalTransitionStyle = .crossDissolve
+        progressViewController.modalPresentationStyle = .overCurrentContext
         initUI()
         downloadQuestions()
     }
@@ -107,7 +114,9 @@ extension MultiplayerStartQuizViewController {
 
     fileprivate func downloadQuestions() {
 
+        self.present(progressViewController, animated: true)
         let dispacthGroup = DispatchGroup()
+
         guard let questionSet = quizMatch.questions else {
             print("Could not retrieve questions")
             return
@@ -132,6 +141,7 @@ extension MultiplayerStartQuizViewController {
 
         dispacthGroup.notify(queue: .main, execute: {
             [unowned self] in
+            self.progressViewController.dismiss(animated: true)
             self.downLoadDone()
         })
     }

@@ -140,6 +140,7 @@ extension LoginViewController {
                 self.logInOrSignupInProgress = false
                 return
             }
+
             print("User successfully signed up")
             self.dismiss(animated: true)
             self.delegate?.didFinishAuthenticating()

@@ -8,9 +8,11 @@ import UIKit
 
 class Util {
 
+
     static func showSimpleAlert(presentingVc: UIViewController, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Ok!", style: .cancel))
         presentingVc.present(alert, animated: true)
     }
+
 }

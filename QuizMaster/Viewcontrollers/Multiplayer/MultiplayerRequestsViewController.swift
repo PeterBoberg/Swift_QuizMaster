@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MultiplayerRequestsViewController: UIViewController {
 
@@ -14,27 +15,50 @@ class MultiplayerRequestsViewController: UIViewController {
     @IBOutlet weak var matchesTableView: RoundEdgeTableView!
     @IBOutlet weak var requestsTableView: RoundEdgeTableView!
 
-    let requeststTableViewDatasource = RequestsTableViewDatasource()
+
+
+    let dispatchGroup = DispatchGroup()
+    var progressViewController: ProgressIndicatorViewController!
+    let requestsTableViewDatasource = RequestsTableViewDatasource()
     let matchesTableViewDatasource = MatchesTableViewDatasource()
 
+    lazy var requestsTableViewRefreshControl: UIRefreshControl = {
+        let refeshControl = UIRefreshControl()
+        refeshControl.addTarget(self, action: #selector(updateTableViews(refreshControl:)), for: .valueChanged)
+        return refeshControl
+    }()
+
+    lazy var matchesTableViewRefreshControl: UIRefreshControl = {
+        let refeshControl = UIRefreshControl()
+        refeshControl.addTarget(self, action: #selector(updateTableViews(refreshControl:)), for: .valueChanged)
+        return refeshControl
+    }()
+
+
+
+    // MARK: lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        requestsTableView.dataSource = requeststTableViewDatasource
+        progressViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProgressIndicatorViewController") as! ProgressIndicatorViewController
+        progressViewController.modalPresentationStyle = .overCurrentContext
+        progressViewController.modalTransitionStyle = .crossDissolve
+
+        requestsTableView.dataSource = requestsTableViewDatasource
         matchesTableView.dataSource = matchesTableViewDatasource
         requestsTableView.delegate = self
         matchesTableView.delegate = self
         matchesTableView.tableFooterView = UIView()
         requestsTableView.tableFooterView = UIView()
+        requestsTableView.addSubview(requestsTableViewRefreshControl)
+        matchesTableView.addSubview(matchesTableViewRefreshControl)
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        downloadRequests()
-        downloadMatches()
+        updateTableViews()
     }
-
-
 }
 
 
@@ -47,7 +71,7 @@ extension MultiplayerRequestsViewController: UITableViewDelegate {
         if tableView == requestsTableView {
             handleRequestsTableView(tableView: tableView, didSelectRowAt: indexPath)
         } else {
-            handleMatcherTableView(tableView: tableView, didSelectRowAt: indexPath)
+            handleMatchesTableView(tableView: tableView, didSelectRowAt: indexPath)
         }
     }
 }
@@ -56,18 +80,31 @@ extension MultiplayerRequestsViewController: UITableViewDelegate {
 
 extension MultiplayerRequestsViewController {
 
+    @objc fileprivate func updateTableViews(refreshControl: UIRefreshControl? = nil) {
+        self.present(progressViewController, animated: true)
+        downloadRequests()
+        downloadMatches()
+
+        dispatchGroup.notify(queue: .main, execute: {
+            [unowned self] in
+            self.progressViewController.dismiss(animated: true)
+            refreshControl?.endRefreshing()
+        })
+    }
+
     fileprivate func downloadRequests() {
+        dispatchGroup.enter()
         let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
         ParseDbManager.shared.bgFindIncomingRequestsFor(quizzer: currentQuizzer, completion: {
             [weak self](challenges, error) in
-
+            self?.dispatchGroup.leave()
             guard error == nil else {
                 print(error)
                 return
             }
 
             if let challenges = challenges {
-                self?.requeststTableViewDatasource.challenges = challenges
+                self?.requestsTableViewDatasource.challenges = challenges
                 self?.requestsTableView.reloadData()
 
             }
@@ -75,9 +112,11 @@ extension MultiplayerRequestsViewController {
     }
 
     fileprivate func downloadMatches() {
+        dispatchGroup.enter()
         let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
         ParseDbManager.shared.bgFindRunningMatchesFor(quizzer: currentQuizzer, completion: {
             [weak self] (matches, error) in
+            self?.dispatchGroup.leave()
             guard error == nil else {
                 //TODO better error handlin
                 print(error)
@@ -94,7 +133,7 @@ extension MultiplayerRequestsViewController {
 
     fileprivate func handleRequestsTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let chosenChallenge = requeststTableViewDatasource.challenges[indexPath.row]
+        let chosenChallenge = requestsTableViewDatasource.challenges[indexPath.row]
         if let challenger = chosenChallenge.challenger, let challenged = chosenChallenge.challenged,
            let category = chosenChallenge.category {
             GameEngine.shared.createNewQuizMatch(category: category, challenger: challenger, challenged: challenged, completion: {
@@ -118,12 +157,12 @@ extension MultiplayerRequestsViewController {
 
             })
         } else {
-            // TODO Better eror handling in MultiplayerRequestsViewController didSelectRowAt
+            // TODO Better error handling in MultiplayerRequestsViewController didSelectRowAt
             print("Could not retrieve challengre")
         }
     }
 
-    fileprivate func handleMatcherTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    fileprivate func handleMatchesTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let quizMatch = matchesTableViewDatasource.currentMatches[indexPath.row]
         let startQuizVc = self.storyboard?.instantiateViewController(withIdentifier: "MultiplayerStartQuizViewController") as! MultiplayerStartQuizViewController
         startQuizVc.quizMatch = quizMatch
