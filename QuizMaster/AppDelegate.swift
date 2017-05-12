@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Parse
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
 
         Parse.initialize(with: config)
+
 
         return true
     }

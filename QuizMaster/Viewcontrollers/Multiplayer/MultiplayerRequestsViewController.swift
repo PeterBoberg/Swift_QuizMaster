@@ -16,7 +16,7 @@ class MultiplayerRequestsViewController: UIViewController {
     @IBOutlet weak var requestsTableView: RoundEdgeTableView!
 
 
-
+    let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
     let dispatchGroup = DispatchGroup()
     var progressViewController: ProgressIndicatorViewController!
     let requestsTableViewDatasource = RequestsTableViewDatasource()
@@ -33,7 +33,6 @@ class MultiplayerRequestsViewController: UIViewController {
         refeshControl.addTarget(self, action: #selector(updateTableViews(refreshControl:)), for: .valueChanged)
         return refeshControl
     }()
-
 
 
     // MARK: lifecycle methods
@@ -164,8 +163,18 @@ extension MultiplayerRequestsViewController {
 
     fileprivate func handleMatchesTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let quizMatch = matchesTableViewDatasource.currentMatches[indexPath.row]
-        let startQuizVc = self.storyboard?.instantiateViewController(withIdentifier: "MultiplayerStartQuizViewController") as! MultiplayerStartQuizViewController
-        startQuizVc.quizMatch = quizMatch
-        self.navigationController?.pushViewController(startQuizVc, animated: true)
+
+        ParseDbManager.shared.createNewQuizzerLocationFor(quizMatch: quizMatch, quizzer: currentQuizzer, completion: {
+            (success, error) in
+            if error != nil {
+                print(error)
+            }
+
+            let startQuizVc = self.storyboard?.instantiateViewController(withIdentifier: "MultiplayerStartQuizViewController") as! MultiplayerStartQuizViewController
+            startQuizVc.quizMatch = quizMatch
+            self.navigationController?.pushViewController(startQuizVc, animated: true)
+
+        })
+
     }
 }

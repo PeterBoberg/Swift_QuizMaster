@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ChooseModeViewController: UIViewController {
+
+    let locationManager = QuizLocationManager.shared
 
     @IBOutlet weak var localQuizzerButton: AddPlayerButton!
     @IBOutlet weak var onlineQuizzerButton: AddPlayerButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
 
     }
 
@@ -33,11 +37,34 @@ class ChooseModeViewController: UIViewController {
 
     @IBAction func onlineQuizMode(_ sender: UIButton) {
 
-        print(ParseDbManager.shared.currentQuizzerIsLoggedIn())
-        if ParseDbManager.shared.currentQuizzerIsLoggedIn() {
-            startOnlineTrack()
-        } else {
-            presentLoginViewController()
+        switch QuizLocationManager.authorizationStatus() {
+        case .notDetermined:
+            print("Not determined")
+            locationManager.requestWhenInUseAuthorization()
+
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Authorized")
+            locationManager.startUpdatingLocation()
+
+            if ParseDbManager.shared.currentQuizzerIsLoggedIn() {
+                startOnlineTrack()
+            } else {
+                presentLoginViewController()
+            }
+
+        default:
+            print("")
+            let alertController = UIAlertController(title: "Location updates disabled",
+                    message: "Please enable location updates in settings in to enjoy full functionality",
+                    preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alertController, animated: true)
+
+            if ParseDbManager.shared.currentQuizzerIsLoggedIn() {
+                startOnlineTrack()
+            } else {
+                presentLoginViewController()
+            }
         }
     }
 
@@ -74,5 +101,19 @@ extension ChooseModeViewController: LoginViewControllerDelegate {
         startOnlineTrack()
     }
 }
+
+//MARK: CLLocationManagerDelegate
+
+extension ChooseModeViewController: CLLocationManagerDelegate {
+
+
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+
+
+
+    }
+
+}
+
 
 

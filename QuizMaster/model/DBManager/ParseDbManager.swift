@@ -9,6 +9,7 @@ import Parse
 
 class ParseDbManager {
 
+    fileprivate let locationManager = QuizLocationManager.shared
     static let shared = ParseDbManager()
 
     private init() {
@@ -375,6 +376,33 @@ class ParseDbManager {
             (success, error) in
             completion(success, error)
         })
+
+    }
+
+
+    func createNewQuizzerLocationFor(quizMatch: QuizMatch, quizzer: Quizzer, completion: ((Bool, Error?) -> Void)?) {
+
+        if let location = locationManager.location {
+
+            let locationPoint = PFGeoPoint()
+            locationPoint.latitude = location.coordinate.latitude
+            locationPoint.longitude = location.coordinate.longitude
+
+            let quizzerLocation: QuizzerLocation = QuizzerLocation()
+            quizzerLocation.quizzer = quizzer
+            quizzerLocation.quizMatch = quizMatch
+            quizzerLocation.location = locationPoint
+            quizzerLocation.saveInBackground(block: {
+                (success, error) in
+                completion?(success, error)
+            })
+
+        } else {
+            //TODO Better errorhandling
+            print("Could not get location data")
+            completion?(false, NSError())
+        }
+
 
     }
 
