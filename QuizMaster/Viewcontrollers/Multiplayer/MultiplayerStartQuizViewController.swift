@@ -21,6 +21,8 @@ class MultiplayerStartQuizViewController: UIViewController {
     var speechSynth: SpeechSyntheziser!
     var shouldSpeak: Bool!
     let dispatchGroup = DispatchGroup()
+    static var runningInstance: MultiplayerStartQuizViewController?
+    var isRunningQuizMatch = false
 
 
     fileprivate var cleanedQuestions: [HTMLCleanedQuestion]!
@@ -43,6 +45,7 @@ class MultiplayerStartQuizViewController: UIViewController {
         speechSynth = SpeechSyntheziser()
         shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
         cleanedQuestions = [HTMLCleanedQuestion]()
+        MultiplayerStartQuizViewController.runningInstance = self
         initUI()
         downloadQuestions()
     }
@@ -81,6 +84,25 @@ class MultiplayerStartQuizViewController: UIViewController {
 
     }
 
+
+    func pauseQuiz() {
+        timer.invalidate()
+    }
+
+    func resumeQuiz() {
+        self.startTimer()
+    }
+
+    func exitQuizMatch() {
+        let correctAnswers = self.correctGuessesLabel.text
+        GameEngine.shared.handleQuizRoundFinished(quizMatch: quizMatch, correctAnswers: Int(correctAnswers!)!, appIsTerminating: true, completion: {
+            (bool, error) in
+
+            print("Error was \(error)")
+            print("Save was \(bool)")
+        })
+    }
+
     deinit {
         print("MultiplayerStartQuizViewController destroyed")
     }
@@ -110,7 +132,6 @@ extension MultiplayerStartQuizViewController {
     }
 
     fileprivate func downloadQuestions() {
-
 
 
         guard let questionSet = quizMatch.questions else {
@@ -147,6 +168,7 @@ extension MultiplayerStartQuizViewController {
 
     fileprivate func downLoadDone() {
         print("Converting done...")
+        self.isRunningQuizMatch = true
         updateViewsWithCurrentQuestions()
         animateViews(direction: .backToScreen, completion: {
             [unowned self] (bool) in
@@ -228,8 +250,9 @@ extension MultiplayerStartQuizViewController {
 
     fileprivate func handleQuizRoundOver() {
 
+        self.isRunningQuizMatch = false
         let correctAnswers = Int(self.correctGuessesLabel.text!)!
-        GameEngine.shared.handleQuizRoundFinished(quizMatch: quizMatch, correctAnswers: correctAnswers, completion: {
+        GameEngine.shared.handleQuizRoundFinished(quizMatch: quizMatch, correctAnswers: correctAnswers, appIsTerminating: false, completion: {
             [unowned self] (success, error) in
             guard error == nil else {
                 // TODO better error handling

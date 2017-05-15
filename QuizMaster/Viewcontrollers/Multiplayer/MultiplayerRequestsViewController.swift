@@ -142,9 +142,10 @@ extension MultiplayerRequestsViewController {
                 if success {
                     print("Created new Quizmatch")
                     ParseDbManager.shared.deleteQuizChallege(chosenChallenge, completion: {
-                        [weak self] (success, error) in
-                        self?.downloadMatches()
-                        self?.downloadRequests()
+                        [unowned self] (success, error) in
+//                        self.downloadMatches()
+//                        self.downloadRequests()
+                        self.updateTableViews()
                     })
                 } else {
                     print("Did not create new quizmatch")

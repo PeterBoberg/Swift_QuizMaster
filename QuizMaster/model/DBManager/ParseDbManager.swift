@@ -251,6 +251,7 @@ class ParseDbManager {
         secondQuery.whereKey("challenged", equalTo: quizzer)
 
         let mainQuery = PFQuery.orQuery(withSubqueries: [firstQuery, secondQuery])
+        mainQuery.whereKey("finished", equalTo: NSNumber(booleanLiteral: true))
         mainQuery.includeKey("challenger")
         mainQuery.includeKey("challenged")
         mainQuery.findObjectsInBackground(block: {
@@ -419,8 +420,13 @@ class ParseDbManager {
         })
     }
 
-    func saveQuizMatch(quizMatch: QuizMatch, completion: ((Bool, Error?) -> Void)?) {
+    func bgSaveQuizMatch(quizMatch: QuizMatch, completion: ((Bool, Error?) -> Void)?) {
+        print("saving quizmatch")
         quizMatch.saveInBackground(block: completion)
+    }
+
+    func mainQueueSaveQuizMatch(quizMatch: QuizMatch) {
+          try! quizMatch.save()
     }
 
 

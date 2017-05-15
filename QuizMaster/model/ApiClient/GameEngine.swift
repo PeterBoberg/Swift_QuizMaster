@@ -47,7 +47,10 @@ class GameEngine {
     }
 
 
-    func handleQuizRoundFinished(quizMatch: QuizMatch?, correctAnswers: Int, completion: ((Bool, Error?) -> Void)?) {
+    func handleQuizRoundFinished(quizMatch: QuizMatch?,
+                                 correctAnswers: Int,
+                                 appIsTerminating: Bool,
+                                 completion: ((Bool, Error?) -> Void)?) {
 
         guard let quizMatch = quizMatch else {
             print("Quizmatch was nil")
@@ -70,8 +73,12 @@ class GameEngine {
             quizMatch.turn = challenger
             quizMatch.challengedCorrectAnswers = NSNumber(integerLiteral: correctAnswers)
         }
+        if appIsTerminating {
+            ParseDbManager.shared.mainQueueSaveQuizMatch(quizMatch: quizMatch)
+        } else {
+            ParseDbManager.shared.bgSaveQuizMatch(quizMatch: quizMatch, completion: completion)
+        }
 
-        ParseDbManager.shared.saveQuizMatch(quizMatch: quizMatch, completion: completion)
 
     }
 
@@ -116,11 +123,9 @@ class GameEngine {
         return false
     }
 
-    func findFinishedMatchesFor(quizzer: Quizzer, completion: ([QuizMatch]?, Error?) -> Void ) {
+    func findFinishedMatchesFor(quizzer: Quizzer, completion: ([QuizMatch]?, Error?) -> Void) {
 
     }
-
-
 
 
 }
