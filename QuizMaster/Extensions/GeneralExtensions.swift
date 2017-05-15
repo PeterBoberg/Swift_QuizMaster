@@ -70,9 +70,14 @@ extension String {
     }
 }
 
-// MARK: extension NSSet
+// MARK: extension ViewController
 
-extension NSSet {
+extension UIViewController {
 
-
+    func getProgressIndicatorViewController() -> ProgressIndicatorViewController {
+        let progressVc = self.storyboard?.instantiateViewController(withIdentifier: "ProgressIndicatorViewController") as! ProgressIndicatorViewController
+        progressVc.modalPresentationStyle = .overCurrentContext
+        progressVc.modalTransitionStyle = .crossDissolve
+        return progressVc
+    }
 }

@@ -18,8 +18,8 @@ class QuizHistoryTableViewDatasource: NSObject, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let quizMatch = quizMatches[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuizHistoryTableViewCell") as! QuizHistoryTableViewCell
-        cell.isUserInteractionEnabled = false
         cell.categoryLabel.text = quizMatch.category
+
         if currentQuizzerIsChallenger(quizMatch: quizMatch) {
             cell.opponentNameLabel.text = quizMatch.challenged?.username
         } else {
@@ -51,10 +51,6 @@ extension QuizHistoryTableViewDatasource {
             return winner?.objectId == currentQuizzer.objectId
 
         }
-
         return false
-
     }
-
-
 }

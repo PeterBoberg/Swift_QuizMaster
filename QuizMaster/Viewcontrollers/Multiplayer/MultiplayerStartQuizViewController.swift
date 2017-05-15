@@ -20,7 +20,7 @@ class MultiplayerStartQuizViewController: UIViewController {
     var currentQuestionNumber: Int = 0
     var speechSynth: SpeechSyntheziser!
     var shouldSpeak: Bool!
-    var progressViewController: ProgressIndicatorViewController!
+    let dispatchGroup = DispatchGroup()
 
 
     fileprivate var cleanedQuestions: [HTMLCleanedQuestion]!
@@ -43,9 +43,6 @@ class MultiplayerStartQuizViewController: UIViewController {
         speechSynth = SpeechSyntheziser()
         shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
         cleanedQuestions = [HTMLCleanedQuestion]()
-        progressViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProgressIndicatorViewController") as! ProgressIndicatorViewController
-        progressViewController.modalTransitionStyle = .crossDissolve
-        progressViewController.modalPresentationStyle = .overCurrentContext
         initUI()
         downloadQuestions()
     }
@@ -114,18 +111,21 @@ extension MultiplayerStartQuizViewController {
 
     fileprivate func downloadQuestions() {
 
-        self.present(progressViewController, animated: true)
-        let dispacthGroup = DispatchGroup()
+
 
         guard let questionSet = quizMatch.questions else {
             print("Could not retrieve questions")
             return
         }
+
         for question in questionSet {
-            dispacthGroup.enter()
+            print("Entering group")
+            dispatchGroup.enter()
             question.fetchIfNeededInBackground(block: {
                 [unowned self] (object, error) in
-                dispacthGroup.leave()
+                print(Thread.current)
+                print("leaving group")
+                self.dispatchGroup.leave()
                 guard error == nil else {
                     print(error)
                     return
@@ -139,9 +139,8 @@ extension MultiplayerStartQuizViewController {
             })
         }
 
-        dispacthGroup.notify(queue: .main, execute: {
+        dispatchGroup.notify(queue: .main, execute: {
             [unowned self] in
-            self.progressViewController.dismiss(animated: true)
             self.downLoadDone()
         })
     }

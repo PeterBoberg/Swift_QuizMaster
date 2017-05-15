@@ -380,7 +380,7 @@ class ParseDbManager {
     }
 
 
-    func createNewQuizzerLocationFor(quizMatch: QuizMatch, quizzer: Quizzer, completion: ((Bool, Error?) -> Void)?) {
+    func bgCreateNewQuizzerLocationFor(quizMatch: QuizMatch, quizzer: Quizzer, completion: ((Bool, Error?) -> Void)?) {
 
         if let location = locationManager.location {
 
@@ -402,8 +402,21 @@ class ParseDbManager {
             print("Could not get location data")
             completion?(false, NSError())
         }
+    }
 
+    func bgFindQuizzerLocationsFor(quizMatch: QuizMatch, completion: @escaping ([QuizzerLocation]?, Error?) -> Void) {
+        let query = QuizzerLocation.query()!
+        query.whereKey("quizMatch", equalTo: quizMatch)
+        query.includeKey("quizzer")
+        query.findObjectsInBackground(block: {
+            (objects, error) in
 
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            completion(objects as? [QuizzerLocation], error)
+        })
     }
 
     func saveQuizMatch(quizMatch: QuizMatch, completion: ((Bool, Error?) -> Void)?) {

@@ -12,7 +12,7 @@ class QuizLocationManager: CLLocationManager {
 
     override private init() {
         super.init()
-        self.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        self.desiredAccuracy = kCLLocationAccuracyBest
         self.activityType = .other
     }
 }

@@ -23,7 +23,7 @@ class ProgressIndicatorViewController: UIViewController {
 
 
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        progressLoaderView.startAnimation()
+        progressLoaderView.stopAnimation()
         super.dismiss(animated: flag, completion: completion)
     }
 
