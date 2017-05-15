@@ -16,16 +16,12 @@ class MultiplayerStartViewController: UIViewController {
     @IBOutlet weak var friendsCollectionView: UICollectionView!
 
     let dispatchGroup = DispatchGroup()
-    var progressViewController: ProgressIndicatorViewController!
     let friendsCollectionViewDatasource = OnlineFriendsCollectionViewDatasource()
     let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
 
     //MARK: Lifecyclemethods
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProgressIndicatorViewController") as! ProgressIndicatorViewController
-        progressViewController.modalTransitionStyle = .crossDissolve
-        progressViewController.modalPresentationStyle = .overCurrentContext
         friendsCollectionView.dataSource = friendsCollectionViewDatasource
         friendsCollectionView.delegate = self
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(deleteFriend(longPressRecognizer:)))
@@ -37,12 +33,13 @@ class MultiplayerStartViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.present(progressViewController, animated: true)
+        let progressVc = getProgressIndicatorViewController()
+        self.present(progressVc, animated: true)
         downloadAvatarImage()
         downloadFriends()
         dispatchGroup.notify(queue: .main, execute: {
             [unowned self] in
-            self.progressViewController.dismiss(animated: true)
+            progressVc.dismiss(animated: true)
         })
     }
 
@@ -155,11 +152,12 @@ extension MultiplayerStartViewController: UICollectionViewDelegate {
         let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
 
         // Check if already involved in game
-        self.present(progressViewController, animated: true)
+        let progressVc = getProgressIndicatorViewController()
+        self.present(progressVc, animated: true)
         ParseDbManager.shared.bgCheckPendingMatches(firstQuizzer: currentQuizzer, secondQuizzer: chosenFriend, completion: {
             [unowned self] (pendingMatches: Bool, error: Error?) in
 
-            self.progressViewController.dismiss(animated: true, completion: {
+            progressVc.dismiss(animated: true, completion: {
                 [unowned self] in
                 guard  error == nil else {
                     print(error)

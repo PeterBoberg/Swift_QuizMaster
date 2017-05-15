@@ -16,9 +16,8 @@ class MultiplayerRequestsViewController: UIViewController {
     @IBOutlet weak var requestsTableView: RoundEdgeTableView!
 
 
-
+    let currentQuizzer = ParseDbManager.shared.currentQuizzer()!
     let dispatchGroup = DispatchGroup()
-    var progressViewController: ProgressIndicatorViewController!
     let requestsTableViewDatasource = RequestsTableViewDatasource()
     let matchesTableViewDatasource = MatchesTableViewDatasource()
 
@@ -35,14 +34,9 @@ class MultiplayerRequestsViewController: UIViewController {
     }()
 
 
-
     // MARK: lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        progressViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProgressIndicatorViewController") as! ProgressIndicatorViewController
-        progressViewController.modalPresentationStyle = .overCurrentContext
-        progressViewController.modalTransitionStyle = .crossDissolve
 
         requestsTableView.dataSource = requestsTableViewDatasource
         matchesTableView.dataSource = matchesTableViewDatasource
@@ -81,13 +75,14 @@ extension MultiplayerRequestsViewController: UITableViewDelegate {
 extension MultiplayerRequestsViewController {
 
     @objc fileprivate func updateTableViews(refreshControl: UIRefreshControl? = nil) {
-        self.present(progressViewController, animated: true)
+        let progressVc = getProgressIndicatorViewController()
+        self.present(progressVc, animated: true)
         downloadRequests()
         downloadMatches()
 
         dispatchGroup.notify(queue: .main, execute: {
             [unowned self] in
-            self.progressViewController.dismiss(animated: true)
+            progressVc.dismiss(animated: true)
             refreshControl?.endRefreshing()
         })
     }
@@ -164,8 +159,18 @@ extension MultiplayerRequestsViewController {
 
     fileprivate func handleMatchesTableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let quizMatch = matchesTableViewDatasource.currentMatches[indexPath.row]
-        let startQuizVc = self.storyboard?.instantiateViewController(withIdentifier: "MultiplayerStartQuizViewController") as! MultiplayerStartQuizViewController
-        startQuizVc.quizMatch = quizMatch
-        self.navigationController?.pushViewController(startQuizVc, animated: true)
+
+        ParseDbManager.shared.bgCreateNewQuizzerLocationFor(quizMatch: quizMatch, quizzer: currentQuizzer, completion: {
+            (success, error) in
+            if error != nil {
+                print(error)
+            }
+
+            let startQuizVc = self.storyboard?.instantiateViewController(withIdentifier: "MultiplayerStartQuizViewController") as! MultiplayerStartQuizViewController
+            startQuizVc.quizMatch = quizMatch
+            self.navigationController?.pushViewController(startQuizVc, animated: true)
+
+        })
+
     }
 }

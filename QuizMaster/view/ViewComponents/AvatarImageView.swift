@@ -10,9 +10,27 @@ class AvatarImageView: UIImageView {
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        configure()
+
+    }
+
+    public override init(image: UIImage?, highlightedImage: UIImage?) {
+        super.init(image: image, highlightedImage: highlightedImage)
+        configure()
+    }
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+
+
+    private func configure() {
+        self.contentMode = .scaleAspectFill
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.borderWidth = 5
-        self.layer.borderColor = UIColor(red: 0/255, green: 115/255, blue: 153/255, alpha: 1.0).cgColor
+        self.layer.borderColor = UIColor(red: 0 / 255, green: 115 / 255, blue: 153 / 255, alpha: 1.0).cgColor
         self.clipsToBounds = true
     }
+
 }

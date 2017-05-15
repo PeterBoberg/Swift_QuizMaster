@@ -19,7 +19,6 @@ class GradientBackgroundView: UIView {
         gradientLayer.locations = [0.0, 0.7, 1.0]
         gradientLayer.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width, height: 2 * self.frame.height / 3)
         self.layer.insertSublayer(gradientLayer, at: 0)
-        self.layoutIfNeeded()
     }
 
 

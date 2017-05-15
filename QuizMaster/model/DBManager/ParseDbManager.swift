@@ -9,6 +9,7 @@ import Parse
 
 class ParseDbManager {
 
+    fileprivate let locationManager = QuizLocationManager.shared
     static let shared = ParseDbManager()
 
     private init() {
@@ -376,6 +377,46 @@ class ParseDbManager {
             completion(success, error)
         })
 
+    }
+
+
+    func bgCreateNewQuizzerLocationFor(quizMatch: QuizMatch, quizzer: Quizzer, completion: ((Bool, Error?) -> Void)?) {
+
+        if let location = locationManager.location {
+
+            let locationPoint = PFGeoPoint()
+            locationPoint.latitude = location.coordinate.latitude
+            locationPoint.longitude = location.coordinate.longitude
+
+            let quizzerLocation: QuizzerLocation = QuizzerLocation()
+            quizzerLocation.quizzer = quizzer
+            quizzerLocation.quizMatch = quizMatch
+            quizzerLocation.location = locationPoint
+            quizzerLocation.saveInBackground(block: {
+                (success, error) in
+                completion?(success, error)
+            })
+
+        } else {
+            //TODO Better errorhandling
+            print("Could not get location data")
+            completion?(false, NSError())
+        }
+    }
+
+    func bgFindQuizzerLocationsFor(quizMatch: QuizMatch, completion: @escaping ([QuizzerLocation]?, Error?) -> Void) {
+        let query = QuizzerLocation.query()!
+        query.whereKey("quizMatch", equalTo: quizMatch)
+        query.includeKey("quizzer")
+        query.findObjectsInBackground(block: {
+            (objects, error) in
+
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            completion(objects as? [QuizzerLocation], error)
+        })
     }
 
     func saveQuizMatch(quizMatch: QuizMatch, completion: ((Bool, Error?) -> Void)?) {
