@@ -18,12 +18,7 @@ class MultiplayerSuccessSentNewRequestViewControler: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
-        self.modalSubView.layer.borderWidth = 2
-        self.modalSubView.layer.borderColor = UIColor.yellow.cgColor
-        self.modalSubView.layer.cornerRadius = 10
         challengedNameLabel.text = challengedQuizzer.username
-
     }
 
 

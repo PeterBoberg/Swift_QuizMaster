@@ -20,7 +20,6 @@ class MultiplayerQuizRoundPassoverViewController: UIViewController {
     @IBOutlet weak var modalSubView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
         opponentNameLabel.text = quizPassoverResult.challengerName
         correctAnswersLabel.text = quizPassoverResult.correctAnswers
     }
@@ -34,18 +33,4 @@ class MultiplayerQuizRoundPassoverViewController: UIViewController {
 
     }
 
-}
-
-// MARK: Private methods
-
-extension MultiplayerQuizRoundPassoverViewController {
-
-    fileprivate func initUI() {
-
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
-        self.modalSubView.layer.borderWidth = 2
-        self.modalSubView.layer.borderColor = UIColor.gray.cgColor
-        self.modalSubView.layer.cornerRadius = 10
-
-    }
 }

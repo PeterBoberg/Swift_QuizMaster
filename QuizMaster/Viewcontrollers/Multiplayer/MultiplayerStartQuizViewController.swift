@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Alamofire
+import AudioToolbox // For vibrating the device
 
 class MultiplayerStartQuizViewController: UIViewController {
 
@@ -61,6 +62,7 @@ class MultiplayerStartQuizViewController: UIViewController {
             break
         case false:
             incorrectGuessesLabel.text = String(Int(incorrectGuessesLabel.text!)! + 1)
+            self.vibrateDevice()
             break
         }
         moveToNextQuestion()
@@ -172,7 +174,6 @@ extension MultiplayerStartQuizViewController {
         updateViewsWithCurrentQuestions()
         animateViews(direction: .backToScreen, completion: {
             [unowned self] (bool) in
-            self.shakeViews()
             self.startTimer()
             self.speakQuestionIfNeeded(question: self.cleanedQuestions[self.currentQuestionNumber])
         })
@@ -236,7 +237,6 @@ extension MultiplayerStartQuizViewController {
                 self.updateViewsWithCurrentQuestions()
                 self.animateViews(direction: .backToScreen, completion: {
                     [unowned self] (bool) in
-                    self.shakeViews()
                     self.startTimer()
                     self.speakQuestionIfNeeded(question: self.cleanedQuestions[self.currentQuestionNumber])
                 })
@@ -303,6 +303,10 @@ extension MultiplayerStartQuizViewController {
         view.layoutIfNeeded()
     }
 
+    fileprivate func vibrateDevice() {
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) // Playes a "vibrate sound" if supported, otherwise another sound is played
+    }
+
     fileprivate func startTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
     }
@@ -312,7 +316,7 @@ extension MultiplayerStartQuizViewController {
 
         switch currentSlideValue {
         case 0..<1:
-            timeSlider.setProgress(currentSlideValue + 0.008, animated: true)
+            timeSlider.setProgress(currentSlideValue + 0.006, animated: true)
             break
 
         default:

@@ -19,12 +19,6 @@ class MultiplayerSearchFriendsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
-        self.modalSubView.layer.borderWidth = 2
-        self.modalSubView.layer.borderColor = UIColor.gray.cgColor
-        self.modalSubView.layer.cornerRadius = 10
-        self.modalSubView.layer.masksToBounds = true
-
         self.searchFriendsTableView.dataSource = searchFriendsTableViewDatasource
         self.searchFriendsTableView.backgroundColor = UIColor(red: 22 / 255, green: 58 / 255, blue: 110 / 255, alpha: 1.0)
 

@@ -26,7 +26,6 @@ class MultiplayerQuizFinishedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initUI()
         populateLabels()
 
     }
@@ -50,11 +49,5 @@ class MultiplayerQuizFinishedViewController: UIViewController {
         winnerLabel.text = quizFinishedResult.winner
     }
 
-    private func initUI() {
-        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.8)
-        self.modalSubView.layer.borderWidth = 2
-        self.modalSubView.layer.borderColor = UIColor.gray.cgColor
-        self.modalSubView.layer.cornerRadius = 10
-    }
 
 }

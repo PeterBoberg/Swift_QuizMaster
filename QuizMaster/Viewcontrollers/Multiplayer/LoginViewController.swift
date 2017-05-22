@@ -26,17 +26,15 @@ class LoginViewController: UIViewController {
     var logInOrSignupInProgress = false
     var delegate: LoginViewControllerDelegate?
 
+    // MARK: Lifecycle methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
-        self.modalSubView.layer.borderWidth = 2
-        self.modalSubView.layer.borderColor = UIColor.yellow.cgColor
-        self.modalSubView.layer.cornerRadius = 10
         self.profilePicPreview.image = UIImage(named: "defaultUser")
         switchTologinMode()
     }
 
-
+    // MARK: UI input methods
     @IBAction func addProfilePicture(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -68,7 +66,6 @@ class LoginViewController: UIViewController {
         self.dismiss(animated: true)
     }
 
-
     @IBAction func switchMode(_ sender: Any) {
         if loginMode {
             switchToSignupMode()
@@ -77,11 +74,14 @@ class LoginViewController: UIViewController {
         }
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.userNameTextField.resignFirstResponder()
+        self.passwordTextfield.resignFirstResponder()
+    }
+
     deinit {
-//        print(self.delegate)
-//        self.delegate?.didFinishAuthenticating()
         print("LoginViewController destroyed")
-//        print(self)
     }
 }
 

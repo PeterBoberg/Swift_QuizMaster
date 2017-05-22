@@ -77,8 +77,10 @@
 		B26C43781EA81005001357EE /* QuizPlayer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26C43741EA81005001357EE /* QuizPlayer+CoreDataProperties.swift */; };
 		B2D6406C1EB8F9DD00438C2A /* RoundEdgeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6406B1EB8F9DD00438C2A /* RoundEdgeTableView.swift */; };
 		B2D6406E1EB8FE1D00438C2A /* QuizMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D6406D1EB8FE1D00438C2A /* QuizMatchTableViewCell.swift */; };
+		EBEC6636F23AF6BC199F92AB /* SemiTransparentDarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC6F5D0108D1A3008D9BCD /* SemiTransparentDarkView.swift */; };
 		EBEC668E1C3632FE0C2C999E /* QuizLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC660E3F3A1CED998DAE5B /* QuizLocationManager.swift */; };
 		EBEC67FDAC0F4A4EA95DD17A /* QuizzerMapLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC628C6E600D8DD3FD59E0 /* QuizzerMapLocationView.swift */; };
+		EBEC6969F08D3C9CDE7D359E /* ModalSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC63341E45BA1A084F0B4C /* ModalSubView.swift */; };
 		EBEC6995F336385E67DB61CD /* QuizzerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC6451B180A4EBBA218B40 /* QuizzerAnnotation.swift */; };
 		EBEC6DC3DCFA254AFF36C13A /* QuizzerLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC6071D4448335275DFD0A /* QuizzerLocation.swift */; };
 /* End PBXBuildFile section */
@@ -160,8 +162,10 @@
 		CDF9DB715483AA53E942CB08 /* Pods-QuizMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizMaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuizMaster/Pods-QuizMaster.release.xcconfig"; sourceTree = "<group>"; };
 		EBEC6071D4448335275DFD0A /* QuizzerLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizzerLocation.swift; sourceTree = "<group>"; };
 		EBEC628C6E600D8DD3FD59E0 /* QuizzerMapLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizzerMapLocationView.swift; sourceTree = "<group>"; };
+		EBEC63341E45BA1A084F0B4C /* ModalSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalSubView.swift; sourceTree = "<group>"; };
 		EBEC6451B180A4EBBA218B40 /* QuizzerAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizzerAnnotation.swift; sourceTree = "<group>"; };
 		EBEC660E3F3A1CED998DAE5B /* QuizLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizLocationManager.swift; sourceTree = "<group>"; };
+		EBEC6F5D0108D1A3008D9BCD /* SemiTransparentDarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiTransparentDarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +397,8 @@
 				593DA2903096105A9B25B4B0 /* GradientBackgroundView.swift */,
 				593DA4BEABD3BF90237E2B84 /* ProgressLoaderView.swift */,
 				EBEC628C6E600D8DD3FD59E0 /* QuizzerMapLocationView.swift */,
+				EBEC63341E45BA1A084F0B4C /* ModalSubView.swift */,
+				EBEC6F5D0108D1A3008D9BCD /* SemiTransparentDarkView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -650,6 +656,8 @@
 				EBEC6995F336385E67DB61CD /* QuizzerAnnotation.swift in Sources */,
 				EBEC6DC3DCFA254AFF36C13A /* QuizzerLocation.swift in Sources */,
 				EBEC668E1C3632FE0C2C999E /* QuizLocationManager.swift in Sources */,
+				EBEC6969F08D3C9CDE7D359E /* ModalSubView.swift in Sources */,
+				EBEC6636F23AF6BC199F92AB /* SemiTransparentDarkView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +741,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -750,6 +759,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -23,7 +23,7 @@ class QuizHistoryTableViewDatasource: NSObject, UITableViewDataSource {
         if currentQuizzerIsChallenger(quizMatch: quizMatch) {
             cell.opponentNameLabel.text = quizMatch.challenged?.username
         } else {
-            cell.opponentNameLabel.text = quizMatch.challenger?.username
+            cell.opponentNameLabel.text =  quizMatch.challenger?.username
         }
 
         if currentQuizzerIsWinner(quizMatch: quizMatch) {
