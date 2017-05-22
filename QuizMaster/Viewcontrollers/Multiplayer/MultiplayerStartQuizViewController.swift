@@ -9,7 +9,9 @@
 import UIKit
 import Foundation
 import Alamofire
-import AudioToolbox // For vibrating the device
+import AudioToolbox
+
+// For vibrating the device
 
 class MultiplayerStartQuizViewController: UIViewController {
 
@@ -22,7 +24,7 @@ class MultiplayerStartQuizViewController: UIViewController {
     var speechSynth: SpeechSyntheziser!
     var shouldSpeak: Bool!
     let dispatchGroup = DispatchGroup()
-    static var runningInstance: MultiplayerStartQuizViewController?
+    static weak var runningInstance: MultiplayerStartQuizViewController?
     var isRunningQuizMatch = false
 
 
@@ -36,6 +38,10 @@ class MultiplayerStartQuizViewController: UIViewController {
     @IBOutlet weak var toggleSpeechButton: UIButton!
     @IBOutlet weak var leftMarginConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightMarginConstraint: NSLayoutConstraint!
+    @IBOutlet weak var answerFeedBackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var answerFeedbackView: ModalSubView!
+    @IBOutlet weak var answerFeedbackViewImage: UIImageView!
+    @IBOutlet weak var answerFeedbackViewLabel: UILabel!
     @IBOutlet weak var timeSlider: UIProgressView!
 
     // MARK: Lifecycle methods
@@ -47,6 +53,7 @@ class MultiplayerStartQuizViewController: UIViewController {
         shouldSpeak = UserDefaults.standard.bool(forKey: "speaking")
         cleanedQuestions = [HTMLCleanedQuestion]()
         MultiplayerStartQuizViewController.runningInstance = self
+        answerFeedbackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(answerFeedBackViewTapped(_:))))
         initUI()
         downloadQuestions()
     }
@@ -55,18 +62,43 @@ class MultiplayerStartQuizViewController: UIViewController {
     // MARK: UI Event methods
 
     public func answerButtonPressed(sender: UIButton) {
+
+        timer.invalidate()
+        currentQuestionNumber += 1
+        stopSpeech()
+        disableViews()
+
         let button = sender as! AnswerButton
         switch button.isCorrectButton {
         case true:
             correctGuessesLabel.text = String(Int(correctGuessesLabel.text!)! + 1)
+            answerFeedbackViewLabel.text = "Correct!"
+            answerFeedbackViewImage.image = UIImage(named: "correctAnswer")
             break
         case false:
             incorrectGuessesLabel.text = String(Int(incorrectGuessesLabel.text!)! + 1)
+            answerFeedbackViewLabel.text = "Incorrect!"
+            answerFeedbackViewImage.image = UIImage(named: "incorrectAnswer")
             self.vibrateDevice()
             break
         }
-        moveToNextQuestion()
+
+        animateAnswerButtonView(completion: {
+            [unowned self] (bool) in
+            self.answerFeedbackView.shake()
+        })
     }
+
+    func answerFeedBackViewTapped(_ sender: UITapGestureRecognizer) {
+        print("hAHAHAHAHA")
+        animateAnswerButtonView(completion: {
+            [unowned self] (success) in
+            self.moveToNextQuestion()
+            self.answerFeedBackViewHeightConstraint.constant += 2 * self.view.bounds.height
+            self.enableViews()
+        })
+    }
+
 
     @IBAction func toggleSpeech(_ sender: UIButton) {
 
@@ -123,6 +155,7 @@ extension MultiplayerStartQuizViewController {
         leftMarginConstraint.constant += self.view.bounds.width
         rightMarginConstraint.constant += self.view.bounds.width
         timeSlider.setProgress(0, animated: false)
+        answerFeedBackViewHeightConstraint.constant += self.view.bounds.height
         var speechImage = ""
         if shouldSpeak {
             speechImage = "speech"
@@ -172,7 +205,7 @@ extension MultiplayerStartQuizViewController {
         print("Converting done...")
         self.isRunningQuizMatch = true
         updateViewsWithCurrentQuestions()
-        animateViews(direction: .backToScreen, completion: {
+        animateQuestionViews(direction: .backToScreen, completion: {
             [unowned self] (bool) in
             self.startTimer()
             self.speakQuestionIfNeeded(question: self.cleanedQuestions[self.currentQuestionNumber])
@@ -180,11 +213,23 @@ extension MultiplayerStartQuizViewController {
     }
 
 
-    fileprivate func animateViews(direction: Direction, completion: ((Bool) -> Void)?) {
+    fileprivate func animateAnswerButtonView(completion: ((Bool) -> Void)?) {
+
+        let heightConstraintOffset = self.view.bounds.height
+        let animationTask = {
+            [unowned self] in
+            self.answerFeedBackViewHeightConstraint.constant -= heightConstraintOffset
+            self.view.layoutIfNeeded()
+        }
+
+        UIView.animate(withDuration: 0.25, animations: animationTask, completion: completion)
+    }
+
+
+    fileprivate func animateQuestionViews(direction: Direction, completion: ((Bool) -> Void)?) {
 
         var leftContraintOffset = self.view.bounds.width
         var rightConstraintOffset = self.view.bounds.width
-
 
         switch direction {
         case .awayFromScreen:
@@ -196,6 +241,7 @@ extension MultiplayerStartQuizViewController {
         }
 
         let animationTasks = {
+            [unowned self] in
             self.leftMarginConstraint.constant += leftContraintOffset
             self.rightMarginConstraint.constant += rightConstraintOffset
             self.view.layoutIfNeeded()
@@ -226,16 +272,12 @@ extension MultiplayerStartQuizViewController {
 
     fileprivate func moveToNextQuestion() {
 
-        timer.invalidate()
-        currentQuestionNumber += 1
-        stopSpeech()
-
         if haveMoreQuestions() {
             self.timeSlider.setProgress(0, animated: false)
-            animateViews(direction: .awayFromScreen, completion: {
+            animateQuestionViews(direction: .awayFromScreen, completion: {
                 [unowned self] (bool) in
                 self.updateViewsWithCurrentQuestions()
-                self.animateViews(direction: .backToScreen, completion: {
+                self.animateQuestionViews(direction: .backToScreen, completion: {
                     [unowned self] (bool) in
                     self.startTimer()
                     self.speakQuestionIfNeeded(question: self.cleanedQuestions[self.currentQuestionNumber])
@@ -324,6 +366,14 @@ extension MultiplayerStartQuizViewController {
             moveToNextQuestion()
             break
         }
+    }
+
+    fileprivate func disableViews() {
+        self.answerButtonStackView.isUserInteractionEnabled = false
+    }
+
+    fileprivate func enableViews() {
+        self.answerButtonStackView.isUserInteractionEnabled = true
     }
 
     fileprivate func haveMoreQuestions() -> Bool {

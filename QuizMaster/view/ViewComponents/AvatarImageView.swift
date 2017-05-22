@@ -6,6 +6,7 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class AvatarImageView: UIImageView {
 
     public required init?(coder aDecoder: NSCoder) {
@@ -24,10 +25,15 @@ class AvatarImageView: UIImageView {
         configure()
     }
 
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        configure()
+    }
+
 
     private func configure() {
         self.contentMode = .scaleAspectFill
-        self.layer.cornerRadius = self.frame.size.width / 2
+        self.layer.cornerRadius = self.bounds.width / 2
         self.layer.borderWidth = 5
         self.layer.borderColor = UIColor(red: 0 / 255, green: 115 / 255, blue: 153 / 255, alpha: 1.0).cgColor
         self.clipsToBounds = true

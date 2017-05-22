@@ -54,7 +54,7 @@ class ProgressLoaderView: UIView {
         circlePathLayer.strokeColor = UIColor(red: 0/255, green: 102/255, blue: 204/255, alpha: 1.0).cgColor
         circlePathLayer.add(strokeEndAnimation(), forKey: "strokeEnd")
         self.layer.addSublayer(circlePathLayer)
-        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.0)
     }
 
     func arcPath() -> UIBezierPath {
